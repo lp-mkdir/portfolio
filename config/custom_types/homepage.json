@@ -1,0 +1,107 @@
+{
+  "Hero" : {
+    "headline" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Headline",
+        "placeholder" : "Headline"
+      }
+    },
+    "hero_btn" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Primary Button"
+      }
+    },
+    "hero_btn_2" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Secondary Button"
+      }
+    },
+    "hero_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Hero Image"
+      }
+    }
+  },
+  "Projects" : {
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title"
+      }
+    },
+    "projects_desc" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Description"
+      }
+    },
+    "projects_btn" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Primary Button"
+      }
+    }
+  },
+  "Tech" : {
+    "tech_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title"
+      }
+    },
+    "tech_desc" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Description"
+      }
+    },
+    "categories" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "list_title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Title"
+            }
+          },
+          "tech_list_op" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "technologies"
+            }
+          }
+        },
+        "label" : "tech_list"
+      }
+    }
+  },
+  "SEO" : {
+    "seo_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title"
+      }
+    },
+    "seo_desc" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Description"
+      }
+    },
+    "seo_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Image"
+      }
+    }
+  }
+}
