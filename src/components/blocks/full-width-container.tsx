@@ -2,7 +2,7 @@ import * as React from "react"
 import { useMultiStyleConfig, Box, Container, BoxProps } from "@chakra-ui/react"
 
 interface IFullWidthContainerProps extends BoxProps {
-  variant?: "default" | "hero" | "navigation" | undefined
+  variant?: "default" | "hero" | "navigation" | "max" | "footer" | undefined
 }
 
 export const FullWidthContainer: React.FC<IFullWidthContainerProps> = ({ variant = undefined, children, ...rest }) => {
