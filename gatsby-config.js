@@ -1,10 +1,24 @@
+require(`ts-node`).register({ transpileOnly: true, files: true })
+
 require(`dotenv`).config({
-  path: `.env`,
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const config = require(`./config/website`)
+const linkResolver = require(`./src/utils/linkResolver`)
+const homepage = require(`./config/custom_types/homepage.json`)
+const about = require(`./config/custom_types/about.json`)
+const project = require(`./config/custom_types/project.json`)
 
 module.exports = {
+  flags: {
+    FAST_DEV: false,
+    PRESERVE_WEBPACK_CACHE: false,
+    PRESERVE_FILE_DOWNLOAD_CACHE: false,
+    PARALLEL_SOURCING: false,
+    FUNCTIONS: false,
+    DEV_SSR: false,
+  },
   siteMetadata: {
     siteUrl: `https://gatsby-starter-customer-prismic.netlify.app/`,
   },
@@ -35,6 +49,30 @@ module.exports = {
             type: `image/png`,
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: process.env.PRISMIC_REPO_NAME,
+        accessToken: process.env.PRISMIC_API_KEY,
+        linkResolver: () => linkResolver,
+        schemas: {
+          homepage,
+          about,
+          project,
+        },
+        lang: `*`,
+        imageImgixParams: {
+          auto: `compress,format`,
+          fit: `max`,
+          q: 50,
+        },
+        imagePlaceholderImgixParams: {
+          w: 100,
+          blur: 15,
+          q: 50,
+        },
       },
     },
     {
