@@ -8,6 +8,7 @@ import styles from "./styles"
 import colors from "./foundations/colors"
 import { fontWeights, fonts, fontSizes, lineHeights, textStyles } from "./foundations/typography"
 import sizes from "./foundations/sizes"
+import shadows from "./foundations/shadows"
 
 // Components overrides & custom
 import Container from "./components/container"
@@ -15,6 +16,7 @@ import FullWidthContainer from "./components/full-width-container"
 import Heading from "./components/heading"
 import Text from "./components/text"
 import Button from "./components/button"
+import Badge from "./components/badge"
 
 // Custom breakpoints
 const breakpoints = createBreakpoints({
@@ -28,6 +30,7 @@ const breakpoints = createBreakpoints({
 const theme = extendTheme({
   styles,
   colors,
+  shadows,
   sizes,
   space: sizes,
   fontWeights,
@@ -41,6 +44,7 @@ const theme = extendTheme({
     Heading,
     Text,
     Button,
+    Badge,
   },
   breakpoints,
 })

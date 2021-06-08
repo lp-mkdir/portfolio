@@ -4,6 +4,7 @@ import { headroom } from "./custom/headroom"
 const styles: ThemeOverride["styles"] = {
   global: (props) => ({
     body: {
+      overflowX: `hidden`,
       bg: props.theme.colors.brand.bg,
       color: props.theme.colors.brand.text,
       scrollbarWidth: `thin`,
@@ -29,6 +30,7 @@ const styles: ThemeOverride["styles"] = {
         },
       },
     },
+
     "[data-skip-to-content]": {
       clip: `rect(0 0 0 0)`,
       "&:focus": {
