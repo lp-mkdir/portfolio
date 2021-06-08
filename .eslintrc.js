@@ -19,7 +19,8 @@ module.exports = {
     Cypress: true,
   },
   rules: {
-    "react/prop-types": 0,
+    "react/prop-types": `off`,
+    "react/require-default-props": `off`,
     "react/jsx-props-no-spreading": `off`,
     "@typescript-eslint/no-unused-vars": [
       1,
