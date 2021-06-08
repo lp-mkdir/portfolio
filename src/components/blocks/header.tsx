@@ -5,7 +5,7 @@ import { Link } from "../link"
 import { Navigation } from "./navigation"
 import { FullWidthContainer } from "./full-width-container"
 
-const Logo: React.FC = () => (
+const Logo = () => (
   <Link
     to="/"
     fontWeight="bold"
@@ -18,9 +18,9 @@ const Logo: React.FC = () => (
   </Link>
 )
 
-export const Header: React.FC = () => (
+export const Header = ({ navBlack }: { navBlack: boolean }) => (
   <FullWidthContainer variant="navigation" height="navigationHeight">
-    <Headroom>
+    <Headroom className={navBlack ? `headroom--black` : `headroom`}>
       <Flex as="header" alignItems="center" justifyContent="space-between" py="13px">
         <Logo />
         <Navigation />

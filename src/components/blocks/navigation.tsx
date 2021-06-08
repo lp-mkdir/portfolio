@@ -6,11 +6,12 @@ const Link = chakra(GatsbyLink)
 /**
  * Navigation component containing the primary links
  */
-export const Navigation: React.FC = () => {
+export const Navigation = () => {
   const primaryNavigation = [
     { name: `Home`, link: `/` },
-    { name: `Link`, link: `/link` },
-    { name: `Link`, link: `/link` },
+    { name: `Projects`, link: `/projects` },
+    { name: `About`, link: `/about` },
+    { name: `Contact`, link: `/contact` },
   ]
   return (
     <HStack spacing={[`2`, `4`]}>
@@ -21,11 +22,10 @@ export const Navigation: React.FC = () => {
               <Link
                 to={item.link}
                 fontFamily="heading"
-                color="gray.300"
+                fontWeight="bold"
                 fontSize={[null, null, null, `md`]}
                 _hover={{ color: `white` }}
                 p="2"
-                activeClassName="active"
               >
                 {item.name}
               </Link>
