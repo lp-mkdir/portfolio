@@ -1,11 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Heading, Stack, HStack, Image, Text, Button } from "@chakra-ui/react"
+import { Box, Heading, Stack, HStack, VStack, Image as ChakraImage, Text, Button } from "@chakra-ui/react"
 import { FullWidthContainer } from "../components/blocks/full-width-container"
 import { MainHero } from "../components/blocks/main-hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
-import { Wrapper, TopNav, Card } from "../components/card"
+import { Wrapper, TopNav, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
+import { PostCard } from "../components/blogpost/post-card"
 
 // "hola, como, estas".split(/[ ,]+/);
 type IndexProps = {
@@ -15,7 +16,8 @@ type IndexProps = {
 const Index = ({
   data: {
     Homepage: { data },
-    Projects: { edges: projects },
+    Projects: { nodes: projects },
+    BlogPost: { nodes: blogPost },
   },
 }: IndexProps) => {
   if (!data) return null
@@ -28,10 +30,14 @@ const Index = ({
         img={data.hero_image}
       />
       <FullWidthContainer variant="max" pt={space.paddingSmall} pr="1rem" pl="1rem" textAlign="center">
-        <TopNav badge="PROJECTS" button="ALL PROJECTS" />
+        <TopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
         <Wrapper>
           {projects.map((pro) => (
-            <Card title={pro.node.data.name} image={pro.node.data.project_image} location={pro.node.url} />
+            <Card path={pro.url}>
+              <CardImage image={pro.data.project_image} />
+              <CardTitle>{pro.data.name} asd ads asd as</CardTitle>
+              <CardTextOverlay />
+            </Card>
           ))}
         </Wrapper>
         <Text
@@ -66,7 +72,7 @@ const Index = ({
       >
         <Stack direction={[`column`, null, null, `row`]} spacing={16} py="24" align="flex-start">
           <Box w={[`100%`, null, null, `calc(99.9% * 1 / 2.5)`]}>
-            <Image
+            <ChakraImage
               w="100%"
               boxShadow="2xl"
               borderRadius="1rem"
@@ -147,6 +153,17 @@ const Index = ({
           CV Download
         </Button>
       </Box>
+      <FullWidthContainer>
+        {blogPost.map((post) => (
+          <PostCard
+            path={post.slugs[0]}
+            title={post.data.title}
+            date={post.data.date}
+            tags={post.tags}
+            image={post.data.blog_image.url}
+          />
+        ))}
+      </FullWidthContainer>
     </Layout>
   )
 }
@@ -176,19 +193,32 @@ export const query = graphql`
       }
     }
     Projects: allPrismicProject {
-      edges {
-        node {
-          url
-          data {
-            name
-            project_image {
-              alt
-              fluid {
-                ...GatsbyPrismicImageFluid
-              }
+      nodes {
+        url
+        data {
+          name
+          project_image {
+            alt
+            url
+            fluid {
+              ...GatsbyPrismicImageFluid
             }
           }
         }
+      }
+    }
+    BlogPost: allPrismicBlogPost {
+      nodes {
+        slugs
+        data {
+          title
+          post_date
+          blog_image {
+            url
+            alt
+          }
+        }
+        tags
       }
     }
   }
