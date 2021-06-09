@@ -1,11 +1,12 @@
 import * as React from "react"
 import { Grid } from "@chakra-ui/react"
-import { Link } from "gatsby"
+import { Link } from "../link"
 import { MotionBox } from "../blocks/motion-box"
 
 interface ICardProps {
   height?: any
-  [propName: string]: {} // avoid ts complaining rest props
+  path: string
+  children: React.ReactNode
 }
 
 const Wrapper: React.FC = ({ children }) => (
@@ -14,7 +15,7 @@ const Wrapper: React.FC = ({ children }) => (
   </Grid>
 )
 
-const Card: React.FC<ICardProps> = ({ children, height, ...otherProps }) => (
+const Card = ({ children, path, ...rest }: ICardProps) => (
   <MotionBox
     role="group"
     display="flex"
@@ -22,13 +23,12 @@ const Card: React.FC<ICardProps> = ({ children, height, ...otherProps }) => (
     alignItems="flex-end"
     pos="relative"
     w="100%"
-    h={height || [`10rem`, null, `15rem`, `20rem`]}
+    h={[`10rem`, null, `15rem`, `20rem`]}
     boxShadow="lg"
-    p="1rem"
     overflow="hidden"
-    {...otherProps}
+    {...rest}
   >
-    <Link to="/">{children}</Link>
+    <Link to={path}>{children}</Link>
   </MotionBox>
 )
 export { Wrapper, Card }

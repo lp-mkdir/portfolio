@@ -15,6 +15,7 @@ const CardOverlay: React.FC = () => (
 
 const CardTextOverlay: React.FC = () => (
   <Box
+    zIndex="-1"
     pos="absolute"
     top="0"
     bottom="0"
