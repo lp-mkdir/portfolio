@@ -138,19 +138,21 @@ const Index = ({
           pb={[6, null, null, 8]}
           pt={[6, null, null, 8]}
         >
-          {data.projects_desc}
+          The best way to know how I do code, check out the source of my portfolio at GitHub!
         </Text>
-        <Button
-          variant="xl"
-          bgGradient="linear(to-tr, secondary.700, secondary.800)"
-          boxShadow="rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 15px 40px"
-          _hover={{
-            boxShadow: `rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 20px 35px`,
-            transform: `translateY(-8px)`,
-          }}
-        >
-          CV Download
-        </Button>
+        <a href="https://github.com/luiskunz/portfolio" target="_blank" rel="noreferrer">
+          <Button
+            variant="xl"
+            bgGradient="linear(to-tr, secondary.700, secondary.800)"
+            boxShadow="rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 15px 40px"
+            _hover={{
+              boxShadow: `rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 20px 35px`,
+              transform: `translateY(-8px)`,
+            }}
+          >
+            Github Source
+          </Button>
+        </a>
       </Box>
       <FullWidthContainer pt={space.section}>
         <TopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />

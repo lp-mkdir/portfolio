@@ -46,6 +46,17 @@ const Button = {
       },
       _active: { bg: `brand.primaryHover` },
     }),
+    secondary: () => ({
+      bg: `brand.secondary`,
+      color: `white`,
+      _hover: {
+        bg: `brand.secondaryHover`,
+        _disabled: {
+          bg: `brand.secondary`,
+        },
+      },
+      _active: { bg: `brand.primaryHover` },
+    }),
     outline: (props) => ({
       color: props.text,
       bg: `transparent`,
