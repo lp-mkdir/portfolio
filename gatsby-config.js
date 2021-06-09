@@ -108,6 +108,16 @@ module.exports = {
         environments: [`production`, `development`],
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+        ],
+      },
+    },
     `gatsby-plugin-lodash`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-webpack-bundle-analyser-v2`,

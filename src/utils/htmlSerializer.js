@@ -34,7 +34,7 @@ const htmlSerializer = (type, element, content) => {
       // Use the code block for labels that are in the array of "codeBlock"
       // Choose the right PrismJS highlighting with the label name
       if (codeBlock.includes(element.data.label)) {
-        return `<pre class="language-${element.data.label}"><code class="language-${
+        return `<pre class="language-${element.data.label}"><span>Hola</span><code class="language-${
           element.data.label
         }">${Prism.highlight(content, Prism.languages[element.label])}</code></pre>`
       }

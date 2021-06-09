@@ -1,5 +1,11 @@
 {
   "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid"
+      }
+    },
     "title" : {
       "type" : "Text",
       "config" : {
@@ -49,21 +55,45 @@
           },
           "codeblock" : {
             "type" : "Slice",
-            "fieldset" : "Codeblock",
-            "description" : "codeblock",
+            "fieldset" : "Code Block",
+            "description" : "Longer Code Block. Use labels inside it!",
             "icon" : "code",
             "display" : "list",
-            "non-repeat" : { },
-            "repeat" : {
-              "code_block" : {
+            "non-repeat" : {
+              "codeblock" : {
                 "type" : "StructuredText",
                 "config" : {
-                  "multi" : "embed",
-                  "label" : "code_block",
-                  "placeholder" : "<h1>Hallo</h1>"
+                  "multi" : "preformatted",
+                  "label" : "code-block",
+                  "placeholder" : "Remember the label!",
+                  "labels" : [ "javascript", "css", "scss", "jsx", "bash", "json", "diff", "markdown", "graphql" ]
                 }
               }
-            }
+            },
+            "repeat" : { }
+          },
+          "quote" : {
+            "type" : "Slice",
+            "fieldset" : "Quote",
+            "description" : "Quote",
+            "icon" : "format_quote",
+            "display" : "list",
+            "non-repeat" : {
+              "author" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Author",
+                  "placeholder" : "Luis Kunz"
+                }
+              },
+              "quote_message" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Quote Message"
+                }
+              }
+            },
+            "repeat" : { }
           }
         }
       }

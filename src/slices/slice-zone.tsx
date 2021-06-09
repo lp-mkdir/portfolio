@@ -11,7 +11,7 @@ const SliceZone = ({ slices }: ISliceZoneProps) => {
   const sliceComponents = {
     text: BodyText,
     image: BodyImage,
-    code_bock: BodyCodeBlock,
+    codeblock: BodyCodeBlock,
   }
 
   return slices.map((slice) => {

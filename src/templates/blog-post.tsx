@@ -70,9 +70,10 @@ export const query = graphql`
             ... on PrismicBlogPostBodyCodeblock {
               id
               slice_type
-              items {
-                code_block {
+              primary {
+                codeBlock: code_block {
                   raw
+                  html
                 }
               }
             }

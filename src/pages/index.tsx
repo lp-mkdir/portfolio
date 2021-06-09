@@ -162,7 +162,7 @@ const Index = ({
         <Grid templateColumns="repeat(2, minmax(200px, 1fr))">
           {blogPost.map((post) => (
             <PostCard
-              path={post.uid}
+              path={`blog/${post.uid}`}
               title={post.data.title}
               date={post.data.postDate}
               desc={post.data.description}
@@ -230,45 +230,6 @@ export const query = graphql`
           }
           image_caption {
             raw
-          }
-          body {
-            ... on PrismicBlogPostBodyText {
-              id
-              sliceType: slice_type
-              primary {
-                text {
-                  raw
-                }
-              }
-            }
-            ... on PrismicBlogPostBodyImage {
-              id
-              sliceType: slice_type
-              items {
-                image {
-                  fluid {
-                    ...GatsbyPrismicImageFluid
-                  }
-                }
-              }
-            }
-            ... on PrismicBlogPostBodyCodeblock {
-              id
-              sliceType: slice_type
-              items {
-                code_block {
-                  raw
-                }
-              }
-            }
-            ... on PrismicBlogPostBodyQuote {
-              id
-              sliceType: slice_type
-              primary {
-                author
-                quote_message
-              }
-            }
           }
         }
       }

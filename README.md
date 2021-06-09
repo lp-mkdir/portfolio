@@ -2,7 +2,7 @@
   <img alt="logo" src="https://images.prismic.io/nomatives/4ea4de7d-08a4-48bb-8e29-ba21265621aa_circle-logo.svg?auto=compress,format" width="60" />
 </p>
 <h1 align="center">
-  Gatsby Starter: Chakra UI & All-Essentials  🚀
+  Luis Kunz Portfolio  🚀
 </h1>
 <br>
 

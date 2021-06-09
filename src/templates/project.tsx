@@ -97,15 +97,6 @@ export const query = graphql`
                 }
               }
             }
-            ... on PrismicProjectBodyCodeblock {
-              id
-              slice_type
-              items {
-                code_block {
-                  raw
-                }
-              }
-            }
           }
         }
       }

@@ -2,6 +2,7 @@ import React from "react"
 import { Header } from "./blocks/header"
 import { CookieBanner } from "./CookieBanner/CookieBanner"
 import { Footer } from "../components/footer"
+import "../prism.css"
 
 interface ILayoutProps {
   navBlack?: boolean
