@@ -6,9 +6,15 @@ type CreatePagesResult = {
       uid: string
     }[]
   }
+  blogPost: {
+    nodes: {
+      uid: string
+    }[]
+  }
 }
 
 const projectTemplate = require.resolve(`./src/templates/project.tsx`)
+const blogPostTemplate = require.resolve(`./src/templates/blog-post.tsx`)
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -16,6 +22,11 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const result = await graphql<CreatePagesResult>(`
     {
       projects: allPrismicProject {
+        nodes {
+          uid
+        }
+      }
+      blogPost: allPrismicBlogPost {
         nodes {
           uid
         }
@@ -34,6 +45,15 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       component: projectTemplate,
       context: {
         uid: project.uid,
+      },
+    })
+  })
+  result.data.blogPost.nodes.forEach((post) => {
+    createPage({
+      path: `blog/${post.uid}`,
+      component: blogPostTemplate,
+      context: {
+        uid: post.uid,
       },
     })
   })
