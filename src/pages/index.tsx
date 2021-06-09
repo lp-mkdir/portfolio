@@ -8,7 +8,6 @@ import { space } from "../constants/space"
 import { Wrapper, TopNav, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
 import { PostCard } from "../components/blogpost/post-card"
 
-// "hola, como, estas".split(/[ ,]+/);
 type IndexProps = {
   data: any
 }
@@ -29,6 +28,7 @@ const Index = ({
         secondaryBtn={data.hero_btn_2}
         img={data.hero_image}
       />
+      {/* Projects Listing */}
       <FullWidthContainer variant="max" pt={space.paddingSmall} pr="1rem" pl="1rem" textAlign="center">
         <TopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
         <Wrapper>
