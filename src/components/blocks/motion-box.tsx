@@ -2,7 +2,7 @@ import * as React from "react"
 import { Box, BoxProps, usePrefersReducedMotion } from "@chakra-ui/react"
 import { transforms } from "../../constants/motion"
 
-export const MotionBox: React.FC<BoxProps> = ({ children, ...rest }) => {
+const MotionBox = ({ children, ...rest }: BoxProps) => {
   const shouldReduceMotion = usePrefersReducedMotion()
 
   return (
@@ -18,3 +18,5 @@ export const MotionBox: React.FC<BoxProps> = ({ children, ...rest }) => {
     </Box>
   )
 }
+
+export { MotionBox }
