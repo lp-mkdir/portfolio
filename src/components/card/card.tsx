@@ -20,12 +20,11 @@ const Card = ({ children, ...rest }: ICardProps) => (
     role="group"
     display="flex"
     flexDirection="column"
-    justifyContent="flex-start"
-    alignItems="flex-end"
+    justifyContent="flex-end"
+    alignItems="flex-start"
     pos="relative"
     w="100%"
     h={[`10rem`, null, `15rem`, `20rem`]}
-    boxShadow="lg"
     overflow="hidden"
     {...rest}
   >

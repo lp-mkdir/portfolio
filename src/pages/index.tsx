@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Grid, Box, Heading, Stack, HStack, Image as ChakraImage, Text, Button } from "@chakra-ui/react"
 import { FullWidthContainer } from "../components/blocks/full-width-container"
 import { MainHero } from "../components/blocks/main-hero"
@@ -33,11 +33,13 @@ const Index = ({
         <TopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
         <Wrapper>
           {projects.map((pro) => (
-            <Card h={[`10rem`, null, `15rem`, `20rem`]}>
-              <CardImage image={pro.data.project_image} />
-              <CardTitle>{pro.data.name} asd ads asd as</CardTitle>
-              <CardTextOverlay />
-            </Card>
+            <Link to={pro.url}>
+              <Card h={[`10rem`, null, `15rem`, `20rem`]}>
+                <CardImage image={pro.data.project_image} />
+                <CardTitle>{pro.data.name} asd ads asd as</CardTitle>
+                <CardTextOverlay />
+              </Card>
+            </Link>
           ))}
         </Wrapper>
         <Text
@@ -154,6 +156,7 @@ const Index = ({
           </Button>
         </a>
       </Box>
+      {/* Blogpost listing */}
       <FullWidthContainer pt={space.section}>
         <TopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
         <Grid templateColumns="repeat(2, minmax(200px, 1fr))">

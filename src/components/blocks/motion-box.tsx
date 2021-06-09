@@ -7,6 +7,7 @@ const MotionBox = ({ children, ...rest }: BoxProps) => {
 
   return (
     <Box
+      boxShadow="lg"
       transition={transforms.beforeHover.transition}
       transform={transforms.beforeHover.transform}
       _hover={
