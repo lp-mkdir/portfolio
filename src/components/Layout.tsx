@@ -5,9 +5,9 @@ import { Footer } from "../components/footer"
 
 interface ILayoutProps {
   navBlack?: boolean
-  children: React.ReactChild
+  children?: React.ReactNode
 }
-export const Layout = ({ children, navBlack = false}: ILayoutProps) => (
+export const Layout = ({ children, navBlack = false }: ILayoutProps) => (
   <>
     <CookieBanner content="Hallo" buttonText="Accept" />
     <Header navBlack={navBlack} />
