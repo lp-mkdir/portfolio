@@ -5,6 +5,7 @@ import { Container, Box, Flex, Heading, Text } from "@chakra-ui/react"
 import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
+import { SliceZone } from "../slices/slice-zone"
 
 type ProjectsProps = {
   data: any
@@ -45,6 +46,9 @@ const Projects = ({
           </Flex>
         </Box>
       </Container>
+      <Container pt={space.paddingSmall}>
+        <SliceZone slices={project.body} />
+      </Container>
     </Layout>
   )
 }
@@ -58,6 +62,8 @@ export const query = graphql`
         data {
           project_name
           name
+          period
+          task
           date(formatString: "MMMM DD, YYYY")
           project_image {
             alt
@@ -70,8 +76,37 @@ export const query = graphql`
               ...GatsbyPrismicImageFluid
             }
           }
-          period
-          task
+          body {
+            ... on PrismicProjectBodyText {
+              id
+              slice_type
+              primary {
+                text {
+                  raw
+                }
+              }
+            }
+            ... on PrismicProjectBodyImage {
+              id
+              slice_type
+              items {
+                image {
+                  fluid {
+                    ...GatsbyPrismicImageFluid
+                  }
+                }
+              }
+            }
+            ... on PrismicProjectBodyCodeblock {
+              id
+              slice_type
+              items {
+                code_block {
+                  raw
+                }
+              }
+            }
+          }
         }
       }
     }

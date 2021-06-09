@@ -6,6 +6,7 @@ require(`dotenv`).config({
 
 const config = require(`./config/website`)
 const linkResolver = require(`./src/utils/linkResolver`)
+const htmlSerializer = require(`./src/utils/htmlSerializer`)
 const homepage = require(`./config/custom_types/homepage.json`)
 const about = require(`./config/custom_types/about.json`)
 const project = require(`./config/custom_types/project.json`)
@@ -55,9 +56,10 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic`,
       options: {
-        repositoryName: process.env.PRISMIC_REPO_NAME,
+        repositoryName: `luiskunz`,
         accessToken: process.env.PRISMIC_API_KEY,
         linkResolver: () => linkResolver,
+        htmlSerializer: () => htmlSerializer,
         schemas: {
           homepage,
           about,
