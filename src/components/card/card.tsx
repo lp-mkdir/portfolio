@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Grid } from "@chakra-ui/react"
-import { Link } from "../link"
+import { Link } from "gatsby"
 import { MotionBox } from "../blocks/motion-box"
 
 interface ICardProps {

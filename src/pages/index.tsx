@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Heading, Stack, HStack, VStack, Image as ChakraImage, Text, Button } from "@chakra-ui/react"
+import { Box, Heading, Stack, HStack, Image as ChakraImage, Text, Button } from "@chakra-ui/react"
 import { FullWidthContainer } from "../components/blocks/full-width-container"
 import { MainHero } from "../components/blocks/main-hero"
 import { Layout } from "../components/Layout"
