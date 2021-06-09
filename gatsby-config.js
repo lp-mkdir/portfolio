@@ -9,6 +9,7 @@ const linkResolver = require(`./src/utils/linkResolver`)
 const homepage = require(`./config/custom_types/homepage.json`)
 const about = require(`./config/custom_types/about.json`)
 const project = require(`./config/custom_types/project.json`)
+const blogpost = require(`./config/custom_types/blogpost.json`)
 
 module.exports = {
   flags: {
@@ -61,6 +62,7 @@ module.exports = {
           homepage,
           about,
           project,
+          blog_post: blogpost,
         },
         lang: `*`,
         imageImgixParams: {

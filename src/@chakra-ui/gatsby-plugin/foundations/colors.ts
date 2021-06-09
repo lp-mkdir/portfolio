@@ -310,7 +310,7 @@ const colors = {
     primaryHover: colorPalette.colors.primary[`700`],
     secondaryHover: colorPalette.colors.secondary[`700`],
     text: colorPalette.colors.blackOnyx,
-    textMuted: colorPalette.colors.coolGray[`700`],
+    textMuted: colorPalette.colors.coolGray[`400`],
     textEmphasized: colorPalette.colors.primary[`600`],
     heading: colorPalette.colors.black,
     bg: colorPalette.colors.gray[`50`],

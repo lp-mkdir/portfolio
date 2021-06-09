@@ -4,21 +4,22 @@ import { Link } from "gatsby"
 import { MotionBox } from "../blocks/motion-box"
 
 interface ICardProps {
-  height?: any
-  path: string
+  h?: any
+  alignItems?: string | string[]
   children: React.ReactNode
 }
 
-const Wrapper: React.FC = ({ children }) => (
+const Wrapper = ({ children }) => (
   <Grid gridTemplateColumns="repeat(auto-fit, minmax(400px, 1fr))" gap="20px" pb="12">
     {children}
   </Grid>
 )
 
-const Card = ({ children, path, ...rest }: ICardProps) => (
+const Card = ({ children, ...rest }: ICardProps) => (
   <MotionBox
     role="group"
     display="flex"
+    flexDirection="column"
     justifyContent="flex-start"
     alignItems="flex-end"
     pos="relative"
@@ -28,7 +29,7 @@ const Card = ({ children, path, ...rest }: ICardProps) => (
     overflow="hidden"
     {...rest}
   >
-    <Link to={path}>{children}</Link>
+    {children}
   </MotionBox>
 )
 export { Wrapper, Card }

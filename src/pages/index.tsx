@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Heading, Stack, HStack, Image as ChakraImage, Text, Button } from "@chakra-ui/react"
+import { Grid, Box, Heading, Stack, HStack, Image as ChakraImage, Text, Button } from "@chakra-ui/react"
 import { FullWidthContainer } from "../components/blocks/full-width-container"
 import { MainHero } from "../components/blocks/main-hero"
 import { Layout } from "../components/Layout"
@@ -33,7 +33,7 @@ const Index = ({
         <TopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
         <Wrapper>
           {projects.map((pro) => (
-            <Card path={pro.url}>
+            <Card h={[`10rem`, null, `15rem`, `20rem`]}>
               <CardImage image={pro.data.project_image} />
               <CardTitle>{pro.data.name} asd ads asd as</CardTitle>
               <CardTextOverlay />
@@ -141,7 +141,6 @@ const Index = ({
           {data.projects_desc}
         </Text>
         <Button
-          // 2563EB
           variant="xl"
           bgGradient="linear(to-tr, secondary.700, secondary.800)"
           boxShadow="rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 15px 40px"
@@ -153,16 +152,20 @@ const Index = ({
           CV Download
         </Button>
       </Box>
-      <FullWidthContainer>
-        {blogPost.map((post) => (
-          <PostCard
-            path={post.slugs[0]}
-            title={post.data.title}
-            date={post.data.date}
-            tags={post.tags}
-            image={post.data.blog_image.url}
-          />
-        ))}
+      <FullWidthContainer pt={space.section}>
+        <TopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
+        <Grid templateColumns="repeat(2, minmax(200px, 1fr))">
+          {blogPost.map((post) => (
+            <PostCard
+              path={post.uid}
+              title={post.data.title}
+              date={post.data.postDate}
+              desc={post.data.description}
+              tags={post.tags}
+              image={post.data.blogImage}
+            />
+          ))}
+        </Grid>
       </FullWidthContainer>
     </Layout>
   )
@@ -209,16 +212,60 @@ export const query = graphql`
     }
     BlogPost: allPrismicBlogPost {
       nodes {
-        slugs
+        uid
+        tags
         data {
           title
-          post_date
-          blog_image {
-            url
-            alt
+          postDate: post_date(formatString: "MMM DD, YYYY")
+          description
+          blogImage: blog_image {
+            fluid {
+              ...GatsbyPrismicImageFluid
+            }
+          }
+          image_caption {
+            raw
+          }
+          body {
+            ... on PrismicBlogPostBodyText {
+              id
+              sliceType: slice_type
+              primary {
+                text {
+                  raw
+                }
+              }
+            }
+            ... on PrismicBlogPostBodyImage {
+              id
+              sliceType: slice_type
+              items {
+                image {
+                  fluid {
+                    ...GatsbyPrismicImageFluid
+                  }
+                }
+              }
+            }
+            ... on PrismicBlogPostBodyCodeblock {
+              id
+              sliceType: slice_type
+              items {
+                code_block {
+                  raw
+                }
+              }
+            }
+            ... on PrismicBlogPostBodyQuote {
+              id
+              sliceType: slice_type
+              primary {
+                author
+                quote_message
+              }
+            }
           }
         }
-        tags
       }
     }
   }
