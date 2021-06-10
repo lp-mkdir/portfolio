@@ -49,7 +49,7 @@ export const query = graphql`
           body {
             ... on PrismicBlogPostBodyText {
               id
-              slice_type
+              sliceType: slice_type
               primary {
                 text {
                   raw
@@ -58,7 +58,7 @@ export const query = graphql`
             }
             ... on PrismicBlogPostBodyImage {
               id
-              slice_type
+              sliceType: slice_type
               items {
                 image {
                   fluid {
@@ -69,7 +69,7 @@ export const query = graphql`
             }
             ... on PrismicBlogPostBodyCodeblock {
               id
-              slice_type
+              sliceType: slice_type
               primary {
                 codeBlock: code_block {
                   raw
@@ -79,7 +79,7 @@ export const query = graphql`
             }
             ... on PrismicBlogPostBodyQuote {
               id
-              slice_type
+              sliceType: slice_type
               primary {
                 quote_message
                 author

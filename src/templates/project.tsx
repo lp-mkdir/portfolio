@@ -79,7 +79,7 @@ export const query = graphql`
           body {
             ... on PrismicProjectBodyText {
               id
-              slice_type
+              sliceType: slice_type
               primary {
                 text {
                   raw
@@ -88,7 +88,7 @@ export const query = graphql`
             }
             ... on PrismicProjectBodyImage {
               id
-              slice_type
+              sliceType: slice_type
               items {
                 image {
                   fluid {
