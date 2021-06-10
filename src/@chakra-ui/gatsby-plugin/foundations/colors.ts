@@ -7,7 +7,7 @@ const colorPalette = {
     blackOnyx: `#444545`,
     white: `#fff`,
     primary: {
-      50: `#DBEAFE`,
+      50: `#e1efff`,
       100: `#DBEAFE`,
       200: `#BFDBFE`,
       300: `#93C5FD`,

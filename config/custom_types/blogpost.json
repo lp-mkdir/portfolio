@@ -116,7 +116,7 @@
                 "config" : {
                   "multi" : "preformatted",
                   "label" : "code_block",
-                  "labels" : [ "javascript", "css", "scss", "jsx", "bash", "json", "diff", "markdown", "graphql" ]
+                  "labels" : [ "javascript", "css", "scss", "jsx", "tsx", "bash", "json", "diff", "markdown", "graphql" ]
                 }
               }
             },
