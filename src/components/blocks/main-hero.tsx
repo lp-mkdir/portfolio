@@ -1,8 +1,7 @@
 import * as React from "react"
 import Img from "gatsby-image"
-import { Stack, HStack, VStack, Box, Heading, Button, ButtonGroup, Image, Icon } from "@chakra-ui/react"
+import { Stack, HStack, VStack, Box, Heading, Button, ButtonGroup, Icon } from "@chakra-ui/react"
 import { GoChevronRight } from "react-icons/go"
-import { Link } from "../link"
 import { Wave } from "../../elements/Wave"
 
 interface IMainHero {

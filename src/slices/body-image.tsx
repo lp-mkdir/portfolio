@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Box } from "@chakra-ui/react"
 import Img from "gatsby-image"
 
 interface IBodyImageProps {
@@ -15,7 +16,9 @@ interface IBodyImageProps {
 const BodyImage = ({ slice }: IBodyImageProps) => (
   <>
     {slice.items.map((item) => (
-      <Img fluid={item.image.fluid} alt={item.image.alt} />
+      <Box boxShadow="lg" borderRadius="1rem !important" my={16} sx={{ img: { borderRadius: `1rem !important` } }}>
+        <Img fluid={item.image.fluid} alt={item.image.alt} style={{ height: `100%`, width: `auto` }} />
+      </Box>
     ))}
   </>
 )

@@ -2,15 +2,18 @@ import * as React from "react"
 import { chakra, HStack, Link } from "@chakra-ui/react"
 import { Link as GatsbyLink } from "gatsby"
 
-const InternalLink = chakra(GatsbyLink)
 /**
  * Navigation component containing the primary links
  */
+
+const InternalLink = chakra(GatsbyLink)
+
 export const Navigation = () => {
   const primaryNavigation = [
     { name: `Home`, link: `/`, externalLink: false },
     { name: `Projects`, link: `/projects`, externalLink: false },
-    { name: `About`, link: `/about`, externalLink: true },
+    { name: `About`, link: `/about`, externalLink: false },
+    { name: `Contact`, link: `mailto:hello@luiskunz.com`, externalLink: true },
   ]
   return (
     <HStack spacing={[`2`, `4`]}>
@@ -30,13 +33,8 @@ export const Navigation = () => {
                   {item.name}
                 </InternalLink>
               ) : (
-                <Link
-                  href="mailto:hello@luiskunz.com"
-                  fontWeight="bold"
-                  fontFamily="heading"
-                  textDecor="none !important"
-                >
-                  Contact
+                <Link href={item.link} fontWeight="bold" fontFamily="heading" textDecor="none !important">
+                  {item.name}
                 </Link>
               )}
             </li>

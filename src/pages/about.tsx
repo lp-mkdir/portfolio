@@ -5,7 +5,24 @@ import { Layout } from "../components/Layout"
 import { SliceZone } from "../slices/slice-zone"
 import { space } from "../constants/space"
 
-interface IAboutProps {}
+interface IAboutProps {
+  data: {
+    prismicAbout: {
+      data: {
+        title: string
+        body: {
+          id: string
+          sliceType: string
+          primary: {
+            text: {
+              raw: any
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 const About = ({ data: { prismicAbout } }: IAboutProps) => (
   <Layout navBlack>
@@ -26,7 +43,7 @@ export const query = graphql`
         body {
           ... on PrismicAboutBodyText {
             id
-            slice_type
+            sliceType: slice_type
             primary {
               text {
                 raw
