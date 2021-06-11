@@ -206,7 +206,7 @@ export const query = graphql`
         }
       }
     }
-    Projects: allPrismicProject {
+    Projects: allPrismicProject(limit: 2) {
       nodes {
         id
         url
@@ -222,7 +222,7 @@ export const query = graphql`
         }
       }
     }
-    BlogPost: allPrismicBlogPost {
+    BlogPost: allPrismicBlogPost(limit: 3) {
       nodes {
         id
         url
