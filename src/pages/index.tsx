@@ -54,16 +54,18 @@ const Index = ({
         >
           {data.projects_desc}
         </Text>
-        <Button
-          variant="xl"
-          boxShadow="rgba(37, 99, 235, 0.1) 0px 0px 0px 1px, rgba(37, 99, 235, 0.2) 0px 5px 10px, rgba(37, 99, 235, 0.4) 0px 15px 40px"
-          _hover={{
-            boxShadow: `rgba(37, 99, 235, 0.1) 0px 0px 0px 1px, rgba(37, 99, 235, 0.2) 0px 5px 10px, rgba(37, 99, 235, 0.4) 0px 20px 35px`,
-            transform: `translateY(-8px)`,
-          }}
-        >
-          {data.projects_btn}
-        </Button>
+        <Link to="/projects">
+          <Button
+            variant="xl"
+            boxShadow="rgba(37, 99, 235, 0.1) 0px 0px 0px 1px, rgba(37, 99, 235, 0.2) 0px 5px 10px, rgba(37, 99, 235, 0.4) 0px 15px 40px"
+            _hover={{
+              boxShadow: `rgba(37, 99, 235, 0.1) 0px 0px 0px 1px, rgba(37, 99, 235, 0.2) 0px 5px 10px, rgba(37, 99, 235, 0.4) 0px 20px 35px`,
+              transform: `translateY(-8px)`,
+            }}
+          >
+            {data.projects_btn}
+          </Button>
+        </Link>
       </FullWidthContainer>
       {/* Tech */}
       <FullWidthContainer

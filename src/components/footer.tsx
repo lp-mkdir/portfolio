@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Flex, Text, VStack, HStack, Icon, Heading, Button } from "@chakra-ui/react"
-import { FaYoutube, FaFacebook, FaLinkedin, FaInstagram, FaPaperPlane } from "react-icons/fa"
+import { FaYoutube, FaFacebook, FaLinkedin, FaGithub, FaPaperPlane } from "react-icons/fa"
 import { Wave } from "../elements/Wave"
 import { Link } from "./link"
 import { FullWidthContainer } from "./blocks/full-width-container"
@@ -17,17 +17,11 @@ const Footer = () => (
       gap={8}
     >
       <HStack spacing={4} pb={[`2rem`, 0]}>
-        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-          <Icon as={FaInstagram} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
+        <a href="https://github.com/luiskunz" target="_blank" rel="noopener noreferrer">
+          <Icon as={FaGithub} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
         </a>
-        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-          <Icon as={FaFacebook} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
-        </a>
-        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/luis-eduardo-kunz/" target="_blank" rel="noopener noreferrer">
           <Icon as={FaLinkedin} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
-        </a>
-        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-          <Icon as={FaYoutube} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
         </a>
       </HStack>
       <VStack alignItems="flex-start">

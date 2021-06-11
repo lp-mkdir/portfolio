@@ -1,5 +1,6 @@
 import * as React from "react"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 import { Flex, Box, Heading, Button, ButtonGroup, Icon } from "@chakra-ui/react"
 import { GoChevronRight } from "react-icons/go"
 import { Wave } from "../../elements/Wave"
@@ -32,12 +33,16 @@ export const MainHero = ({ headline, primaryBtn, secondaryBtn, img }: IMainHero)
                 {headline}
               </Heading>
               <ButtonGroup pt="6" flexWrap="wrap">
-                <Button variant="hero" mb={[2, 0]}>
-                  {primaryBtn}
-                </Button>
-                <Button variant="heroOutline" ml={[`0 !important`, `1rem !important`]}>
-                  {secondaryBtn}
-                </Button>
+                <Link to="/projects">
+                  <Button variant="hero" mb={[2, 0]}>
+                    {primaryBtn}
+                  </Button>
+                </Link>
+                <Link to="/about">
+                  <Button variant="heroOutline" ml={[`0 !important`, `1rem !important`]}>
+                    {secondaryBtn}
+                  </Button>
+                </Link>
               </ButtonGroup>
             </Flex>
           </Flex>
