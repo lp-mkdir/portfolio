@@ -6,6 +6,7 @@ import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { PostCard } from "../components/blog/post-card"
+import { SEO } from "../components/seo"
 
 interface IBlog {
   data: any
@@ -16,9 +17,12 @@ const Blog = ({
     BlogPost: { nodes: blogPost },
   },
 }: IBlog) => {
+  console.log(blogPost)
   if (!blogPost) return null
   return (
     <Layout>
+      {/* TODO: Seo content */}
+      <SEO title="Luis Kunz | Blog" description="TODO" />
       <Hero
         headline="Blog"
         subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac elementum scelerisque dui mattis nulla."
@@ -49,13 +53,15 @@ export const query = graphql`
     BlogPost: allPrismicBlogPost {
       nodes {
         id
+        uid
         url
         tags
+        lastUpdated: last_publication_date(formatString: "MMM DD, YYYY")
         data {
           title
-          postDate: post_date(formatString: "MMM DD, YYYY")
           description
           blogImage: blog_image {
+            url
             fluid {
               ...GatsbyPrismicImageFluid
             }
@@ -63,6 +69,9 @@ export const query = graphql`
           image_caption {
             raw
           }
+          seoTitle: seo_title
+          seoDescription: seo_description
+          postDate: post_date(formatString: "MMM DD, YYYY")
         }
       }
     }

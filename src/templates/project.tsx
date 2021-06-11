@@ -6,6 +6,7 @@ import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { SliceZone } from "../slices/slice-zone"
+import { SEO } from "../components/seo"
 
 type ProjectsProps = {
   data: any
@@ -20,6 +21,14 @@ const Projects = ({
   const project = projectPage[0].data
   return (
     <Layout>
+      <SEO
+        title={project.seoTitle}
+        description={project.seoDescription}
+        breadcrumbListItems={[
+          { name: `Blog`, url: project.uid },
+          { name: project.title, url: project.uid },
+        ]}
+      />
       <Hero headline={project.project_name} subheading={`${project.date} | ${project.name}`} />
       <Container pt={space.paddingSmall}>
         <Box boxShadow="lg" p={20} borderRadius="1rem">
@@ -76,6 +85,8 @@ export const query = graphql`
               ...GatsbyPrismicImageFluid
             }
           }
+          seoTitle: seo_title
+          seoDescription: seo_desc
           body {
             ... on PrismicProjectBodyText {
               id
