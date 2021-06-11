@@ -33,7 +33,7 @@ const Index = ({
         <TopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
         <Wrapper>
           {projects.map((pro) => (
-            <Link to={pro.url}>
+            <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
                 <CardImage image={pro.data.project_image} />
                 <CardTitle>{pro.data.name} asd ads asd as</CardTitle>
@@ -112,7 +112,7 @@ const Index = ({
               {data.tech_desc}
             </Text>
             {data.categories.map((listItem) => (
-              <>
+              <div key={listItem.list_title}>
                 <Heading variant="h4" color="white" pt="8" pb="4">
                   {listItem.list_title}
                 </Heading>
@@ -120,10 +120,12 @@ const Index = ({
                   {/* // split string between commas */}
                   {listItem.tech_list_op.split(/[,]+/).map((listBtn) => (
                     // delete spaces
-                    <Button variant="tag">{listBtn.replace(`/ /g. ""`)}</Button>
+                    <Button variant="tag" key={listBtn}>
+                      {listBtn.replace(`/ /g. ""`)}
+                    </Button>
                   ))}
                 </HStack>
-              </>
+              </div>
             ))}
           </Box>
         </Stack>
@@ -204,6 +206,7 @@ export const query = graphql`
     }
     Projects: allPrismicProject {
       nodes {
+        id
         url
         data {
           name

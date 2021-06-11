@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { Container, Box, Heading, Stack, HStack, Image, Text, Button } from "@chakra-ui/react"
 import { FullWidthContainer } from "../components/blocks/full-width-container"
 import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
@@ -26,7 +25,7 @@ const Projects = ({
       <FullWidthContainer variant="max" pt={space.paddingSmall}>
         <Wrapper>
           {projects.map((pro) => (
-            <Link to={pro.url}>
+            <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
                 <CardImage image={pro.data.project_image} />
                 <CardTitle>{pro.data.name} asd ads asd as</CardTitle>
@@ -47,6 +46,7 @@ export const query = graphql`
   query Projects {
     Projects: allPrismicProject {
       nodes {
+        id
         url
         data {
           name
