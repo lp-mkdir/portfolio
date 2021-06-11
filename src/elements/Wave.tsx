@@ -24,6 +24,7 @@ const Wave: React.FC<{ flip?: boolean }> = ({ flip }) => {
       left="0"
       height="96px"
       zIndex="10"
+      overflowX="hidden"
     >
       <Box
         background={`url(${WaveSvg.default}) repeat-x`}
