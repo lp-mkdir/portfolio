@@ -6,7 +6,8 @@ import { MainHero } from "../components/blocks/main-hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { Wrapper, TopNav, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
-import { PostCard } from "../components/blogpost/post-card"
+// import { PostCard } from "../components/blog/post-card"
+import { ListingPost } from "../components/blog/listing"
 
 type IndexProps = {
   data: any
@@ -159,18 +160,8 @@ const Index = ({
       </FullWidthContainer>
       {/* Blogpost listing */}
       <FullWidthContainer variant="max" pt={space.section}>
-        <TopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
         <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]}>
-          {blogPost.map((post) => (
-            <PostCard
-              path={`blog/${post.uid}`}
-              title={post.data.title}
-              date={post.data.postDate}
-              desc={post.data.description}
-              tags={post.tags}
-              image={post.data.blogImage}
-            />
-          ))}
+          <ListingPost blogPost={blogPost} />
         </Grid>
       </FullWidthContainer>
     </Layout>
@@ -218,6 +209,7 @@ export const query = graphql`
     }
     BlogPost: allPrismicBlogPost {
       nodes {
+        id
         uid
         tags
         data {

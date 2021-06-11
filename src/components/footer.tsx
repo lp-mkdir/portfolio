@@ -40,19 +40,17 @@ const Footer = () => (
           <br />
           {` `}
         </Text>
-        <a>
-          <Button
-            as="a"
-            variant="tag"
-            padding="1.5rem 1.5rem"
-            color="primary.800"
-            leftIcon={<Icon as={FaPaperPlane} color="primary.800" />}
-            mt="0.875rem !important"
-            href="mailto:hello@luiskunz.com"
-          >
-            EMAIL
-          </Button>
-        </a>
+        <Button
+          as="a"
+          variant="tag"
+          padding="1.5rem 1.5rem"
+          color="primary.800"
+          leftIcon={<Icon as={FaPaperPlane} color="primary.800" />}
+          mt="0.875rem !important"
+          href="mailto:hello@luiskunz.com"
+        >
+          EMAIL
+        </Button>
       </VStack>
     </Flex>
     <HStack

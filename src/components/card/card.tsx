@@ -8,8 +8,8 @@ interface ICardProps {
   children: React.ReactNode
 }
 
-const Wrapper = ({ children }) => (
-  <Grid gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap="20px" pb="12">
+const Wrapper = ({ children, ...rest }) => (
+  <Grid gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap="20px" pb="12" {...rest}>
     {children}
   </Grid>
 )

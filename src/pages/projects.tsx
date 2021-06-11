@@ -1,11 +1,11 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Container, Box, Heading, Stack, HStack, Image, Text, Button } from "@chakra-ui/react"
 import { FullWidthContainer } from "../components/blocks/full-width-container"
 import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
-import { Wrapper, TopNav, Card } from "../components/card"
+import { Wrapper, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
 
 type ProjectsProps = {
   data: any
@@ -13,7 +13,7 @@ type ProjectsProps = {
 
 const Projects = ({
   data: {
-    Projects: { edges: projects },
+    Projects: { nodes: projects },
   },
 }: ProjectsProps) => {
   if (!projects) return null
@@ -24,9 +24,16 @@ const Projects = ({
         subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac elementum scelerisque dui mattis nulla."
       />
       <FullWidthContainer variant="max" pt={space.paddingSmall}>
-        <Wrapper gap="48px">
+        <Wrapper>
           {projects.map((pro) => (
-            <Card title={pro.node.data.name} image={pro.node.data.project_image} location={pro.node.url} />
+            <Link to={pro.url}>
+              <Card h={[`10rem`, null, `15rem`, `20rem`]}>
+                <CardImage image={pro.data.project_image} />
+                <CardTitle>{pro.data.name} asd ads asd as</CardTitle>
+                <CardTextOverlay />
+              </Card>
+            </Link>
+            // <Card title={pro.node.data.name} image={pro.node.data.project_image} location={pro.node.url} />
           ))}
         </Wrapper>
       </FullWidthContainer>
@@ -39,16 +46,14 @@ export default Projects
 export const query = graphql`
   query Projects {
     Projects: allPrismicProject {
-      edges {
-        node {
-          url
-          data {
-            name
-            project_image {
-              alt
-              fluid {
-                ...GatsbyPrismicImageFluid
-              }
+      nodes {
+        url
+        data {
+          name
+          project_image {
+            alt
+            fluid {
+              ...GatsbyPrismicImageFluid
             }
           }
         }
