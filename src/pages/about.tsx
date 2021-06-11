@@ -26,7 +26,7 @@ interface IAboutProps {
 
 const About = ({ data: { prismicAbout } }: IAboutProps) => (
   <Layout navBlack>
-    <Container py={space.paddingSmall}>
+    <Container pt={space.paddingLarge}>
       <Heading as="h1" variant="h1" pb={4}>
         {prismicAbout.data.title}
       </Heading>

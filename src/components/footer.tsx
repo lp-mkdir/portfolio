@@ -6,22 +6,27 @@ import { Link } from "./link"
 import { FullWidthContainer } from "./blocks/full-width-container"
 import { space } from "../constants/space"
 
-interface IFooterProps {}
-
-const Footer: React.FunctionComponent<IFooterProps> = (props) => (
+const Footer = () => (
   <FullWidthContainer variant="footer" pos="relative">
-    <Flex alignItems="flex-start" justifyContent="space-between" py={space.paddingSmall} gap={8}>
-      <HStack pt={4} spacing={4}>
-        <a href="https://google.com">
+    <Flex
+      flexDirection={[`column`, `row`]}
+      alignItems="flex-start"
+      justifyContent="space-between"
+      pt={space.paddingSmall}
+      pb="5rem"
+      gap={8}
+    >
+      <HStack spacing={4} pb={[`2rem`, 0]}>
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
           <Icon as={FaInstagram} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
         </a>
-        <a href="https://google.com">
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
           <Icon as={FaFacebook} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
         </a>
-        <a href="https://google.com">
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
           <Icon as={FaLinkedin} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
         </a>
-        <a href="https://google.com">
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
           <Icon as={FaYoutube} w={8} h={8} color="brand.onPrimaryBg" _hover={{ color: `primary.500` }} />
         </a>
       </HStack>
