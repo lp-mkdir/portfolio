@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import { Container, Heading } from "@chakra-ui/react"
 import { Layout } from "../components/Layout"
 import { SliceZone } from "../slices/slice-zone"
-import { space } from "../constants/space"
 
 interface IAboutProps {
   data: {

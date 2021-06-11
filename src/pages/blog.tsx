@@ -1,6 +1,6 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import { Grid, Box } from "@chakra-ui/react"
+import { graphql } from "gatsby"
+import { Grid } from "@chakra-ui/react"
 import { FullWidthContainer } from "../components/blocks/full-width-container"
 import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
@@ -33,7 +33,7 @@ const Blog = ({
               image={post.data.blogImage}
               date={post.data.postDate}
               desc={post.data.description}
-              path={post.uid}
+              location={post.url}
             />
           ))}
         </Grid>
@@ -49,7 +49,7 @@ export const query = graphql`
     BlogPost: allPrismicBlogPost {
       nodes {
         id
-        uid
+        url
         tags
         data {
           title

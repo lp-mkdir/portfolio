@@ -9,15 +9,15 @@ interface IPostCardProps {
   date: string
   desc: string
   tags: string[]
-  path: string
+  location: string
   image: {
     fluid: any
     alt: string
   }
 }
 
-const PostCard = ({ title, desc, date, tags, image, path }: IPostCardProps) => (
-  <Link to={path}>
+const PostCard = ({ title, desc, date, tags, image, location }: IPostCardProps) => (
+  <Link to={location}>
     <Card alignItems="flex-start" h="100%">
       <Flex flexDir="column" h="200px" w="100%" pos="relative" justifyContent="space-between" alignItems="flex-start">
         {tags.map((tag) => (
