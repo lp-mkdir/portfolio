@@ -104,8 +104,8 @@ const Button = {
       _active: { bg: `brand.primaryHover` },
     }),
     xl: (props) => ({
-      padding: `2rem 3rem`,
-      fontSize: [`2lx`, null, null, `xl`],
+      padding: [`1.5rem 2.5rem`, `2rem 3rem`],
+      fontSize: [`lg`, null, null, `xl`],
       fontWeight: `bold`,
       bg: props.theme.colors.primary[600],
       color: `white`,
