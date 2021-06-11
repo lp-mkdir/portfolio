@@ -24,7 +24,7 @@ const headingBaseStyles = {
   },
   h4: {
     fontWeight: 600,
-    fontSize: [`lg`, null, null, `xl`, `2xl`],
+    fontSize: [`lg`, null, null, `xl`],
     fontFamily: `heading`,
     lineHeight: `xl`,
     marginBottom: 2,
