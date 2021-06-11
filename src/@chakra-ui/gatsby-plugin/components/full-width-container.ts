@@ -41,7 +41,7 @@ const FullWidthContainer = {
         },
       },
     }),
-    footer: (props) => ({
+    footer: () => ({
       outer: {
         mt: [24, null, null, 36],
         w: `100%`,
@@ -59,7 +59,8 @@ const FullWidthContainer = {
         w: `100%`,
       },
       inner: {
-        maxWidth: `1440px`,
+        w: `100%`,
+        maxW: `1440px`,
         m: `0 auto`,
         px: [`1rem`, `1.5rem`],
       },

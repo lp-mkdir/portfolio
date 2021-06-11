@@ -10,9 +10,9 @@ interface ITopNav {
 
 const TopNav: React.FC<ITopNav> = ({ badge, button, to }) => (
   <Flex alignItems="center" justifyContent="space-between" mb="4">
-    <Badge>{badge}</Badge>
+    <Badge fontFamily="heading">{badge}</Badge>
     <Link to={to}>
-      <Button variant="ghost" colorScheme="orange">
+      <Button variant="ghost" colorScheme="orange" fontSize={[`xs`, `lg`]}>
         {button}
       </Button>
     </Link>

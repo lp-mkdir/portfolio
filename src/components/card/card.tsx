@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Grid } from "@chakra-ui/react"
-import { Link } from "gatsby"
 import { MotionBox } from "../blocks/motion-box"
 
 interface ICardProps {
@@ -10,19 +9,21 @@ interface ICardProps {
 }
 
 const Wrapper = ({ children }) => (
-  <Grid gridTemplateColumns="repeat(auto-fit, minmax(400px, 1fr))" gap="20px" pb="12">
+  <Grid gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap="20px" pb="12">
     {children}
   </Grid>
 )
 
 const Card = ({ children, ...rest }: ICardProps) => (
   <MotionBox
+    pos="relative"
+    flex="1 1 0"
+    minWidth="0"
     role="group"
     display="flex"
     flexDirection="column"
     justifyContent="flex-end"
     alignItems="flex-start"
-    pos="relative"
     w="100%"
     h={[`10rem`, null, `15rem`, `20rem`]}
     overflow="hidden"

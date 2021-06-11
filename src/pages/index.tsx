@@ -29,7 +29,7 @@ const Index = ({
         img={data.hero_image}
       />
       {/* Projects Listing */}
-      <FullWidthContainer variant="max" pt={space.paddingSmall} pr="1rem" pl="1rem" textAlign="center">
+      <FullWidthContainer variant="max" pt={space.paddingSmall} textAlign="center">
         <TopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
         <Wrapper>
           {projects.map((pro) => (
@@ -128,37 +128,39 @@ const Index = ({
           </Box>
         </Stack>
       </FullWidthContainer>
-      <Box textAlign="center" pt={8}>
-        <Text
-          fontFamily="heading"
-          fontWeight="bold"
-          fontSize={[`xl`, `3xl`]}
-          lineHeight="125%"
-          textAlign="center"
-          textShadow="textShadows.big"
-          pb={[6, null, null, 8]}
-          pt={[6, null, null, 8]}
-        >
-          The best way to know how I do code, check out the source of my portfolio at GitHub!
-        </Text>
-        <a href="https://github.com/luiskunz/portfolio" target="_blank" rel="noreferrer">
-          <Button
-            variant="xl"
-            bgGradient="linear(to-tr, secondary.700, secondary.800)"
-            boxShadow="rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 15px 40px"
-            _hover={{
-              boxShadow: `rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 20px 35px`,
-              transform: `translateY(-8px)`,
-            }}
+      <FullWidthContainer variant="max">
+        <Box textAlign="center" pt={8}>
+          <Text
+            fontFamily="heading"
+            fontWeight="bold"
+            fontSize={[`xl`, `3xl`]}
+            lineHeight="125%"
+            textAlign="center"
+            textShadow="textShadows.big"
+            pb={[6, null, null, 8]}
+            pt={[6, null, null, 8]}
           >
-            Github Source
-          </Button>
-        </a>
-      </Box>
+            The best way to know how I do code, check out the source of my portfolio at GitHub!
+          </Text>
+          <a href="https://github.com/luiskunz/portfolio" target="_blank" rel="noreferrer">
+            <Button
+              variant="xl"
+              bgGradient="linear(to-tr, secondary.700, secondary.800)"
+              boxShadow="rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 15px 40px"
+              _hover={{
+                boxShadow: `rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 20px 35px`,
+                transform: `translateY(-8px)`,
+              }}
+            >
+              Github Source
+            </Button>
+          </a>
+        </Box>
+      </FullWidthContainer>
       {/* Blogpost listing */}
-      <FullWidthContainer pt={space.section}>
+      <FullWidthContainer variant="max" pt={space.section}>
         <TopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
-        <Grid templateColumns="repeat(2, minmax(200px, 1fr))">
+        <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]}>
           {blogPost.map((post) => (
             <PostCard
               path={`blog/${post.uid}`}

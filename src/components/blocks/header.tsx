@@ -9,7 +9,7 @@ const Logo = () => (
   <Link
     to="/"
     fontWeight="bold"
-    fontSize="24px"
+    fontSize={[`lg`, `xl`]}
     transform="scale(1)"
     _hover={{ transform: `scale(1.1)` }}
     aria-label="luiskunz.com, Back to homepage"

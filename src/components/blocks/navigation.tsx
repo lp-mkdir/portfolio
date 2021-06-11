@@ -1,5 +1,5 @@
 import * as React from "react"
-import { chakra, HStack, Link } from "@chakra-ui/react"
+import { chakra, HStack, Link, Box } from "@chakra-ui/react"
 import { Link as GatsbyLink } from "gatsby"
 
 /**
@@ -16,9 +16,9 @@ export const Navigation = () => {
     { name: `Contact`, link: `mailto:hello@luiskunz.com`, externalLink: true },
   ]
   return (
-    <HStack spacing={[`2`, `4`]}>
-      <nav aria-label="Primary navigation">
-        <HStack as="ul" listStyleType="none" spacing={[`2`, `4`]}>
+    <nav aria-label="Primary navigation">
+      <Box spacing={[`2`, `4`]}>
+        <HStack as="ul" listStyleType="none" spacing={[2, 4]}>
           {primaryNavigation.map((item) => (
             <li key={item.link}>
               {!item.externalLink ? (
@@ -26,21 +26,27 @@ export const Navigation = () => {
                   to={item.link}
                   fontFamily="heading"
                   fontWeight="bold"
-                  fontSize={[null, null, null, `md`]}
+                  fontSize={[`sm`, `lg`]}
                   _hover={{ color: `white` }}
                   p="2"
                 >
                   {item.name}
                 </InternalLink>
               ) : (
-                <Link href={item.link} fontWeight="bold" fontFamily="heading" textDecor="none !important">
+                <Link
+                  href={item.link}
+                  fontWeight="bold"
+                  fontFamily="heading"
+                  textDecor="none !important"
+                  fontSize={[`sm`, `lg`]}
+                >
                   {item.name}
                 </Link>
               )}
             </li>
           ))}
         </HStack>
-      </nav>
-    </HStack>
+      </Box>
+    </nav>
   )
 }
