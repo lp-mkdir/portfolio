@@ -27,6 +27,7 @@ const Card = ({ children, ...rest }: ICardProps) => (
     w="100%"
     h={[`10rem`, null, `15rem`, `20rem`]}
     overflow="hidden"
+    borderRadius="2xl"
     {...rest}
   >
     {children}

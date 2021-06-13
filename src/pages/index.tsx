@@ -41,7 +41,7 @@ const Index = ({
             <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
                 <CardImage image={pro.data.project_image} />
-                <CardTitle>{pro.data.name} asd ads asd as</CardTitle>
+                <CardTitle>{pro.data.name}</CardTitle>
                 <CardTextOverlay />
               </Card>
             </Link>
