@@ -41,7 +41,7 @@ const Index = ({
             <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
                 <CardImage image={pro.data.project_image} />
-                <CardTitle>{pro.data.name}</CardTitle>
+                <CardTitle>{pro.data.projectName}</CardTitle>
                 <CardTextOverlay />
               </Card>
             </Link>
@@ -216,7 +216,7 @@ export const query = graphql`
         id
         url
         data {
-          name
+          projectName: project_name
           project_image {
             alt
             url
