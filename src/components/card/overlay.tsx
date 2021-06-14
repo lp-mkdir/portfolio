@@ -21,7 +21,7 @@ const CardTextOverlay: React.FC = () => (
     bottom="0"
     left="0"
     right="0"
-    backgroundImage="linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, 
+    backgroundImage="linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, 
       rgba(0, 0, 0, 0) 30%)"
   />
 )
