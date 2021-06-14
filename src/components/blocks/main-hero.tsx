@@ -33,12 +33,12 @@ export const MainHero = ({ headline, primaryBtn, secondaryBtn, img }: IMainHero)
                 {headline}
               </Heading>
               <ButtonGroup pt="6" flexWrap="wrap">
-                <Link to="/projects">
+                <Link to="/projects" style={{ margin: 0 }}>
                   <Button variant="hero" mb={[2, 0]}>
                     {primaryBtn}
                   </Button>
                 </Link>
-                <Link to="/about">
+                <Link to="/about" style={{ margin: 0 }}>
                   <Button variant="heroOutline" ml={[`0 !important`, `1rem !important`]}>
                     {secondaryBtn}
                   </Button>
