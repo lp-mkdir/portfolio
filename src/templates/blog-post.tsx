@@ -54,6 +54,7 @@ export default Post
 export const query = graphql`
   query BlogPostQuery($uid: String) {
     BlogPost: prismicBlogPost(uid: { eq: $uid }) {
+      ...BodyQuoteInfo
       url
       uid
       tags
