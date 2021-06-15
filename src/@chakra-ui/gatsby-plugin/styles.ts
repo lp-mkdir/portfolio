@@ -25,10 +25,25 @@ const styles: ThemeOverride["styles"] = {
       },
       nav: {
         ul: {
+          listStyle: `none`,
+          p: 0,
           li: {
             marginBottom: `0`,
           },
+          "li::before": {
+            content: `none`,
+          },
         },
+      },
+      ul: {
+        listStyle: `none`,
+        py: 6,
+      },
+      "li::before": {
+        content: `"•"`,
+        color: `primary.600`,
+        paddingRight: 4,
+        paddingLeft: 4,
       },
     },
 
