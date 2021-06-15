@@ -47,8 +47,9 @@ export const MainHero = ({ headline, primaryBtn, secondaryBtn, img }: IMainHero)
             </Flex>
           </Flex>
         </Box>
-        <Box w="calc(99.9% * 1 / 1)" height={[`auto`, null, null, `50rem`]}>
-          <Box w={[`100%`, null, null, `50rem`]} m="0 auto" pos={[`static`, null, null, `absolute`]}>
+        {/* Hero Image */}
+        <Box w="calc(99.9% * 1 / 1)" height={[`auto`, null, null, `45rem`]}>
+          <Box w={[`100%`, null, null, `45rem`]} m="0 auto" pos={[`static`, null, null, `absolute`]}>
             <Img fluid={img.fluid} alt="Luis Kunz" />
           </Box>
         </Box>
