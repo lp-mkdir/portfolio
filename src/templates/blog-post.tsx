@@ -13,112 +13,102 @@ interface IPostProps {
   data: any
 }
 
-const Post = ({
-  data: {
-    BlogPost: { nodes: blogPostQuery },
-  },
-}: IPostProps) => {
-  if (!blogPostQuery) return null
-  const blogPost = blogPostQuery[0]
-  return (
-    <Layout>
-      <SEO title={blogPost.data.seoTitle} description={blogPost.data.seoDescription}>
-        <meta name="article:published_time" content={blogPost.data.seoDate} />
-        <meta name="article:modified_time" content={blogPost.lastUpdated} />
-        <script type="application/ld+json">
-          {JSON.stringify(
-            article({
-              isBlog: true,
-              post: {
-                title: blogPost.data.title,
-                description: blogPost.data.seoDescription ? blogPost.data.seoDescription : blogPost.data.description,
-                date: blogPost.data.seoDate,
-                lastUpdated: blogPost.lastUpdated,
-                year: blogPost.data.yearDate,
-                image: blogPost.data.blogImage,
-                slug: blogPost.data.uid,
-              },
-              category: {
-                name: blogPost.tags[0],
-                slug: `/blog/${blogPost.tags[0]}/${blogPost.data.seoTitle || blogPost.data.title}`,
-              },
-            })
-          )}
-        </script>
-      </SEO>
-      <Hero
-        headline={blogPost.data.title}
-        subheading={`${blogPost.data.postDate} | ${blogPost.tags.map((tag) => tag)}`}
-      />
-      <Container pt={space.paddingSmall}>
-        <SliceZone slices={blogPost.data.body} />
-      </Container>
-    </Layout>
-  )
-}
+const Post = ({ data: { BlogPost } }: IPostProps) => (
+  <Layout>
+    <SEO title={BlogPost.data.seoTitle} description={BlogPost.data.seoDescription}>
+      <meta name="article:published_time" content={BlogPost.data.seoDate} />
+      <meta name="article:modified_time" content={BlogPost.lastUpdated} />
+      <script type="application/ld+json">
+        {JSON.stringify(
+          article({
+            isBlog: true,
+            post: {
+              title: BlogPost.data.title,
+              description: BlogPost.data.seoDescription ? BlogPost.data.seoDescription : BlogPost.data.description,
+              date: BlogPost.data.seoDate,
+              lastUpdated: BlogPost.lastUpdated,
+              year: BlogPost.data.yearDate,
+              image: BlogPost.data.blogImage,
+              slug: BlogPost.uid,
+            },
+            category: {
+              name: BlogPost.tags[0],
+              slug: `/blog/${BlogPost.tags[0]}/${BlogPost.data.seoTitle || BlogPost.data.title}`,
+            },
+          })
+        )}
+      </script>
+    </SEO>
+    <Hero
+      headline={BlogPost.data.title}
+      subheading={`${BlogPost.data.postDate} | ${BlogPost.tags.map((tag) => tag)}`}
+    />
+    <Container pt={space.paddingSmall}>
+      <SliceZone slices={BlogPost.data.body} />
+    </Container>
+  </Layout>
+)
 
 export default Post
 
 export const query = graphql`
   query BlogPostQuery($uid: String) {
-    BlogPost: prismicBlogPost(filter: { uid: { eq: $uid } }) {
-      nodes {
-        url
-        uid
-        tags
-        lastUpdated: last_publication_date(formatString: "MMM DD, YYYY")
-        data {
-          title
-          blogImage: blog_image {
-            url
-            fluid {
-              ...GatsbyPrismicImageFluid
+    BlogPost: prismicBlogPost(uid: { eq: $uid }) {
+      url
+      uid
+      tags
+      lastUpdated: last_publication_date(formatString: "MMM DD, YYYY")
+      data {
+        title
+        blogImage: blog_image {
+          url
+          fluid {
+            ...GatsbyPrismicImageFluid
+          }
+        }
+        description
+        seoTitle: seo_title
+        seoDescription: seo_description
+        postDate: post_date(formatString: "MMM DD, YYYY")
+        yearDate: post_date(formatString: "YYYY")
+        seoDate: post_date
+        body {
+          ... on PrismicBlogPostBodyText {
+            id
+            sliceType: slice_type
+            primary {
+              text {
+                raw
+              }
             }
           }
-          description
-          seoTitle: seo_title
-          seoDescription: seo_description
-          postDate: post_date(formatString: "MMM DD, YYYY")
-          yearDate: post_date(formatString: "YYYY")
-          seoDate: post_date
-          body {
-            ... on PrismicBlogPostBodyText {
-              id
-              sliceType: slice_type
-              primary {
-                text {
-                  raw
+          ... on PrismicBlogPostBodyImage {
+            id
+            sliceType: slice_type
+            items {
+              image {
+                fluid {
+                  ...GatsbyPrismicImageFluid
                 }
               }
             }
-            ... on PrismicBlogPostBodyImage {
-              id
-              sliceType: slice_type
-              items {
-                image {
-                  fluid {
-                    ...GatsbyPrismicImageFluid
-                  }
-                }
+          }
+          ... on PrismicBlogPostBodyCodeblock {
+            id
+            sliceType: slice_type
+            primary {
+              codeBlock: code_block {
+                raw
+                html
               }
             }
-            ... on PrismicBlogPostBodyCodeblock {
-              id
-              sliceType: slice_type
-              primary {
-                codeBlock: code_block {
-                  raw
-                  html
-                }
-              }
-            }
-            ... on PrismicBlogPostBodyQuote {
-              id
-              sliceType: slice_type
-              primary {
-                quote_message
-                author
-              }
+          }
+          ... on PrismicBlogPostBodyQuote {
+            id
+            sliceType: slice_type
+            primary {
+              quote_message
+              author
             }
           }
         }

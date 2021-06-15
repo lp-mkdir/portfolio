@@ -1,5 +1,6 @@
 import { ThemeOverride } from "@chakra-ui/react"
 import { headroom } from "./custom/headroom"
+import { headingBaseStyles } from "./custom/typography"
 
 const styles: ThemeOverride["styles"] = {
   global: (props) => ({
@@ -38,6 +39,7 @@ const styles: ThemeOverride["styles"] = {
       },
     },
     ...headroom,
+    ...headingBaseStyles,
   }),
 }
 
