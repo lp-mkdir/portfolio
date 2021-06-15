@@ -61,7 +61,7 @@ export default Post
 
 export const query = graphql`
   query BlogPostQuery($uid: String) {
-    BlogPost: allPrismicBlogPost(filter: { uid: { eq: $uid } }) {
+    BlogPost: prismicBlogPost(filter: { uid: { eq: $uid } }) {
       nodes {
         url
         uid
