@@ -20,7 +20,7 @@ const headingBaseStyles = {
     fontSize: [`lg`, `xl`, null, `2xl`, `3xl`],
     fontFamily: `heading`,
     lineHeight: `2xl`,
-    marginBottom: 3,
+    marginBottom: 6,
   },
   h4: {
     fontWeight: 600,
