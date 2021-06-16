@@ -14,7 +14,7 @@ interface ILayoutProps {
 }
 export const Layout = ({ children, navBlack = false }: ILayoutProps) => (
   <>
-    <CookieBanner content="Hallo" buttonText="Accept" />
+    <CookieBanner />
     <Header navBlack={navBlack} />
     {children}
     <Footer />

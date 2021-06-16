@@ -308,7 +308,7 @@ const colors = {
     blackAlpha: transparentize(`black`, 0.8)(colorPalette),
     primaryBg: colorPalette.colors.primary[`600`],
     primaryHover: colorPalette.colors.primary[`700`],
-    secondaryHover: colorPalette.colors.secondary[`700`],
+    secondaryHover: colorPalette.colors.yellow[`500`],
     text: colorPalette.colors.blackOnyx,
     textMuted: colorPalette.colors.coolGray[`400`],
     textEmphasized: colorPalette.colors.primary[`600`],

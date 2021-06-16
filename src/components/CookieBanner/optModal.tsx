@@ -16,7 +16,9 @@ export default function OptModal({ children, Title, isOpen, onClose, gaDisable, 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{Title}</ModalHeader>
+          <ModalHeader fontSize="md" fontWeight="bold">
+            {Title}
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>{children}</ModalBody>
 

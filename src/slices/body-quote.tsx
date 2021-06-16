@@ -13,7 +13,6 @@ interface IBodyQuoteProps {
 
 const BodyQuote = ({ slice }: IBodyQuoteProps) => (
   <HStack py={16}>
-    {/* <Divider orientation="vertical" h="100%" borderWidth={4} borderColor="primary.600" opacity="1" /> */}
     <Box borderLeft="0.5rem solid" borderColor="primary.400" pt={4} pl={8}>
       <Text variant="prominent" color="black">
         {slice.primary.quoteMessage}

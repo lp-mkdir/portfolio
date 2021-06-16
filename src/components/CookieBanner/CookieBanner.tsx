@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Cookies from "js-cookie"
-import { Button, Stack, Flex, Spacer, Text, Center, useDisclosure, Progress, Box } from "@chakra-ui/react"
+import { Button, Stack, Flex, Text, Center, useDisclosure, Progress, Box } from "@chakra-ui/react"
 import { ScrollProgress } from "../../utils/ScrollProgress"
 import OptModal from "./optModal"
 import config from "../../../config/website"
@@ -8,8 +8,6 @@ import config from "../../../config/website"
 const cookieName = `gatsby-gdpr-google-analytics`
 
 export type CookieBannerProps = {
-  content: string
-  buttonText: string
   debug?: boolean
 }
 
@@ -18,7 +16,7 @@ interface ScrollProps {
   scrollPerc?: number
 }
 
-function CookieBannerApp({ content, buttonText, debug }: CookieBannerProps) {
+function CookieBannerApp({ debug = false }: CookieBannerProps) {
   const [isVisible, setVisible] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { pos, scrollPerc }: ScrollProps = ScrollProgress()
@@ -59,19 +57,20 @@ function CookieBannerApp({ content, buttonText, debug }: CookieBannerProps) {
 
   return (
     <Center>
-      <Box w="90%" pos="fixed" bottom={6}>
+      <Box w="90%" pos="fixed" bottom={6} zIndex="sticky">
         <Progress value={scrollPerc} size="xs" mb="-1" rounded="md" />
-        <Box px={4} py={4} bgGradient="linear(to-tr, primary.600, primary.900)" boxShadow="xl" rounded="md">
-          <Flex align="center" justifyItems="center">
-            <Text color="white.base" fontSize="lg" fontWeight="semibold">
-              {content}
+        <Box px={4} py={8} bgGradient="linear(to-tr, primary.800, primary.900)" boxShadow="xl" rounded="md">
+          <Flex flexDir={[`column`, null, `row`]} alignItems="center" justifyContent="space-between">
+            <Text color="white" fontSize="lg" fontWeight="semibold" w={[`100%`, null, `77%`]} pb={[4, null, null, 0]}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quibusdam repellat rem at maxime
+              repudiandae cumque nam officia cum labore fugiat impedit consectetur soluta quo quia, nostrum praesentium
+              amet itaque.
             </Text>
-            <Spacer />
             <Stack spacing={4} direction="row">
-              <Button colorScheme="secondary" onClick={gaEnable}>
-                {buttonText}
+              <Button variant="secondary" color="#000" size="lg" onClick={gaEnable}>
+                Accept
               </Button>
-              <Button colorScheme="primary" variant="link" onClick={onOpen}>
+              <Button colorScheme="primary" color="white" variant="link" onClick={onOpen}>
                 Change settings
               </Button>
             </Stack>
@@ -79,14 +78,14 @@ function CookieBannerApp({ content, buttonText, debug }: CookieBannerProps) {
         </Box>
       </Box>
 
-      <OptModal Title="Title" isOpen={isOpen} onClose={onClose} gaEnable={gaEnable} gaDisable={disableTrack}>
-        <Text color="black.light" fontSize="lg" fontWeight="semibold">
-          Hello there!
+      <OptModal Title="Cookies Settings" isOpen={isOpen} onClose={onClose} gaEnable={gaEnable} gaDisable={disableTrack}>
+        <Text color="black.light" fontSize="lg" fontWeight="semibold" pb={4}>
+          Feel free to cancel and delete the cookies.
         </Text>
       </OptModal>
     </Center>
   )
 }
 
-export const CookieBanner: React.FC<CookieBannerProps> = ({ content, buttonText, debug }) =>
-  !Cookies.get(cookieName) || debug ? <CookieBannerApp content={content} buttonText={buttonText} /> : null
+export const CookieBanner: React.FC<CookieBannerProps> = ({ debug }) =>
+  !Cookies.get(cookieName) || debug ? <CookieBannerApp debug /> : null

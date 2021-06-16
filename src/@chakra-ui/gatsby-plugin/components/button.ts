@@ -47,7 +47,7 @@ const Button = {
       _active: { bg: `brand.primaryHover` },
     }),
     secondary: () => ({
-      bg: `brand.secondary`,
+      bg: `secondary.500`,
       color: `white`,
       _hover: {
         bg: `brand.secondaryHover`,
