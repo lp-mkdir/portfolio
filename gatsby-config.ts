@@ -65,7 +65,7 @@ const gatsbyConfig: GatsbyConfig = {
         repositoryName: `luiskunz`,
         accessToken: process.env.PRISMIC_API_KEY,
         linkResolver: (doc) => linkResolver(doc),
-        htmlSerializer: () => htmlSerializer,
+        htmlSerializer: (type, element, content) => htmlSerializer(type, element, content),
         schemas: {
           homepage,
           about,

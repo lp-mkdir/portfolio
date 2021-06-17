@@ -11,8 +11,60 @@ import { PostCard } from "../components/blog/post-card"
 import { homepage } from "../constants/json-ld"
 import { SEO } from "../components/seo"
 
-type IndexProps = {
-  data: any
+interface IGatsbyImage {
+  alt: string
+  localFile: {
+    childImageSharp: {
+      gatsbyImageData: any
+    }
+  }
+}
+interface IIndexProps {
+  data: {
+    Homepage: {
+      data: {
+        headline: string
+        heroBtn: string
+        heroBtn2: string
+        heroImage: IGatsbyImage
+        projectsDesc: string
+        projectsBtn: string
+        techTitle: string
+        techDesc: string
+        techImage: IGatsbyImage
+        categories: {
+          listTitle: string
+          techListOp: string
+        }[]
+      }
+    }
+    Projects: {
+      nodes: {
+        id: string
+        url: string
+        data: {
+          projectName: string
+          projectImage: IGatsbyImage
+        }
+      }[]
+    }
+    BlogPost: {
+      nodes: {
+        id: string
+        url: string
+        tags: string[]
+        data: {
+          title: string
+          postDate: string
+          description: string
+          blogImage: IGatsbyImage
+          imageCaption: {
+            raw: any
+          }
+        }
+      }[]
+    }
+  }
 }
 
 const Index = ({
@@ -21,7 +73,7 @@ const Index = ({
     Projects: { nodes: projects },
     BlogPost: { nodes: blogPost },
   },
-}: IndexProps) => {
+}: IIndexProps) => {
   if (!data) return null
   return (
     <Layout>
@@ -30,8 +82,8 @@ const Index = ({
       </SEO>
       <MainHero
         headline={data.headline}
-        primaryBtn={data.hero_btn}
-        secondaryBtn={data.hero_btn_2}
+        primaryBtn={data.heroBtn}
+        secondaryBtn={data.heroBtn2}
         heroImg={data.heroImage}
       />
       {/* Projects Listing */}
@@ -58,7 +110,7 @@ const Index = ({
           pb={[6, null, null, 8]}
           pt={[6, null, null, 8]}
         >
-          {data.projects_desc}
+          {data.projectsDesc}
         </Text>
         <Link to="/projects">
           <Button
@@ -69,7 +121,7 @@ const Index = ({
               transform: `translateY(-8px)`,
             }}
           >
-            {data.projects_btn}
+            {data.projectsBtn}
           </Button>
         </Link>
       </FullWidthContainer>
@@ -80,11 +132,13 @@ const Index = ({
         marginTop={[`9rem`, null, null, `14rem`]}
       >
         <Stack direction={[`column`, null, null, `row`]} spacing={16} py="24" align="flex-start">
-          <Box w={[`100%`, null, null, `calc(99.9% * 1 / 2.5)`]} boxShadow="2xl" borderRadius="1rem">
+          <Box w={[`100%`, null, null, `calc(99.9% * 1 / 2.5)`]} boxShadow="dark-lg" borderRadius="1rem">
             <GatsbyImage
-              // height={[`15rem`, `25rem`, null, `40rem`]}
               image={data.techImage.localFile.childImageSharp.gatsbyImageData}
               alt="Luis Kunz"
+              imgStyle={{
+                borderRadius: `1rem`,
+              }}
               style={{
                 marginTop: `-10rem`,
               }}
@@ -107,7 +161,7 @@ const Index = ({
                 borderColor: `secondary.500`,
               }}
             >
-              {data.tech_title}
+              {data.techTitle}
             </Heading>
             <Text
               variant="prominent"
@@ -115,19 +169,19 @@ const Index = ({
               color="#d1dbfa"
               pt={[`0.6rem`, null, null, `1.5rem`]}
             >
-              {data.tech_desc}
+              {data.techDesc}
             </Text>
             {data.categories.map((listItem) => (
-              <div key={listItem.list_title}>
+              <div key={listItem.listTitle}>
                 <Heading variant="h4" color="white" pt="8" pb="4">
-                  {listItem.list_title}
+                  {listItem.listTitle}
                 </Heading>
                 <HStack wrap="wrap">
                   {/* // split string between commas */}
-                  {listItem.tech_list_op.split(/[,]+/).map((listBtn) => (
+                  {listItem.techListOp.split(/[,]+/).map((listBtn) => (
                     // delete spaces
                     <Button variant="tag" key={listBtn}>
-                      {listBtn.replace(`/ /g. ""`)}
+                      {listBtn.replace(`/ /g`, ``)}
                     </Button>
                   ))}
                 </HStack>
@@ -201,12 +255,12 @@ export const query = graphql`
             }
           }
         }
-        hero_btn
-        hero_btn_2
-        projects_desc
-        projects_btn
-        tech_title
-        tech_desc
+        heroBtn: hero_btn
+        heroBtn2: hero_btn_2
+        projectsDesc: projects_desc
+        projectsBtn: projects_btn
+        techTitle: tech_title
+        techDesc: tech_desc
         techImage: tech_image {
           alt
           localFile {
@@ -216,8 +270,8 @@ export const query = graphql`
           }
         }
         categories {
-          list_title
-          tech_list_op
+          listTitle: list_title
+          techListOp: tech_list_op
         }
       }
     }
@@ -255,7 +309,7 @@ export const query = graphql`
               }
             }
           }
-          image_caption {
+          imageCaption: image_caption {
             raw
           }
         }
