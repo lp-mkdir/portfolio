@@ -49,7 +49,6 @@ export const query = graphql`
     BlogPost: allPrismicBlogPost {
       nodes {
         id
-        uid
         url
         tags
         lastUpdated: last_publication_date(formatString: "MMM DD, YYYY")
@@ -58,8 +57,11 @@ export const query = graphql`
           description
           blogImage: blog_image {
             url
-            fluid {
-              ...GatsbyPrismicImageFluid
+            alt
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
           image_caption {

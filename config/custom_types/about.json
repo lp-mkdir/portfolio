@@ -53,25 +53,6 @@
               }
             }
           },
-          "codeblock" : {
-            "type" : "Slice",
-            "fieldset" : "Code Block",
-            "description" : "Longer Code Block. Use labels inside it!",
-            "icon" : "code",
-            "display" : "list",
-            "non-repeat" : {
-              "codeblock" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "preformatted",
-                  "label" : "code-block",
-                  "placeholder" : "Remember the label!",
-                  "labels" : [ "javascript", "css", "scss", "jsx", "bash", "json", "diff", "markdown", "graphql" ]
-                }
-              }
-            },
-            "repeat" : { }
-          },
           "quote" : {
             "type" : "Slice",
             "fieldset" : "Quote",

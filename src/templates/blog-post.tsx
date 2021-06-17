@@ -28,7 +28,7 @@ const Post = ({ data: { BlogPost } }: IPostProps) => (
               date: BlogPost.data.seoDate,
               lastUpdated: BlogPost.lastUpdated,
               year: BlogPost.data.yearDate,
-              image: BlogPost.data.blogImage,
+              image: BlogPost.data.blogImage.url,
               slug: BlogPost.uid,
             },
             category: {
@@ -55,16 +55,18 @@ export const query = graphql`
   query BlogPostQuery($uid: String) {
     BlogPost: prismicBlogPost(uid: { eq: $uid }) {
       ...BodyQuoteInfo
-      url
       uid
+      url
       tags
       lastUpdated: last_publication_date(formatString: "MMM DD, YYYY")
       data {
         title
         blogImage: blog_image {
           url
-          fluid {
-            ...GatsbyPrismicImageFluid
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, quality: 80)
+            }
           }
         }
         description
@@ -74,7 +76,7 @@ export const query = graphql`
         yearDate: post_date(formatString: "YYYY")
         seoDate: post_date
         body {
-          ... on PrismicBlogPostBodyText {
+          ... on PrismicBlogPostDataBodyText {
             id
             sliceType: slice_type
             primary {
@@ -83,18 +85,20 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicBlogPostBodyImage {
+          ... on PrismicBlogPostDataBodyImage {
             id
             sliceType: slice_type
             items {
               image {
-                fluid {
-                  ...GatsbyPrismicImageFluid
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(layout: FULL_WIDTH, quality: 80)
+                  }
                 }
               }
             }
           }
-          ... on PrismicBlogPostBodyCodeblock {
+          ... on PrismicBlogPostDataBodyCodeblock {
             id
             sliceType: slice_type
             primary {
@@ -104,7 +108,7 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicBlogPostBodyQuote {
+          ... on PrismicBlogPostDataBodyQuote {
             id
             sliceType: slice_type
             primary {

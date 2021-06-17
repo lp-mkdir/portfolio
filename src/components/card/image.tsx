@@ -1,17 +1,22 @@
 import * as React from "react"
-// import { Image } from "@chakra-ui/react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 interface ICardImageProps {
-  image: string
+  image: {
+    alt: string
+    localFile: {
+      childImageSharp: {
+        gatsbyImageData: any
+      }
+    }
+  }
 }
 
 const CardImage: React.FunctionComponent<ICardImageProps> = ({ image }) => (
-  <Img
-    fluid={image.fluid}
+  <GatsbyImage
+    image={image.localFile.childImageSharp.gatsbyImageData}
     alt={image.alt}
     style={{
-      zIndex: `-1`,
       position: `absolute`,
       objectFit: `cover`,
       height: `100%`,

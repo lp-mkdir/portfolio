@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Container, Box, Flex, Heading, Text } from "@chakra-ui/react"
 import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { SliceZone } from "../slices/slice-zone"
 import { SEO } from "../components/seo"
+import { CardTextOverlay } from "../components/card/overlay"
 
 type ProjectsProps = {
   data: any
@@ -29,16 +30,17 @@ const Projects = ({
           { name: project.title, url: project.uid },
         ]}
       />
-      <Hero headline={project.project_name} subheading={`${project.date} | ${project.name}`} />
+      <Hero headline={project.projectName} subheading={`${project.date} | ${project.name}`} />
       <Container pt={space.paddingSmall}>
         <Box boxShadow="lg" p={20} borderRadius="1rem">
           <Flex flexDirection={[`column`, null, `row`]} alignItems="flex-start" justifyContent="space-between">
             <Box w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]}>
-              <Img
-                fluid={project.logo.fluid}
+              <GatsbyImage
+                image={project.logo.localFile.childImageSharp.gatsbyImageData}
                 alt={project.logo.alt || `Customer logo`}
                 style={{ height: `6rem`, width: `6rem`, margin: `0 auto` }}
               />
+              <CardTextOverlay />
             </Box>
             <Box w={[`100%`, null, null, `calc(99.9% * 4 / 12 - 2rem)`]} textAlign="center" py={[4, 0]}>
               <Heading variant="h4" mb={4}>
@@ -69,26 +71,31 @@ export const query = graphql`
     Project: allPrismicProject(filter: { uid: { eq: $uid } }) {
       nodes {
         data {
-          project_name
+          projectName: project_name
           name
           period
           task
           date(formatString: "MMMM DD, YYYY")
-          project_image {
+          projectImage: project_image {
             alt
-            fluid {
-              ...GatsbyPrismicImageFluid
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
           logo {
-            fluid {
-              ...GatsbyPrismicImageFluid
+            alt
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
           seoTitle: seo_title
           seoDescription: seo_desc
           body {
-            ... on PrismicProjectBodyText {
+            ... on PrismicProjectDataBodyText {
               id
               sliceType: slice_type
               primary {
@@ -97,13 +104,16 @@ export const query = graphql`
                 }
               }
             }
-            ... on PrismicProjectBodyImage {
+            ... on PrismicProjectDataBodyImage {
               id
               sliceType: slice_type
               items {
                 image {
-                  fluid {
-                    ...GatsbyPrismicImageFluid
+                  alt
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
                   }
                 }
               }

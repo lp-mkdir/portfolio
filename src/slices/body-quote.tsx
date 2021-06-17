@@ -30,7 +30,7 @@ export const query = graphql`
   fragment BodyQuoteInfo on PrismicBlogPost {
     data {
       body {
-        ... on PrismicBlogPostBodyQuote {
+        ... on PrismicBlogPostDataBodyQuote {
           id
           slice_type
           primary {

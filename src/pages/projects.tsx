@@ -27,7 +27,7 @@ const Projects = ({
           {projects.map((pro) => (
             <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
-                <CardImage image={pro.data.project_image} />
+                <CardImage image={pro.data.projectImage} />
                 <CardTitle>{pro.data.name}</CardTitle>
                 <CardTextOverlay />
               </Card>
@@ -50,10 +50,12 @@ export const query = graphql`
         url
         data {
           name
-          project_image {
+          projectImage: project_image {
             alt
-            fluid {
-              ...GatsbyPrismicImageFluid
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }

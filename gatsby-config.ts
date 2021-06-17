@@ -34,6 +34,7 @@ const gatsbyConfig: GatsbyConfig = {
     `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -63,24 +64,15 @@ const gatsbyConfig: GatsbyConfig = {
       options: {
         repositoryName: `luiskunz`,
         accessToken: process.env.PRISMIC_API_KEY,
-        linkResolver: () => linkResolver,
+        linkResolver: (doc) => linkResolver(doc),
         htmlSerializer: () => htmlSerializer,
         schemas: {
           homepage,
           about,
           project,
           blog_post: blogpost,
-        },
-        lang: `*`,
-        imageImgixParams: {
-          auto: `compress,format`,
-          fit: `max`,
-          q: 50,
-        },
-        imagePlaceholderImgixParams: {
-          w: 100,
-          blur: 15,
-          q: 50,
+          contac: {},
+          homeapge: {},
         },
       },
     },

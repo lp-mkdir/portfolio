@@ -34,7 +34,7 @@ export const SEO: React.FC<SEOProps> = ({
     title: title || siteTitleDefault,
     description: description || siteDescription,
     url: pathname ? `${siteUrl}${pathname}` : href,
-    image: `${siteUrl}${image || siteImage}`,
+    image: image || `${siteUrl}${siteImage}`,
   }
 
   return (

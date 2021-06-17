@@ -1,5 +1,5 @@
 import * as React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { Box, Flex, Text, Button } from "@chakra-ui/react"
 import { Card, CardTitle } from "../card/index"
@@ -11,8 +11,12 @@ interface IPostCardProps {
   tags: string[]
   location: string
   image: {
-    fluid: any
     alt: string
+    localFile: {
+      childImageSharp: {
+        gatsbyImageData: any
+      }
+    }
   }
 }
 
@@ -27,11 +31,10 @@ const PostCard = ({ title, desc, date, tags, image, location }: IPostCardProps) 
             </Button>
           </Box>
         ))}
-        <Img
-          fluid={image.fluid}
+        <GatsbyImage
+          image={image.localFile.childImageSharp.gatsbyImageData}
           alt={image.alt}
           style={{
-            zIndex: `-1`,
             height: `100%`,
             width: `100%`,
             position: `absolute`,

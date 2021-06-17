@@ -1,5 +1,5 @@
 import * as React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { Flex, Box, Heading, Button, ButtonGroup, Icon } from "@chakra-ui/react"
 import { GoChevronRight } from "react-icons/go"
@@ -9,10 +9,10 @@ interface IMainHero {
   headline: string
   primaryBtn: string
   secondaryBtn: string
-  img: any
+  heroImg: any
 }
 
-export const MainHero = ({ headline, primaryBtn, secondaryBtn, img }: IMainHero) => (
+export const MainHero = ({ headline, primaryBtn, secondaryBtn, heroImg }: IMainHero) => (
   <Box
     height="100%"
     w="100%"
@@ -50,7 +50,7 @@ export const MainHero = ({ headline, primaryBtn, secondaryBtn, img }: IMainHero)
         {/* Hero Image */}
         <Box w="calc(99.9% * 1 / 1)" height={[`auto`, null, null, `45rem`]}>
           <Box w={[`100%`, null, null, `45rem`]} m="0 auto" pos={[`static`, null, null, `absolute`]}>
-            <Img fluid={img.fluid} alt="Luis Kunz" />
+            <GatsbyImage image={heroImg.localFile.childImageSharp.gatsbyImageData} alt={heroImg.alt} />
           </Box>
         </Box>
       </Flex>

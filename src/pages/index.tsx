@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { Grid, Box, Heading, Stack, HStack, Image as ChakraImage, Text, Button } from "@chakra-ui/react"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { Grid, Box, Heading, Stack, HStack, Text, Button } from "@chakra-ui/react"
 import { FullWidthContainer } from "../components/blocks/full-width-container"
 import { MainHero } from "../components/blocks/main-hero"
 import { Layout } from "../components/Layout"
@@ -31,7 +32,7 @@ const Index = ({
         headline={data.headline}
         primaryBtn={data.hero_btn}
         secondaryBtn={data.hero_btn_2}
-        img={data.hero_image}
+        heroImg={data.heroImage}
       />
       {/* Projects Listing */}
       <FullWidthContainer variant="max" pt={space.paddingSmall} textAlign="center">
@@ -40,7 +41,7 @@ const Index = ({
           {projects.map((pro) => (
             <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
-                <CardImage image={pro.data.project_image} />
+                <CardImage image={pro.data.projectImage} />
                 <CardTitle>{pro.data.projectName}</CardTitle>
                 <CardTextOverlay />
               </Card>
@@ -79,16 +80,14 @@ const Index = ({
         marginTop={[`9rem`, null, null, `14rem`]}
       >
         <Stack direction={[`column`, null, null, `row`]} spacing={16} py="24" align="flex-start">
-          <Box w={[`100%`, null, null, `calc(99.9% * 1 / 2.5)`]}>
-            <ChakraImage
-              w="100%"
-              boxShadow="2xl"
-              borderRadius="1rem"
-              objectFit="cover"
-              height={[`15rem`, `25rem`, null, `40rem`]}
-              mt="-10rem"
-              src="https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+          <Box w={[`100%`, null, null, `calc(99.9% * 1 / 2.5)`]} boxShadow="2xl" borderRadius="1rem">
+            <GatsbyImage
+              // height={[`15rem`, `25rem`, null, `40rem`]}
+              image={data.techImage.localFile.childImageSharp.gatsbyImageData}
               alt="Luis Kunz"
+              style={{
+                marginTop: `-10rem`,
+              }}
             />
           </Box>
           <Box w={[`100%`, null, null, `calc(99.9% * 1 / 1.5)`]}>
@@ -194,9 +193,12 @@ export const query = graphql`
     Homepage: prismicHomepage {
       data {
         headline
-        hero_image {
-          fluid {
-            ...GatsbyPrismicImageFluid
+        heroImage: hero_image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
         hero_btn
@@ -205,6 +207,14 @@ export const query = graphql`
         projects_btn
         tech_title
         tech_desc
+        techImage: tech_image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
         categories {
           list_title
           tech_list_op
@@ -217,11 +227,12 @@ export const query = graphql`
         url
         data {
           projectName: project_name
-          project_image {
+          projectImage: project_image {
             alt
-            url
-            fluid {
-              ...GatsbyPrismicImageFluid
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
@@ -237,8 +248,11 @@ export const query = graphql`
           postDate: post_date(formatString: "MMM DD, YYYY")
           description
           blogImage: blog_image {
-            fluid {
-              ...GatsbyPrismicImageFluid
+            alt
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
           image_caption {

@@ -40,7 +40,7 @@ export const query = graphql`
       data {
         title
         body {
-          ... on PrismicAboutBodyText {
+          ... on PrismicAboutDataBodyText {
             id
             sliceType: slice_type
             primary {
