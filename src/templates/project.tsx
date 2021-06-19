@@ -7,7 +7,6 @@ import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { SliceZone } from "../slices/slice-zone"
 import { SEO } from "../components/seo"
-import { CardTextOverlay } from "../components/card/overlay"
 
 type ProjectsProps = {
   data: any
@@ -26,7 +25,7 @@ const Projects = ({
         title={project.seoTitle}
         description={project.seoDescription}
         breadcrumbListItems={[
-          { name: `Blog`, url: project.uid },
+          { name: `Project`, url: project.uid },
           { name: project.title, url: project.uid },
         ]}
       />
@@ -34,13 +33,12 @@ const Projects = ({
       <Container pt={space.paddingSmall}>
         <Box boxShadow="lg" p={20} borderRadius="1rem">
           <Flex flexDirection={[`column`, null, `row`]} alignItems="flex-start" justifyContent="space-between">
-            <Box w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]}>
+            <Box w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]} position="relative">
               <GatsbyImage
                 image={project.logo.localFile.childImageSharp.gatsbyImageData}
                 alt={project.logo.alt || `Customer logo`}
                 style={{ height: `6rem`, width: `6rem`, margin: `0 auto` }}
               />
-              <CardTextOverlay />
             </Box>
             <Box w={[`100%`, null, null, `calc(99.9% * 4 / 12 - 2rem)`]} textAlign="center" py={[4, 0]}>
               <Heading variant="h4" mb={4}>

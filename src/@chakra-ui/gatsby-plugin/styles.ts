@@ -46,6 +46,19 @@ const styles: ThemeOverride["styles"] = {
         paddingLeft: 4,
       },
     },
+    p: {
+      pb: 4,
+      img: {
+        py: 12,
+        mx: `auto`,
+      },
+      a: {
+        color: `primary.500`,
+        ":hover": {
+          color: `primary.700`,
+        },
+      },
+    },
 
     "[data-skip-to-content]": {
       clip: `rect(0 0 0 0)`,

@@ -20,17 +20,14 @@ const Blog = ({
   <Layout>
     {/* TODO: Seo content */}
     <SEO title="Luis Kunz | Blog" description="TODO" />
-    <Hero
-      headline="Blog"
-      subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac elementum scelerisque dui mattis nulla."
-    />
+    <Hero headline="Blog" subheading="Introducing tutorials, real-problems solutions & drama" />
     <FullWidthContainer variant="max" pt={space.section}>
-      <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]}>
+      <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]} gap={8}>
         {blogPost.map((post) => (
           <PostCard
             key={post.id}
-            title={post.data.title}
             tags={post.tags}
+            title={post.data.title}
             image={post.data.blogImage}
             date={post.data.postDate}
             desc={post.data.description}

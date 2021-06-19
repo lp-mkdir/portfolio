@@ -20,7 +20,7 @@ const Projects = ({
     <Layout>
       <Hero
         headline="Projects"
-        subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac elementum scelerisque dui mattis nulla."
+        subheading="Gain an insight into the portfolios of previous people I worked for on this page. No idea remains unrealized, and thus no wish remains unfulfilled."
       />
       <FullWidthContainer variant="max" pt={space.paddingSmall}>
         <Wrapper>
@@ -32,7 +32,6 @@ const Projects = ({
                 <CardTextOverlay />
               </Card>
             </Link>
-            // <Card title={pro.node.data.name} image={pro.node.data.project_image} location={pro.node.url} />
           ))}
         </Wrapper>
       </FullWidthContainer>

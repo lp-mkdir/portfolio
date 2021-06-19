@@ -25,7 +25,7 @@ const PostCard = ({ title, desc, date, tags, image, location }: IPostCardProps) 
     <Card alignItems="flex-start" h="100%">
       <Flex flexDir="column" h="200px" w="100%" pos="relative" justifyContent="space-between" alignItems="flex-start">
         {tags.map((tag) => (
-          <Box p={4} key={tag}>
+          <Box p={4} key={tag} zIndex="1">
             <Button size="xs" fontSize="xs" variant="tag">
               {tag}
             </Button>

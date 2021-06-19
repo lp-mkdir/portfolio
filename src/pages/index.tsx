@@ -222,7 +222,7 @@ const Index = ({
       {/* Blogpost listing */}
       <FullWidthContainer variant="max" pt={space.section}>
         <TopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
-        <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]}>
+        <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]} gap={8}>
           {blogPost.map((post) => (
             <PostCard
               key={post.id}

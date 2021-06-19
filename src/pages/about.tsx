@@ -25,7 +25,7 @@ interface IAboutProps {
 
 const About = ({ data: { prismicAbout } }: IAboutProps) => (
   <Layout navBlack>
-    <Container pt={[`12rem`, null, 40]}>
+    <Container variant="article" pt={[`12rem`, null, 40]}>
       <Heading as="h1" variant="h1" pb={4}>
         {prismicAbout.data.title}
       </Heading>
@@ -37,6 +37,8 @@ const About = ({ data: { prismicAbout } }: IAboutProps) => (
 export const query = graphql`
   query AboutQuery {
     prismicAbout {
+      uid
+      type
       data {
         title
         body {

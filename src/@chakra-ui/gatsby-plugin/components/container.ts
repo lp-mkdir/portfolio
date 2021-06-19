@@ -13,6 +13,9 @@ const Container = {
       pt: 16,
       pb: [20, null, null, 24],
     },
+    article: {
+      maxW: `800px`,
+    },
   },
 }
 

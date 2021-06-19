@@ -18,17 +18,27 @@ interface IBodyImageProps {
 }
 
 const BodyImage = ({ slice }: IBodyImageProps) => (
-  <>
-    {slice.items.map((item) => (
-      <Box boxShadow="lg" borderRadius="1rem !important" my={16} sx={{ img: { borderRadius: `1rem !important` } }}>
+  <Box textAlign="center">
+    <Box
+      display="inline-block"
+      boxShadow="lg"
+      borderRadius="1rem !important"
+      my={12}
+      sx={{
+        img: {
+          borderRadius: `1rem !important`,
+        },
+      }}
+    >
+      {slice.items.map((item) => (
         <GatsbyImage
           image={item.image.localFile.childImageSharp.gatsbyImageData}
           alt={item.image.alt}
           style={{ height: `100%`, width: `auto` }}
         />
-      </Box>
-    ))}
-  </>
+      ))}
+    </Box>
+  </Box>
 )
 
 export { BodyImage }

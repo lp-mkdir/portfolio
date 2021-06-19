@@ -15,7 +15,7 @@ export const Hero = ({ headline, subheading }: IHero) => (
       <Heading as="h1" variant="h1" color="white" lineHeight="125%" textShadow="textShadows.big">
         {headline}
       </Heading>
-      <Text fontSize={[`lg`, null, null, `xl`]} color="brand.onPrimaryBg">
+      <Text fontSize={[`lg`, null, null, `xl`]} color="brand.onPrimaryBg" textAlign="center">
         {subheading}
       </Text>
     </VStack>

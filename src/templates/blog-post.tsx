@@ -43,7 +43,7 @@ const Post = ({ data: { BlogPost } }: IPostProps) => (
       headline={BlogPost.data.title}
       subheading={`${BlogPost.data.postDate} | ${BlogPost.tags.map((tag) => tag)}`}
     />
-    <Container pt={space.paddingSmall}>
+    <Container variant="article" pt={space.paddingSmall}>
       <SliceZone slices={BlogPost.data.body} />
     </Container>
   </Layout>
@@ -90,9 +90,10 @@ export const query = graphql`
             sliceType: slice_type
             items {
               image {
+                alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData(layout: FULL_WIDTH, quality: 80)
+                    gatsbyImageData(quality: 80)
                   }
                 }
               }

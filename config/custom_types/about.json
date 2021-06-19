@@ -40,7 +40,6 @@
             "fieldset" : "Image",
             "description" : "New image for post",
             "icon" : "add_a_photo",
-            "display" : "list",
             "non-repeat" : { },
             "repeat" : {
               "image" : {
@@ -49,6 +48,12 @@
                   "constraint" : { },
                   "thumbnails" : [ ],
                   "label" : "image"
+                }
+              },
+              "image_description" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Image Description"
                 }
               }
             }
