@@ -90,6 +90,21 @@ const gatsbyConfig: GatsbyConfig = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         exclude: [`/en/offline-plugin-app-shell-fallback`, `/imprint`, `/en/imprint`],
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => site.url,
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => allPages.map((page) => ({ ...page })),
+        serialize: ({ path, modifiedGmt }) => ({
+          url: path,
+          // lastmod: modifiedGmt,
+        }),
       },
     },
     {

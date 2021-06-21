@@ -6,17 +6,12 @@ import OptModal from "./optModal"
 import config from "../../../config/website"
 
 const cookieName = `gatsby-gdpr-google-analytics`
-
-export type CookieBannerProps = {
-  debug?: boolean
-}
-
 interface ScrollProps {
   pos: number
   scrollPerc?: number
 }
 
-function CookieBannerApp({ debug = false }: CookieBannerProps) {
+function CookieBannerApp() {
   const [isVisible, setVisible] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { pos, scrollPerc }: ScrollProps = ScrollProgress()
@@ -29,27 +24,27 @@ function CookieBannerApp({ debug = false }: CookieBannerProps) {
   }
 
   function gaEnable() {
+    setVisible(false)
     Cookies.set(cookieName, true)
     onClose()
-    setVisible(false)
   }
 
   useEffect(() => {
-    // Check if there is a cookie in local storage or debug phase
-    if (Cookies.get(cookieName) === undefined || debug) {
+    // Check if there is a cookie in local storage
+    if (Cookies.get(cookieName) === undefined) {
       setVisible(true)
     }
     // After 70% of scroll && GDPR is false it will automatically accept the cookies
     if (
       scrollPerc !== undefined && // TS: check if var comes undefined
-      scrollPerc > 70 &&
+      scrollPerc > 50 &&
       Cookies.get(cookieName) === undefined &&
       !Cookies.get(cookieName)
     ) {
       setVisible(false)
       Cookies.set(cookieName, true)
     }
-  }, [isVisible, debug, pos, scrollPerc])
+  }, [isVisible, pos, scrollPerc])
 
   if (!isVisible) {
     return null
@@ -57,14 +52,13 @@ function CookieBannerApp({ debug = false }: CookieBannerProps) {
 
   return (
     <Center>
-      <Box w="90%" pos="fixed" bottom={6} zIndex="sticky">
-        <Progress value={scrollPerc} size="xs" mb="-1" rounded="md" />
-        <Box px={4} py={8} bgGradient="linear(to-tr, primary.800, primary.900)" boxShadow="xl" rounded="md">
+      <Box w="90%" pos="fixed" bottom={6} zIndex="sticky" rounded="2xl" overflow="hidden">
+        <Progress value={scrollPerc} size="xs" mb="-1" />
+        <Box px={4} py={8} bgGradient="linear(to-tr, primary.800, primary.900)" boxShadow="xl">
           <Flex flexDir={[`column`, null, `row`]} alignItems="center" justifyContent="space-between">
             <Text color="white" fontSize="lg" fontWeight="semibold" w={[`100%`, null, `77%`]} pb={[4, null, null, 0]}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quibusdam repellat rem at maxime
-              repudiandae cumque nam officia cum labore fugiat impedit consectetur soluta quo quia, nostrum praesentium
-              amet itaque.
+              This site uses cookies for functional and personal analytical purposes. Please, feel free to accept or
+              delete them.
             </Text>
             <Stack spacing={4} direction="row">
               <Button variant="secondary" color="#000" size="lg" onClick={gaEnable}>
@@ -87,5 +81,4 @@ function CookieBannerApp({ debug = false }: CookieBannerProps) {
   )
 }
 
-export const CookieBanner: React.FC<CookieBannerProps> = ({ debug }) =>
-  !Cookies.get(cookieName) || debug ? <CookieBannerApp debug /> : null
+export const CookieBanner = () => (!Cookies.get(cookieName) ? <CookieBannerApp /> : null)
