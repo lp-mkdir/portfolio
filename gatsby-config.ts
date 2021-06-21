@@ -89,9 +89,15 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/en/offline-plugin-app-shell-fallback`, `/imprint`, `/en/imprint`],
+        output: `/sitemap.xml`,
         query: `
         {
+          siteInfo: site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+
           allSitePage {
             nodes {
               path
@@ -100,11 +106,28 @@ const gatsbyConfig: GatsbyConfig = {
         }
       `,
         resolveSiteUrl: () => site.url,
-        resolvePages: ({ allSitePage: { nodes: allPages } }) => allPages.map((page) => ({ ...page })),
-        serialize: ({ path, modifiedGmt }) => ({
-          url: path,
-          // lastmod: modifiedGmt,
-        }),
+        resolvePages: ({ allSitePage: { nodes } }) => nodes.map((page) => ({ ...page })),
+        serialize: ({ path }) => {
+          if (path.startsWith(`/blog/`)) {
+            return {
+              url: path,
+              changefreq: `weekly`,
+              priority: 0.7,
+            }
+          }
+          if (path.startsWith(`/project/`)) {
+            return {
+              url: path,
+              changefreq: `monthly`,
+              priority: 0.7,
+            }
+          }
+          return {
+            url: path,
+            changefreq: `monthly`,
+            priority: 0.5,
+          }
+        },
       },
     },
     {
