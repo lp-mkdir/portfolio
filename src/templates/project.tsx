@@ -8,6 +8,7 @@ import { space } from "../constants/space"
 import { SliceZone } from "../slices/slice-zone"
 import SEO from "../components/seo"
 
+// TODO: Add types
 type ProjectsProps = {
   data: any
 }

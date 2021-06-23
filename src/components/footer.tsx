@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Flex, Text, VStack, HStack, Icon, Heading, Button } from "@chakra-ui/react"
-import { FaYoutube, FaFacebook, FaLinkedin, FaGithub, FaPaperPlane } from "react-icons/fa"
+import { FaLinkedin, FaGithub, FaPaperPlane } from "react-icons/fa"
 import { Wave } from "../elements/Wave"
 import { Link } from "./link"
 import { FullWidthContainer } from "./blocks/full-width-container"
