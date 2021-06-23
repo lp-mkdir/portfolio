@@ -6,7 +6,7 @@ import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { PostCard } from "../components/blog/post-card"
-import { SEO } from "../components/seo"
+import SEO from "../components/seo"
 
 interface IBlog {
   data: any
@@ -19,7 +19,15 @@ const Blog = ({
 }: IBlog) => (
   <Layout>
     {/* TODO: Seo content */}
-    <SEO title="Luis Kunz | Blog" description="TODO" />
+    <SEO
+      seoData={{
+        data: {
+          seoTitle: `Blog | Luis Kunz`,
+          seoDescription: `Introducing tutorials, real-problems solutions & drama.`,
+        },
+        url: `/blog`,
+      }}
+    />
     <Hero headline="Blog" subheading="Introducing tutorials, real-problems solutions & drama" />
     <FullWidthContainer variant="max" pt={space.section}>
       <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]} gap={8}>

@@ -1,8 +1,9 @@
 export const site = {
-  title: `Luis Kunz`,
-  titleDefault: `Luis Kunz - Front-End Developer & UX Designer`,
-  url: `https://www.luiskunz.com`, // Without a trailing slash!
-  dataDomain: `luiskunz.com`,
-  description: `Luis is a Front End Developer...`,
+  title: `Luis Kunz - Front-End Developer & UX Designer`,
+  description: `Luis is a Front End Developer`,
+  canonicalUrl: `https://www.luiskunz.com`, // Without a trailing slash!
   image: `/social/default-og-image.png?v=1`,
+  author: {
+    name: `Luis Kunz`,
+  },
 }

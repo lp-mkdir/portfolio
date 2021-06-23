@@ -5,8 +5,7 @@ import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { SliceZone } from "../slices/slice-zone"
-import { SEO } from "../components/seo"
-import { article } from "../constants/json-ld"
+import SEO from "../components/seo"
 
 // TODO: Warning: Each child in a list should have a unique "key" prop.
 interface IPostProps {
@@ -15,30 +14,7 @@ interface IPostProps {
 
 const Post = ({ data: { BlogPost } }: IPostProps) => (
   <Layout>
-    <SEO title={BlogPost.data.seoTitle} description={BlogPost.data.seoDescription}>
-      <meta name="article:published_time" content={BlogPost.data.seoDate} />
-      <meta name="article:modified_time" content={BlogPost.lastUpdated} />
-      <script type="application/ld+json">
-        {JSON.stringify(
-          article({
-            isBlog: true,
-            post: {
-              title: BlogPost.data.title,
-              description: BlogPost.data.seoDescription ? BlogPost.data.seoDescription : BlogPost.data.description,
-              date: BlogPost.data.seoDate,
-              lastUpdated: BlogPost.lastUpdated,
-              year: BlogPost.data.yearDate,
-              image: BlogPost.data.blogImage.url,
-              slug: BlogPost.uid,
-            },
-            category: {
-              name: BlogPost.tags[0],
-              slug: `/blog/${BlogPost.tags[0]}/${BlogPost.data.seoTitle || BlogPost.data.title}`,
-            },
-          })
-        )}
-      </script>
-    </SEO>
+    <SEO seoData={BlogPost} isBlogPost />
     <Hero
       headline={BlogPost.data.title}
       subheading={`${BlogPost.data.postDate} | ${BlogPost.tags.map((tag) => tag)}`}
@@ -55,6 +31,7 @@ export const query = graphql`
   query BlogPostQuery($uid: String) {
     BlogPost: prismicBlogPost(uid: { eq: $uid }) {
       ...BodyQuoteInfo
+      id
       uid
       url
       tags

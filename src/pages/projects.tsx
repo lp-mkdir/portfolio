@@ -5,6 +5,7 @@ import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { Wrapper, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
+import SEO from "../components/seo"
 
 type ProjectsProps = {
   data: any
@@ -18,6 +19,15 @@ const Projects = ({
   if (!projects) return null
   return (
     <Layout>
+      <SEO
+        seoData={{
+          data: {
+            seoTitle: `Projects | Luis Kunz`,
+            seoDescription: `Gain an insight into the portfolios of previous people I worked for on this page. No idea remains unrealized, and thus no wish remains unfulfilled.`,
+          },
+          url: `/projects`,
+        }}
+      />
       <Hero
         headline="Projects"
         subheading="Gain an insight into the portfolios of previous people I worked for on this page. No idea remains unrealized, and thus no wish remains unfulfilled."

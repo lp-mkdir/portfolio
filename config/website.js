@@ -1,32 +1,23 @@
-const meta = {
-  // Metadata
-  siteTitle: `Luis Kunz | Frontend Web Developer`,
-  siteDescription: `Your website description (Google Optimal: 50–160 characters, length will vary depending on the situation,)`,
-  siteHeadline: `Headline`,
-  siteTitleAlt: `Luis Kunz`,
-  siteShortName: `Luis Kunz`,
-  siteUrl: `https://nomatives.com`,
+module.exports = {
+  siteTitle: `Luis Kunz - Front-End Developer & UX Designer`, // Navigation and Site Title
+  siteTitleAlt: `The personal website of Luis Kunz`, // Alternative Site title for SEO
+  siteTitleShort: `luiskunz`, // short_name for manifest
+  siteUrl: process.env.ROOT_URL || `https://luiskunz.netlify.app`, // Domain of your site. No trailing slash!
+  lang: `en`, // Language Tag on <html> element
+  pathPrefix: `/`,
+  siteLogo: `images/logo.png`, // Used for SEO and manifest, path to your image you placed in the 'static' folder
+  siteDescription: `Contact Luis to co-create or create and design your Website/ Landing Page or simply get in touch with him for new project ideas and expand the network`,
+  author: `Luis Kunz`, // Author for schemaORGJSONLD
+  organization: `Luis Kunz`,
+
+  ogSiteName: `Luis Kunz`, // Facebook Site Name
+  ogLanguage: `en_US`,
+
+  // Manifest and Progress color
+  themeColor: `#3B82F6`,
+  backgroundColor: `#fafafa`,
+
+  // Social component
+  github: `https://github.com/luiskunz/`,
+  linkedin: `https://www.linkedin.com/in/luis-eduardo-kunz/`,
 }
-
-const social = {
-  siteLogo: `${meta.siteUrl}/social/avatar.png`,
-  siteLogoSmall: `${meta.siteUrl}/social/avatar_small.png`,
-  siteBanner: `${meta.siteUrl}/social/banner_`, // Locale ending + filetype gets added in SEO component
-  siteBannerWidth: `776`,
-  siteBannerHeight: `382`,
-  instagram: `nomatives`,
-  facebook: `nomatives`,
-  twitter: `nomatives`,
-}
-
-const website = {
-  ...meta,
-  ...social,
-  googleAnalyticsID: `G-XXXXK2SZZZ`,
-
-  // Manifest
-  themeColor: `#1D4ED8`,
-  backgroundColor: `#fff`,
-}
-
-module.exports = website

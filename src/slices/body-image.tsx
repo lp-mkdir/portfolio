@@ -32,6 +32,8 @@ const BodyImage = ({ slice }: IBodyImageProps) => (
     >
       {slice.items.map((item) => (
         <GatsbyImage
+          // Hey Luis, find out other way to have a Key prop
+          key={item.image.alt}
           image={item.image.localFile.childImageSharp.gatsbyImageData}
           alt={item.image.alt}
           style={{ height: `100%`, width: `auto` }}

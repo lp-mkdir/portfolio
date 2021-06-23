@@ -19,7 +19,7 @@ const SliceZone = ({ slices }: ISliceZoneProps) => {
   return slices.map((slice) => {
     const SliceComponent = sliceComponents[slice.sliceType]
     if (SliceComponent) {
-      return <SliceComponent slice={slice} />
+      return <SliceComponent slice={slice} key={slice.id} />
     }
     return null
   })

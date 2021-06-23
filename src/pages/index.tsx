@@ -8,8 +8,7 @@ import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { Wrapper, TopNav, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
 import { PostCard } from "../components/blog/post-card"
-import { homepage } from "../constants/json-ld"
-import { SEO } from "../components/seo"
+import SEO from "../components/seo"
 
 interface IGatsbyImage {
   alt: string
@@ -77,9 +76,7 @@ const Index = ({
   if (!data) return null
   return (
     <Layout>
-      <SEO>
-        <script type="application/ld+json">{JSON.stringify(homepage)}</script>
-      </SEO>
+      <SEO />
       <MainHero
         headline={data.headline}
         primaryBtn={data.heroBtn}

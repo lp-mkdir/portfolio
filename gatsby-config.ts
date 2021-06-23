@@ -1,5 +1,4 @@
 import { GatsbyConfig } from "gatsby"
-import { site } from "./src/constants/meta"
 
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -23,11 +22,18 @@ const gatsbyConfig: GatsbyConfig = {
     DEV_SSR: false,
   },
   siteMetadata: {
-    siteTitle: site.title,
-    siteTitleDefault: site.titleDefault,
-    siteUrl: site.url,
-    siteDescription: site.description,
-    siteImage: site.image,
+    siteUrl: config.siteUrl,
+    title: config.title,
+    description: config.siteDescription,
+    keywords: [`Front End Developer`, `UX Designer`, `React Developer`],
+    author: config.author,
+    canonicalUrl: config.siteUrl,
+    image: config.siteLogo,
+    organization: {
+      name: config.organization,
+      url: config.siteUrl,
+      logo: config.siteLogo,
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -105,7 +111,7 @@ const gatsbyConfig: GatsbyConfig = {
           }
         }
       `,
-        resolveSiteUrl: () => site.url,
+        resolveSiteUrl: () => config.siteUrl,
         resolvePages: ({ allSitePage: { nodes } }) => nodes.map((page) => ({ ...page })),
         serialize: ({ path }) => {
           if (path.startsWith(`/blog/`)) {
