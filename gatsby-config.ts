@@ -95,7 +95,6 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/sitemap.xml`,
         query: `
         {
           siteInfo: site {
