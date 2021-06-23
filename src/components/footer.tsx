@@ -59,7 +59,7 @@ const Footer = () => (
       <div>&copy; {new Date().getFullYear()} by Luis Kunz. All rights reserved.</div>
       <HStack spacing={8} pb={[4, null, 0]}>
         <Link to="/privacy-policy">Privacy Policy</Link>
-        <Link to="/sitemap">Sitemap</Link>
+        <Link to="/sitemap/sitemap-0.xml">Sitemap</Link>
       </HStack>
     </HStack>
     <Wave flip />
