@@ -48,8 +48,8 @@ const gatsbyConfig: GatsbyConfig = {
         short_name: `Luis Kunz`,
         lang: `en-gb`,
         start_url: `/`,
-        background_color: `#f0f0f0`,
-        theme_color: `#2099d1`,
+        background_color: `#fff`,
+        theme_color: `#1E40AF`,
         display: `standalone`,
         icons: [
           {
