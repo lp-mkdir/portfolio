@@ -10,10 +10,9 @@
 
 ## Features
 - Cookies banner using js-cookie a super-light bundle size (without opt-out)
-- Gatsby-Image (Responsive images)
+- gatsby-plugin-image (Responsive & auto performance images)
 - Self-host Fonts (typefaces)
 - Google Analytics
-- Cookies with Banner included
 - SEO (sitemap, schema.org data, OpenGraph & Twitter tags)
 
 ## Tech Stack
