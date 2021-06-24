@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { Container, Heading } from "@chakra-ui/react"
 import { Layout } from "../components/Layout"
 import { SliceZone } from "../slices/slice-zone"
+import SEO from "../components/seo"
 
 interface IAboutProps {
   data: {
@@ -25,6 +26,15 @@ interface IAboutProps {
 
 const About = ({ data: { prismicAbout } }: IAboutProps) => (
   <Layout navBlack>
+    <SEO
+      seoData={{
+        data: {
+          seoTitle: `About Luis Kunz`,
+          seoDescription: `All about Luis Kunz`,
+        },
+        url: `/about`,
+      }}
+    />
     <Container variant="article" pt={[24, null, 40]}>
       <Heading as="h1" variant="h1" pb={4}>
         {prismicAbout.data.title}

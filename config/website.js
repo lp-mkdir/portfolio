@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: `Luis Kunz - Front-End Developer & UX Designer`, // Navigation and Site Title
   siteTitleAlt: `The personal website of Luis Kunz`, // Alternative Site title for SEO
   siteTitleShort: `luiskunz`, // short_name for manifest
-  siteUrl: process.env.ROOT_URL || `https://luiskunz.netlify.app`, // Domain of your site. No trailing slash!
+  siteUrl: process.env.ROOT_URL || `https://luiskunz.com`, // Domain of your site. No trailing slash!
   lang: `en`, // Language Tag on <html> element
   pathPrefix: `/`,
   siteLogo: `images/logo.png`, // Used for SEO and manifest, path to your image you placed in the 'static' folder
