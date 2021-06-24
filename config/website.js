@@ -20,4 +20,7 @@ module.exports = {
   // Social component
   github: `https://github.com/luiskunz/`,
   linkedin: `https://www.linkedin.com/in/luis-eduardo-kunz/`,
+
+  // Google Analytics
+  ga4ID: `G-ZGGBNLYQ2Q`,
 }
