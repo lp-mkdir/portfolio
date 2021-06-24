@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="logo" src="https://images.prismic.io/luiskunz/2d9f4f6f-5a33-424a-af74-8af8ce560bcd_lk-logo-300x300.png?auto=compress,format" width="60" />
+  <img alt="logo" src="https://images.prismic.io/luiskunz/2d9f4f6f-5a33-424a-af74-8af8ce560bcd_lk-logo-300x300.png?auto=compress,format" width="300" heigh="300" />
 </p>
 <h1 align="center">
   Luis Kunz Portfolio  🚀
