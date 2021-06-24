@@ -22,7 +22,7 @@ const Projects = ({ data: { Project: project } }: ProjectsProps) => {
       <Container pt={space.paddingSmall}>
         <Box boxShadow="lg" p={20} borderRadius="1rem">
           <Flex flexDirection={[`column`, null, `row`]} alignItems="flex-start" justifyContent="space-between">
-            <Box w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]} position="relative">
+            <Box w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]} position="relative" textAlign="center">
               <GatsbyImage
                 image={project.data.logo.localFile.childImageSharp.gatsbyImageData}
                 alt={project.data.logo.alt || `Customer logo`}
@@ -33,13 +33,17 @@ const Projects = ({ data: { Project: project } }: ProjectsProps) => {
               <Heading variant="h4" mb={4}>
                 Period
               </Heading>
-              <Text variant="prominent">{project.data.period}</Text>
+              <Text variant="prominent" fontSize="lg">
+                {project.data.period}
+              </Text>
             </Box>
             <Box w={[`100%`, null, null, `calc(99.9% * 4 / 12 - 2rem)`]} textAlign="center">
               <Heading variant="h4" mb={4}>
                 Task
               </Heading>
-              <Text variant="prominent">{project.data.task}</Text>
+              <Text variant="prominent" fontSize="lg">
+                {project.data.task}
+              </Text>
             </Box>
           </Flex>
         </Box>

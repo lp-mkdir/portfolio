@@ -10,7 +10,6 @@ const InternalLink = chakra(GatsbyLink)
 
 export const Navigation = () => {
   const primaryNavigation = [
-    { name: `Home`, link: `/`, externalLink: false },
     { name: `Projects`, link: `/projects`, externalLink: false },
     { name: `Blog`, link: `/blog`, externalLink: false },
     { name: `About`, link: `/about`, externalLink: false },

@@ -11,7 +11,7 @@ interface IHero {
 
 export const Hero = ({ headline, subheading }: IHero) => (
   <FullWidthContainer variant="hero" pos="relative" py={space.paddingLarge}>
-    <VStack alignItems="center" pb="96px">
+    <VStack alignItems="center" pt={4} pb={14}>
       <Heading as="h1" variant="h1" color="white" lineHeight="125%" textShadow="textShadows.big">
         {headline}
       </Heading>

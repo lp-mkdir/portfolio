@@ -7,6 +7,7 @@ const CardTitle: React.FC = ({ children, ...rest }) => (
     lineHeight="md"
     as="h4"
     variant="h4"
+    fontSize={[`1.33rem`, `xl`]}
     color="white"
     mb="0"
     zIndex="1"

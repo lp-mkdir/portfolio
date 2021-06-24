@@ -17,14 +17,14 @@ const headingBaseStyles = {
   },
   h3: {
     fontWeight: 600,
-    fontSize: [`lg`, `xl`, null, `2xl`, `3xl`],
+    fontSize: [`xl`, null, `2xl`, `3xl`],
     fontFamily: `heading`,
     lineHeight: `2xl`,
-    marginBottom: 6,
+    marginBottom: [2, null, 6],
   },
   h4: {
     fontWeight: 600,
-    fontSize: [`lg`, null, null, `xl`],
+    fontSize: `xl`,
     fontFamily: `heading`,
     lineHeight: `xl`,
     marginBottom: 2,

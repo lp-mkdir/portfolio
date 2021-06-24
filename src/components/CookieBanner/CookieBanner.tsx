@@ -56,7 +56,14 @@ function CookieBannerApp() {
         <Progress value={scrollPerc} size="xs" mb="-1" />
         <Box px={4} py={8} bgGradient="linear(to-tr, primary.800, primary.900)" boxShadow="xl">
           <Flex flexDir={[`column`, null, `row`]} alignItems="center" justifyContent="space-between">
-            <Text color="white" fontSize="lg" fontWeight="semibold" w={[`100%`, null, `77%`]} pb={[4, null, null, 0]}>
+            <Text
+              color="white"
+              fontSize="lg"
+              fontWeight="semibold"
+              w={[`100%`, null, `77%`]}
+              pb={[4, null, null, 0]}
+              pr={[0, null, 8]}
+            >
               This site uses cookies for functional and personal analytical purposes. Please, feel free to accept or
               delete them.
             </Text>

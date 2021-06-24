@@ -128,16 +128,19 @@ const Index = ({
         bgGradient="linear(to-tl, primary.900, primary.800)"
         marginTop={[`9rem`, null, null, `14rem`]}
       >
-        <Stack direction={[`column`, null, null, `row`]} spacing={16} py="24" align="flex-start">
-          <Box w={[`100%`, null, null, `calc(99.9% * 1 / 2.5)`]} boxShadow="dark-lg" borderRadius="1rem">
+        <Stack direction={[`column`, null, null, `row`]} spacing={[12, null, 16]} py={24} align="flex-start">
+          <Box
+            w={[`78%`, null, null, `calc(99.9% * 1 / 2.5)`]}
+            boxShadow="dark-lg"
+            borderRadius="1rem"
+            mt="-1rem"
+            mx="auto"
+          >
             <GatsbyImage
               image={data.techImage.localFile.childImageSharp.gatsbyImageData}
               alt="Luis Kunz"
               imgStyle={{
                 borderRadius: `1rem`,
-              }}
-              style={{
-                marginTop: `-10rem`,
               }}
             />
           </Box>
