@@ -251,7 +251,7 @@ export const query = graphql`
           alt
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(quality: 90)
             }
           }
         }
@@ -265,7 +265,7 @@ export const query = graphql`
           alt
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(quality: 90, height: 684, placeholder: BLURRED)
             }
           }
         }
@@ -285,7 +285,7 @@ export const query = graphql`
             alt
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(quality: 90, width: 600, placeholder: BLURRED)
               }
             }
           }
@@ -305,7 +305,7 @@ export const query = graphql`
             alt
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(layout: FIXED, width: 384, quality: 70)
               }
             }
           }

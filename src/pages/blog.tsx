@@ -18,7 +18,6 @@ const Blog = ({
   },
 }: IBlog) => (
   <Layout>
-    {/* TODO: Seo content */}
     <SEO
       seoData={{
         data: {
@@ -65,7 +64,7 @@ export const query = graphql`
             alt
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(layout: FIXED, width: 384, quality: 70)
               }
             }
           }
