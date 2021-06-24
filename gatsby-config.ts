@@ -85,10 +85,10 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [config.googleAnalyticsID],
+        trackingIds: process.env.GA_KEY,
         pluginConfig: {
           head: true,
-          exclude: [`/404/*`, `/preview/*`, `/en/imprint`, `/impressum`],
+          exclude: [`/404/*`, `/preview/*`],
         },
       },
     },
