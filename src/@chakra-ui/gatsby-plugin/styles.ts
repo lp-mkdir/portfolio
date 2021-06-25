@@ -37,7 +37,7 @@ const styles: ThemeOverride["styles"] = {
       },
       ul: {
         listStyle: `none`,
-        py: 6,
+        pb: 4,
       },
       "li::before": {
         content: `"•"`,

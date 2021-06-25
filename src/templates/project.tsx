@@ -102,6 +102,7 @@ export const query = graphql`
             id
             sliceType: slice_type
             items {
+              imgDescription: image_description
               image {
                 alt
                 localFile {
