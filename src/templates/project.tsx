@@ -7,10 +7,22 @@ import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { SliceZone } from "../slices/slice-zone"
 import SEO from "../components/seo"
+import { IGatsbyImage } from "../types/gatsbyImage"
 
-// TODO: Add types
 type ProjectsProps = {
-  data: any
+  data: {
+    Project: {
+      data: {
+        logo: IGatsbyImage
+        projectName: string
+        name: string
+        date: string
+        task: string
+        period: string
+        body: any
+      }
+    }
+  }
 }
 
 const Projects = ({ data: { Project: project } }: ProjectsProps) => {
