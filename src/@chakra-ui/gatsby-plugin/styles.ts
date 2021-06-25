@@ -56,6 +56,7 @@ const styles: ThemeOverride["styles"] = {
         color: `primary.500`,
         ":hover": {
           color: `primary.700`,
+          textDecoration: `underline`,
         },
       },
     },
