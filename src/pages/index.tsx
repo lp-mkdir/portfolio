@@ -213,8 +213,12 @@ const Index = ({
               bgGradient="linear(to-tr, secondary.700, secondary.800)"
               boxShadow="rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 15px 40px"
               _hover={{
+                bgGradient: `brand.secondaryHover !important`,
                 boxShadow: `rgba(254, 214, 0, 0.1) 0px 0px 0px 1px, rgba(254, 214, 0, 0.2) 0px 5px 10px, rgba(254, 214, 0, 0.4) 0px 20px 35px`,
                 transform: `translateY(-8px)`,
+              }}
+              _active={{
+                bg: `brand.secondaryHover !important`,
               }}
             >
               Github Source
