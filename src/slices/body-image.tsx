@@ -18,19 +18,19 @@ interface IBodyImageProps {
 }
 
 const BodyImage = ({ slice }: IBodyImageProps) => (
-  <Box textAlign="center">
-    <Box
-      display="inline-block"
-      boxShadow="lg"
-      borderRadius="1rem !important"
-      my={12}
-      sx={{
-        img: {
-          borderRadius: `1rem !important`,
-        },
-      }}
-    >
-      {slice.items.map((item) => (
+  <Box textAlign="center" py={4}>
+    {slice.items.map((item) => (
+      <Box
+        display="inline-block"
+        boxShadow="lg"
+        borderRadius="1rem !important"
+        my={6}
+        sx={{
+          img: {
+            borderRadius: `1rem !important`,
+          },
+        }}
+      >
         <GatsbyImage
           // Hey Luis, find out other way to have a Key prop
           key={item.image.alt}
@@ -38,8 +38,8 @@ const BodyImage = ({ slice }: IBodyImageProps) => (
           alt={item.image.alt}
           style={{ height: `100%`, width: `auto` }}
         />
-      ))}
-    </Box>
+      </Box>
+    ))}
   </Box>
 )
 
