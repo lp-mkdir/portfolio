@@ -61,6 +61,20 @@ export const query = graphql`
               }
             }
           }
+          ... on PrismicAboutDataBodyImage {
+            id
+            sliceType: slice_type
+            items {
+              image {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(quality: 80)
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
