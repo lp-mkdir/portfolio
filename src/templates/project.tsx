@@ -19,6 +19,9 @@ type ProjectsProps = {
         date: string
         task: string
         period: string
+        websiteLink: {
+          url: string
+        }
         body: any
       }
     }
@@ -38,14 +41,14 @@ const Projects = ({ data: { Project: project } }: ProjectsProps) => {
               <GatsbyImage
                 image={project.data.logo.localFile.childImageSharp.gatsbyImageData}
                 alt={project.data.logo.alt || `Customer logo`}
-                style={{ height: `6rem`, width: `6rem`, margin: `0 auto` }}
+                style={{ height: `6rem`, width: `6rem`, marginBottom: `1rem` }}
               />
-              <Link color="blue.500" href="https://pugatsch.ch" target="_blank" fontSize="lg" pt={4}>
-                https://pugatsch.ch
+              <Link color="blue.500" href={project.data.websiteLink.url} target="_blank" fontSize="lg">
+                {project.data.websiteLink.url}
               </Link>
             </VStack>
             <Box w={[`100%`, null, null, `calc(99.9% * 4 / 12 - 2rem)`]} textAlign="center" py={[4, 0]}>
-              <Heading variant="h4" mb={4}>
+              <Heading variant="h3" mb={4}>
                 Period
               </Heading>
               <Text variant="prominent" fontSize="lg">
@@ -53,7 +56,7 @@ const Projects = ({ data: { Project: project } }: ProjectsProps) => {
               </Text>
             </Box>
             <Box w={[`100%`, null, null, `calc(99.9% * 4 / 12 - 2rem)`]} textAlign="center">
-              <Heading variant="h4" mb={4}>
+              <Heading variant="h3" mb={4}>
                 Task
               </Heading>
               <Text variant="prominent" fontSize="lg">
@@ -97,6 +100,9 @@ export const query = graphql`
               gatsbyImageData
             }
           }
+        }
+        websiteLink: website_link {
+          url
         }
         seoTitle: seo_title
         seoDescription: seo_desc
