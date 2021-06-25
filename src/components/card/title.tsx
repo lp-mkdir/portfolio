@@ -5,8 +5,8 @@ const CardTitle: React.FC = ({ children, ...rest }) => (
   <Heading
     textAlign="left"
     lineHeight="md"
-    as="h4"
-    variant="h4"
+    as="h3"
+    variant="h3"
     fontSize={[`1.33rem`, `xl`]}
     color="white"
     mb="0"
