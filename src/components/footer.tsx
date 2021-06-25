@@ -25,22 +25,19 @@ const Footer = () => (
         </a>
       </HStack>
       <VStack alignItems="flex-start">
-        <Heading variant="h4" color="white" textShadow="textShadows.small">
+        <Heading variant="h4" fontWeight="bold" color="white" textShadow="textShadows.small">
           Reach me
         </Heading>
         <Text color="brand.onPrimaryBg" lineHeight="160%">
           Switzerland,
           <br /> Canton Zürich
-          <br />
-          {` `}
         </Text>
         <Button
           as="a"
           variant="tag"
-          padding="1.5rem 1.5rem"
+          padding="1.25rem 1.25rem"
           color="primary.800"
           leftIcon={<Icon as={FaPaperPlane} color="primary.800" />}
-          mt="0.875rem !important"
           href="mailto:hello@luiskunz.com"
         >
           EMAIL

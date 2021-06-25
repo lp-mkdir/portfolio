@@ -40,9 +40,11 @@ const BodyImage = ({ slice }: IBodyImageProps) => (
             style={{ height: `100%`, width: `auto` }}
           />
         </Box>
-        <Text fontSize={[`md`, `lg`]} color="gray.500" fontWeight="normal" pt={4}>
-          {item.imgDescription}
-        </Text>
+        {item.imgDescription && (
+          <Text fontSize={[`md`, `lg`]} color="gray.500" fontWeight="normal" pt={4}>
+            {item.imgDescription}
+          </Text>
+        )}
       </Box>
     ))}
   </Box>
