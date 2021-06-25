@@ -97,7 +97,7 @@ export const query = graphql`
           alt
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
         }
@@ -125,7 +125,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(placeholder: BLURRED)
                   }
                 }
               }
