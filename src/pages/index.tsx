@@ -133,7 +133,7 @@ const Index = ({
             w={[`78%`, null, null, `calc(99.9% * 1 / 2.5)`]}
             boxShadow="dark-lg"
             borderRadius="1rem"
-            mt="-1rem"
+            mt={[`-9rem`, null, null, `-10rem`]}
             mx="auto"
           >
             <GatsbyImage
@@ -141,6 +141,9 @@ const Index = ({
               alt="Luis Kunz"
               imgStyle={{
                 borderRadius: `1rem`,
+              }}
+              style={{
+                width: `100%`,
               }}
             />
           </Box>

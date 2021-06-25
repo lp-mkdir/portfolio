@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { Container, Box, Flex, Heading, Text } from "@chakra-ui/react"
+import { Container, VStack, Box, Flex, Heading, Text, Link } from "@chakra-ui/react"
 import { Hero } from "../components/blocks/hero"
 import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
@@ -22,13 +22,16 @@ const Projects = ({ data: { Project: project } }: ProjectsProps) => {
       <Container pt={space.paddingSmall}>
         <Box boxShadow="lg" p={20} borderRadius="1rem">
           <Flex flexDirection={[`column`, null, `row`]} alignItems="flex-start" justifyContent="space-between">
-            <Box w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]} position="relative" textAlign="center">
+            <VStack w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]} position="relative" textAlign="center">
               <GatsbyImage
                 image={project.data.logo.localFile.childImageSharp.gatsbyImageData}
                 alt={project.data.logo.alt || `Customer logo`}
                 style={{ height: `6rem`, width: `6rem`, margin: `0 auto` }}
               />
-            </Box>
+              <Link color="blue.500" href="https://pugatsch.ch" target="_blank" fontSize="lg" pt={4}>
+                https://pugatsch.ch
+              </Link>
+            </VStack>
             <Box w={[`100%`, null, null, `calc(99.9% * 4 / 12 - 2rem)`]} textAlign="center" py={[4, 0]}>
               <Heading variant="h4" mb={4}>
                 Period
