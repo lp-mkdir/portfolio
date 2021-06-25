@@ -5,7 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 interface IBodyImageProps {
   slice: {
     items: {
-      imgDescription: string
+      imgDescription?: string
       image: {
         alt: string
         localFile: {
