@@ -50,7 +50,7 @@ export const MainHero = ({ headline, primaryBtn, secondaryBtn, heroImg }: IMainH
         {/* Hero Image */}
         <Box w="calc(99.9% * 1 / 1)" height={[`auto`, null, null, `45rem`]}>
           <Box w={[`100%`, null, null, `45rem`]} m="0 auto" pos={[`static`, null, null, `absolute`]}>
-            <GatsbyImage image={heroImg.localFile.childImageSharp.a} alt={heroImg.alt} />
+            <GatsbyImage image={heroImg.localFile.childImageSharp.gatsbyImageData} alt={heroImg.alt} />
           </Box>
         </Box>
       </Flex>
