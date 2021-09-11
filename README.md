@@ -20,6 +20,10 @@
 
 - TypeScript
 - Chakra UI for styling
-- ESLint & Prettier for linting
+- Static Analysis Testing:
+  - ESLint & Prettier for linting
+  - Husky
+  - lint-staged
+  - npm-run-all
 - Cypress.io for E2E-testing (TODO)
 - CircleCI (TODO)
