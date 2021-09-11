@@ -1,5 +1,5 @@
 const Prism = require(`prismjs`)
-const { RichText } = require(`prismic-dom`)
+const {RichText} = require(`prismic-dom`)
 // We don't want to import every PrismJS component - so that's why they're required individually
 require(`prismjs/components/prism-javascript`)
 require(`prismjs/components/prism-css`)
@@ -12,12 +12,23 @@ require(`prismjs/components/prism-diff`)
 require(`prismjs/components/prism-markdown`)
 require(`prismjs/components/prism-graphql`)
 
-const { Elements } = RichText
+const {Elements} = RichText
 
 // Labels with this name will be inline code
 const codeInline = [`text`]
 // Labels with these names will become code blocks
-const codeBlock = [`javascript`, `css`, `scss`, `jsx`, `bash`, `json`, `diff`, `markdown`, `graphql`, `tsx`]
+const codeBlock = [
+  `javascript`,
+  `css`,
+  `scss`,
+  `jsx`,
+  `bash`,
+  `json`,
+  `diff`,
+  `markdown`,
+  `graphql`,
+  `tsx`,
+]
 
 const htmlSerializer = (type, element, content) => {
   switch (type) {
@@ -34,25 +45,30 @@ const htmlSerializer = (type, element, content) => {
       // Use the code block for labels that are in the array of "codeBlock"
       // Choose the right PrismJS highlighting with the label name
       if (codeBlock.includes(element.data.label)) {
-        return `<pre class="language-${element.data.label}"><code class="language-${
+        return `<pre class="language-${
           element.data.label
-        }">${Prism.highlight(content, Prism.languages[element.label])}</code></pre>`
+        }"><code class="language-${element.data.label}">${Prism.highlight(
+          content,
+          Prism.languages[element.label],
+        )}</code></pre>`
       }
       return null
     }
     case Elements.preformatted: {
       if (codeBlock.includes(element.label)) {
-        return `<div class="luiskunz-highlight" data-language="${element.label}"><pre class="language-${
+        return `<div class="luiskunz-highlight" data-language="${
           element.label
-        }"><code class="language-${element.label}">${Prism.highlight(
+        }"><pre class="language-${element.label}"><code class="language-${
+          element.label
+        }">${Prism.highlight(
           element.text,
-          Prism.languages[element.label]
+          Prism.languages[element.label],
         )}</code></pre></div>`
       }
 
       return `<div class="luiskunz-highlight" data-language="markup"><pre class="language-markup"><code class="language-markup">${Prism.highlight(
         element.text,
-        Prism.languages.markup
+        Prism.languages.markup,
       )}</code></pre></div>`
     }
     default: {

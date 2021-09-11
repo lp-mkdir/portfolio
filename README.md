@@ -9,6 +9,7 @@
 <br>
 
 ## Features
+
 - Cookies banner using js-cookie a super-light bundle size (without opt-out)
 - gatsby-plugin-image (Responsive & auto performance images)
 - Self-host Fonts (typefaces)
@@ -16,7 +17,8 @@
 - SEO (sitemap, schema.org data, OpenGraph & Twitter tags)
 
 ## Tech Stack
-- TypeScript 
+
+- TypeScript
 - Chakra UI for styling
 - ESLint & Prettier for linting
 - Cypress.io for E2E-testing (TODO)

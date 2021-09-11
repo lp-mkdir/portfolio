@@ -1,7 +1,7 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from 'react'
+import {Link} from 'gatsby'
 
-const linkResolver = require(`../utils/linkResolver`)
+import linkResolver from './linkResolver'
 
 interface IGatsbyLink {
   type: string
@@ -25,4 +25,4 @@ const GatsbyLink = (type, element, content): IGatsbyLink => {
   return null
 }
 
-export { GatsbyLink }
+export {GatsbyLink}

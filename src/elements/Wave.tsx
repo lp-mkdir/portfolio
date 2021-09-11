@@ -1,7 +1,7 @@
-import React from "react"
-import { keyframes, usePrefersReducedMotion, Box } from "@chakra-ui/react"
+import React from 'react'
+import {keyframes, usePrefersReducedMotion, Box} from '@chakra-ui/react'
 
-const WaveSvg = require(`../images/wave-chill.svg`)
+import WaveSvg from '../images/wave-chill.svg'
 
 const waveFlow = keyframes`
   0% {
@@ -12,9 +12,11 @@ const waveFlow = keyframes`
   }
 `
 
-const Wave: React.FC<{ flip?: boolean }> = ({ flip }) => {
+const Wave: React.FC<{flip?: boolean}> = ({flip}) => {
   const prefersReducedMotion = usePrefersReducedMotion()
-  const animation = prefersReducedMotion ? undefined : `${waveFlow} 45s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite`
+  const animation = prefersReducedMotion
+    ? undefined
+    : `${waveFlow} 45s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite`
   return (
     <Box
       w="100%"
@@ -27,16 +29,18 @@ const Wave: React.FC<{ flip?: boolean }> = ({ flip }) => {
       overflowX="hidden"
     >
       <Box
-        background={`url(${WaveSvg.default}) repeat-x`}
+        background={`url(${WaveSvg}) repeat-x`}
         position="absolute"
         bottom="0"
         width="6400px"
         height="96px"
         animation={animation}
-        transform={flip ? `rotate(180deg) translate3d(0, 0, 0)` : `translate3d(0, 0, 0)`}
+        transform={
+          flip ? `rotate(180deg) translate3d(0, 0, 0)` : `translate3d(0, 0, 0)`
+        }
       />
     </Box>
   )
 }
 
-export { Wave }
+export {Wave}

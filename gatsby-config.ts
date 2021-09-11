@@ -1,16 +1,18 @@
-import { GatsbyConfig } from "gatsby"
+import {GatsbyConfig} from 'gatsby'
 
-require(`dotenv`).config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+import config = require('./config/website')
 
-const config = require(`./config/website`)
-const linkResolver = require(`./src/utils/linkResolver`)
-const htmlSerializer = require(`./src/utils/htmlSerializer`)
-const homepage = require(`./config/custom_types/homepage.json`)
-const about = require(`./config/custom_types/about.json`)
-const project = require(`./config/custom_types/project.json`)
-const blogpost = require(`./config/custom_types/blogpost.json`)
+// require(`dotenv`).config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
+
+import linkResolver = require('./src/utils/linkResolver')
+
+import htmlSerializer = require('./src/utils/htmlSerializer')
+import homepage = require('./config/custom_types/homepage.json')
+import about = require('./config/custom_types/about.json')
+import project = require('./config/custom_types/project.json')
+import blogpost = require('./config/custom_types/blogpost.json')
 
 const gatsbyConfig: GatsbyConfig = {
   flags: {
@@ -70,8 +72,9 @@ const gatsbyConfig: GatsbyConfig = {
       options: {
         repositoryName: `luiskunz`,
         accessToken: process.env.PRISMIC_API_KEY,
-        linkResolver: (doc) => linkResolver(doc),
-        htmlSerializer: (type, element, content) => htmlSerializer(type, element, content),
+        linkResolver,
+        htmlSerializer: (type, element, content) =>
+          htmlSerializer(type, element, content),
         schemas: {
           homepage,
           about,
@@ -111,8 +114,9 @@ const gatsbyConfig: GatsbyConfig = {
         }
       `,
         resolveSiteUrl: () => config.siteUrl,
-        resolvePages: ({ allSitePage: { nodes } }) => nodes.map((page) => ({ ...page })),
-        serialize: ({ path }) => {
+        resolvePages: ({allSitePage: {nodes}}) =>
+          nodes.map(page => ({...page})),
+        serialize: ({path}) => {
           if (path.startsWith(`/blog/`)) {
             return {
               url: path,

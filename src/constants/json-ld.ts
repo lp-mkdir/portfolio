@@ -1,51 +1,51 @@
-import { site } from "./meta"
+import {site} from './meta'
 
 export const identity = {
-  "@id": `${site.url}/#identity`,
-  "@type": `Organization`,
+  '@id': `${site.url}/#identity`,
+  '@type': `Organization`,
   alternateName: `Luis Kunz`,
   description: site.description,
   email: `hello@luiskunz.com`,
   founder: `Luis Kunz`,
   foundingDate: `2021-05-01`,
   image: {
-    "@type": `ImageObject`,
+    '@type': `ImageObject`,
     height: `1024`,
     url: `${site.url}/social/logo-1024w.png`,
     width: `1024`,
   },
   logo: {
-    "@type": `ImageObject`,
+    '@type': `ImageObject`,
     height: `60`,
     url: `${site.url}/social/logo-60w.png`,
     width: `60`,
   },
-  name: site.titleDefault,
+  name: site.title,
   sameAs: [`https://github.com/LuisKunz`],
   url: site.url,
 }
 
 export const creator = {
-  "@id": `${site.url}/#creator`,
-  "@type": `Organization`,
+  '@id': `${site.url}/#creator`,
+  '@type': `Organization`,
   alternateName: `Luis Kunz`,
   description: site.description,
   email: `hello@luiskunz.com`,
   founder: `Luis Kunz`,
   foundingDate: `2021-06-01`,
   image: {
-    "@type": `ImageObject`,
+    '@type': `ImageObject`,
     height: `1024`,
     url: `${site.url}/social/logo-1024w.png`,
     width: `1024`,
   },
   logo: {
-    "@type": `ImageObject`,
+    '@type': `ImageObject`,
     height: `60`,
     url: `${site.url}/social/logo-60w.png`,
     width: `60`,
   },
-  name: site.titleDefault,
+  name: site.title,
   url: site.url,
 }
 
@@ -56,24 +56,24 @@ export type BreadcrumbListItem = {
 
 export const breadcrumbList = (items: BreadcrumbListItem[]) => {
   const homeLevel = {
-    "@type": `ListItem`,
+    '@type': `ListItem`,
     item: {
-      "@id": site.url,
+      '@id': site.url,
       name: `Homepage`,
     },
     position: 1,
   }
   const nestedLevels = items.map((item, index) => ({
-    "@type": `ListItem`,
+    '@type': `ListItem`,
     item: {
-      "@id": `${site.url}${item.url}`,
+      '@id': `${site.url}${item.url}`,
       name: item.name,
     },
     position: index + 2,
   }))
   return {
-    "@context": `https://schema.org`,
-    "@type": `BreadcrumbList`,
+    '@context': `https://schema.org`,
+    '@type': `BreadcrumbList`,
     description: `Breadcrumbs list`,
     itemListElement: [homeLevel, ...nestedLevels],
     name: `Breadcrumbs`,
@@ -97,62 +97,62 @@ type BlogProps = {
   isBlog: boolean
 }
 
-export const article = ({ category, post, isBlog }: BlogProps) => ({
-  "@context": `https://schema.org`,
-  "@graph": [
+export const article = ({category, post, isBlog}: BlogProps) => ({
+  '@context': `https://schema.org`,
+  '@graph': [
     identity,
     creator,
     {
-      "@type": `Article`,
+      '@type': `Article`,
       articleSection: isBlog ? `Blog` : `Project`,
-      author: { "@id": `${site.url}/#identity` },
-      copyrightHolder: { "@id": `${site.url}/#identity` },
+      author: {'@id': `${site.url}/#identity`},
+      copyrightHolder: {'@id': `${site.url}/#identity`},
       copyrightYear: post.year,
-      creator: { "@id": `${site.url}/#creator` },
+      creator: {'@id': `${site.url}/#creator`},
       dateModified: post.lastUpdated,
       datePublished: post.date,
       description: post.description,
       genre: category.name,
       headline: post.title,
       image: {
-        "@type": `ImageObject`,
+        '@type': `ImageObject`,
         url: `${site.url}${post.image}`,
       },
       inLanguage: `en-UK`,
       mainEntityOfPage: `${site.url}${post.slug}`,
       name: post.title,
-      publisher: { "@id": `${site.url}/#creator` },
+      publisher: {'@id': `${site.url}/#creator`},
       url: `${site.url}${post.slug}`,
     },
     breadcrumbList([
-      { name: category.name, url: category.slug },
-      { name: post.title, url: post.slug },
+      {name: category.name, url: category.slug},
+      {name: post.title, url: post.slug},
     ]),
   ],
 })
 
 export const homepage = {
-  "@context": `https://schema.org`,
-  "@graph": [
+  '@context': `https://schema.org`,
+  '@graph': [
     identity,
     creator,
     {
-      "@type": `WebPage`,
-      author: { "@id": `${site.url}/#identity` },
-      copyrightHolder: { "@id": `${site.url}/#identity` },
+      '@type': `WebPage`,
+      author: {'@id': `${site.url}/#identity`},
+      copyrightHolder: {'@id': `${site.url}/#identity`},
       copyrightYear: `2021`,
-      creator: { "@id": `${site.url}/#creator` },
+      creator: {'@id': `${site.url}/#creator`},
       datePublished: `2021-06-01T23:33:12-05:00`,
       description: site.description,
-      headline: site.titleDefault,
+      headline: site.title,
       image: {
-        "@type": `ImageObject`,
+        '@type': `ImageObject`,
         url: `${site.url}${site.image}`,
       },
       inLanguage: `en-US`,
       mainEntityOfPage: site.url,
-      name: site.titleDefault,
-      publisher: { "@id": `${site.url}/#creator` },
+      name: site.title,
+      publisher: {'@id': `${site.url}/#creator`},
       url: site.url,
     },
     breadcrumbList([]),
