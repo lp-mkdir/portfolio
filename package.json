@@ -11,6 +11,8 @@
     "dev": "gatsby develop -o",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "prepare": "husky install",
+    "postinstall": "husky install",
     "check-types": "tsc --noEmit",
     "lint": "eslint --ignore-path .gitignore . --ext .ts,.tsx,.js",
     "lint:fix": "npm lint --fix",
