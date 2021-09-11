@@ -11,11 +11,13 @@
     "dev": "gatsby develop -o",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "format": "prettier \"**/*.{md,mdx,yml}\" --write",
-    "tsc": "tsc",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
-    "lint:fix": "yarn lint --fix"
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --ignore-path .gitignore . --ext .ts,.tsx,.js",
+    "lint:fix": "npm lint --fix",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|ts|tsx)\"",
+    "format": "npm run prettier --write",
+    "check-format": "npm run prettier --list-different",
+    "validate": "npm run check-types && npm run check-format && npm run lint && npm run build"
   },
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^2.0.0",
@@ -73,6 +75,8 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.22",
+    "husky": "7.0.2",
+    "lint-staged": "11.1.2",
     "prettier": "^2.3.0",
     "typescript": "^4.3.2"
   },
