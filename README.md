@@ -26,4 +26,4 @@
   - lint-staged
   - npm-run-all
 - Cypress.io for E2E-testing (TODO)
-- CircleCI (TODO)
+- CircleCI (TODO) .
