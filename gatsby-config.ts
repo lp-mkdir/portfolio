@@ -1,15 +1,23 @@
-import {GatsbyConfig} from 'gatsby'
+import { GatsbyConfig } from 'gatsby';
 
-import websiteConfig from 'config/websiteConfig'
+import websiteConfig from 'config/websiteConfig';
 
-import linkResolver from './src/utils/linkResolver'
-import htmlSerializer = require('./src/utils/htmlSerializer')
-import homepage = require('./config/custom_types/homepage.json')
-import about = require('./config/custom_types/about.json')
-import project = require('./config/custom_types/project.json')
-import blogpost = require('./config/custom_types/blogpost.json')
- 
-const { siteUrl, siteTitle, siteDescription, author, siteLogo, organization, ga4ID } = websiteConfig
+import linkResolver from './src/utils/linkResolver';
+import htmlSerializer = require('./src/utils/htmlSerializer');
+import homepage = require('./config/custom_types/homepage.json');
+import about = require('./config/custom_types/about.json');
+import project = require('./config/custom_types/project.json');
+import blogpost = require('./config/custom_types/blogpost.json');
+
+const {
+  siteUrl,
+  siteTitle,
+  siteDescription,
+  author,
+  siteLogo,
+  organization,
+  ga4ID,
+} = websiteConfig;
 
 const gatsbyConfig: GatsbyConfig = {
   flags: {
@@ -21,11 +29,11 @@ const gatsbyConfig: GatsbyConfig = {
     DEV_SSR: false,
   },
   siteMetadata: {
-    siteUrl: siteUrl,
+    siteUrl,
     title: siteTitle,
     description: siteDescription,
     keywords: [`Front End Developer`, `UX Designer`, `React Developer`],
-    author: author,
+    author,
     canonicalUrl: siteUrl,
     image: siteLogo,
     organization: {
@@ -111,28 +119,28 @@ const gatsbyConfig: GatsbyConfig = {
         }
       `,
         resolveSiteUrl: () => siteUrl,
-        resolvePages: ({allSitePage: {nodes}}) =>
-          nodes.map(page => ({...page})),
-        serialize: ({path}) => {
+        resolvePages: ({ allSitePage: { nodes } }) =>
+          nodes.map(page => ({ ...page })),
+        serialize: ({ path }) => {
           if (path.startsWith(`/blog/`)) {
             return {
               url: path,
               changefreq: `weekly`,
               priority: 0.7,
-            }
+            };
           }
           if (path.startsWith(`/project/`)) {
             return {
               url: path,
               changefreq: `monthly`,
               priority: 0.7,
-            }
+            };
           }
           return {
             url: path,
             changefreq: `monthly`,
             priority: 0.5,
-          }
+          };
         },
       },
     },
@@ -154,6 +162,6 @@ const gatsbyConfig: GatsbyConfig = {
     `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-plugin-offline`,
   ],
-}
+};
 
-export default gatsbyConfig
+export default gatsbyConfig;
