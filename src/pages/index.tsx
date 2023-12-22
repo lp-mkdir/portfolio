@@ -155,7 +155,7 @@ const Index = ({
           >
             <GatsbyImage
               image={data.techImage.gatsbyImageData}
-              alt="Luis Kunz"
+              alt="Luis Pacheco"
               imgStyle={{
                 borderRadius: `1rem`,
               }}
@@ -226,7 +226,7 @@ const Index = ({
             portfolio at GitHub!
           </Text>
           <a
-            href="https://github.com/luiskunz/portfolio"
+            href="https://github.com/lp-mkdir/portfolio"
             target="_blank"
             rel="noreferrer"
           >
@@ -335,12 +335,7 @@ export const query = graphql`
           description
           blogImage: blog_image {
             alt
-            gatsbyImageData(
-              layout: FIXED
-              width: 384
-              placeholder: BLURRED
-              imgixParams: { q: 70 }
-            )
+            gatsbyImageData(placeholder: BLURRED, imgixParams: { q: 70 })
           }
           imageCaption: image_caption {
             raw
