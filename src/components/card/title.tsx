@@ -1,7 +1,8 @@
-import * as React from "react"
-import { Heading } from "@chakra-ui/react"
+import React, { FC, PropsWithChildren } from 'react';
 
-const CardTitle: React.FC = ({ children, ...rest }) => (
+import { Heading, HeadingProps } from "@chakra-ui/react"
+
+const CardTitle: FC<PropsWithChildren<HeadingProps>> = ({ children, ...rest }) => (
   <Heading
     textAlign="left"
     lineHeight="md"

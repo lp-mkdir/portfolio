@@ -39,7 +39,7 @@ const Projects = ({ data: { Project: project } }: ProjectsProps) => {
           <Flex flexDirection={[`column`, null, `row`]} alignItems="flex-start" justifyContent="space-between">
             <VStack w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]} position="relative" textAlign="center">
               <GatsbyImage
-                image={project.data.logo.localFile?.childImageSharp?.gatsbyImageData}
+                image={project.data.logo.gatsbyImageData}
                 alt={project.data.logo.alt || `Customer logo`}
                 style={{ height: `6rem`, width: `6rem`, marginBottom: `1rem` }}
               />
@@ -87,19 +87,15 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         projectImage: project_image {
           alt
-          localFile {
-            childImageSharp {
-              gatsbyImageData(quality: 90, width: 600, placeholder: BLURRED)
-            }
-          }
+          gatsbyImageData(
+            imgixParams: {q: 90}
+            placeholder: BLURRED
+            width: 600
+          )
         }
         logo {
           alt
-          localFile {
-            childImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
-            }
-          }
+          gatsbyImageData(placeholder: BLURRED)
         }
         websiteLink: website_link {
           url
@@ -123,11 +119,7 @@ export const query = graphql`
               imgDescription: image_description
               image {
                 alt
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(placeholder: BLURRED)
-                  }
-                }
+                gatsbyImageData(placeholder: BLURRED)
               }
             }
           }

@@ -7,9 +7,30 @@ import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { PostCard } from "../components/blog/post-card"
 import SEO from "../components/seo"
+import { IGatsbyImage } from "~/types/gatsbyImage"
 
 interface IBlog {
-  data: any
+  data: {
+    BlogPost: {
+      nodes: {
+        id: string
+        url: string
+        tags: string[]
+        lastUpdated: string
+        data: {
+          title: string
+          description: string
+          blogImage: IGatsbyImage
+          image_caption: {
+            raw: any
+          }
+          seoTitle: string
+          seoDescription: string
+          postDate: string
+        }
+      }[]
+    }
+  }
 }
 
 const Blog = ({
@@ -62,11 +83,12 @@ export const query = graphql`
           blogImage: blog_image {
             url
             alt
-            localFile {
-              childImageSharp {
-                gatsbyImageData(layout: FIXED, width: 384, quality: 70, placeholder: BLURRED)
-              }
-            }
+            gatsbyImageData(
+              layout: FIXED
+              width: 384
+              placeholder: BLURRED
+              imgixParams: {q: 70}
+            )
           }
           image_caption {
             raw

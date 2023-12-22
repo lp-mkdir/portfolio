@@ -6,10 +6,46 @@ import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { SliceZone } from "../slices/slice-zone"
 import SEO from "../components/seo"
+import { IGatsbyImage } from "~/types/gatsbyImage"
 
 // TODO: Warning: Each child in a list should have a unique "key" prop.
 interface IPostProps {
-  data: any
+  data: {
+    BlogPost: {
+      id: string
+      uid: string
+      url: string
+      tags: string[]
+      lastUpdated: string
+      data: {
+        title: string
+        description: string
+        blogImage: IGatsbyImage
+        image_caption: {
+          raw: any
+        }
+        seoTitle: string
+        seoDescription: string
+        postDate: string
+        yearDate: string
+        seoDate: string
+        body: {
+          id: string
+          sliceType: string
+          primary: {
+            text: {
+              raw: any
+            }
+            codeBlock: {
+              raw: any
+              html: any
+            }
+            quote_message: string
+          }
+        }
+      }
+    }
+  }
 }
 
 const Post = ({ data: { BlogPost } }: IPostProps) => (
@@ -40,11 +76,11 @@ export const query = graphql`
         title
         blogImage: blog_image {
           url
-          localFile {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH, quality: 80, placeholder: BLURRED)
-            }
-          }
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            imgixParams: {q: 80}
+            placeholder: BLURRED
+          )
         }
         description
         seoTitle: seo_title
@@ -68,11 +104,10 @@ export const query = graphql`
             items {
               image {
                 alt
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(quality: 80, placeholder: BLURRED)
-                  }
-                }
+                gatsbyImageData(
+                  imgixParams: {q: 80}
+                  placeholder: BLURRED
+                )
               }
             }
           }
