@@ -70,7 +70,6 @@ const Index = ({
     },
 }: IIndexProps) => {
     if (!data) return null
-    console.log('data', data)
     return (
         <Layout>
             <SEO />
