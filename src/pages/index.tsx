@@ -1,62 +1,77 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { Grid, Box, Heading, Stack, HStack, Text, Button } from "@chakra-ui/react"
-import { FullWidthContainer } from "../components/blocks/full-width-container"
-import { MainHero } from "../components/blocks/main-hero"
-import { Layout } from "../components/Layout"
-import { space } from "../constants/space"
-import { Wrapper, TopNav, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
-import { PostCard } from "../components/blog/post-card"
-import SEO from "../components/seo"
-import { IGatsbyImage } from "~/types/gatsbyImage"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import {
+  Grid,
+  Box,
+  Heading,
+  Stack,
+  HStack,
+  Text,
+  Button,
+} from '@chakra-ui/react';
+import { FullWidthContainer } from '~/components/blocks/full-width-container';
+import { MainHero } from '~/components/blocks/main-hero';
+import { Layout } from '~/components/Layout';
+import { space } from '~/constants/space';
+import {
+  Wrapper,
+  ProjectsTopNav,
+  Card,
+  CardTitle,
+  CardImage,
+  CardTextOverlay,
+} from '~/components/card/index';
+import { PostCard } from '~/components/blog/post-card';
+import SEO from '~/components/seo';
+import { IGatsbyImage } from '~/types/gatsbyImage';
 
 interface IIndexProps {
   data: {
     Homepage: {
       data: {
-        headline: string
-        heroBtn: string
-        heroBtn2: string
-        heroImage: IGatsbyImage
-        projectsDesc: string
-        projectsBtn: string
-        techTitle: string
-        techDesc: string
-        techImage: IGatsbyImage
+        headline: string;
+        heroBtn: string;
+        heroBtn2: string;
+        heroImage: IGatsbyImage;
+        projectsDesc: string;
+        projectsBtn: string;
+        techTitle: string;
+        techDesc: string;
+        techImage: IGatsbyImage;
         categories: {
-          listTitle: string
-          techListOp: string
-        }[]
-      }
-    }
+          listTitle: string;
+          techListOp: string;
+        }[];
+      };
+    };
     Projects: {
       nodes: {
-        id: string
-        url: string
+        id: string;
+        url: string;
         data: {
-          projectName: string
-          projectImage: IGatsbyImage
-        }
-      }[]
-    }
+          projectName: string;
+          projectImage: IGatsbyImage;
+        };
+      }[];
+    };
     BlogPost: {
       nodes: {
-        id: string
-        url: string
-        tags: string[]
+        id: string;
+        url: string;
+        tags: string[];
         data: {
-          title: string
-          postDate: string
-          description: string
-          blogImage: IGatsbyImage
+          title: string;
+          postDate: string;
+          description: string;
+          blogImage: IGatsbyImage;
           imageCaption: {
-            raw: any
-          }
-        }
-      }[]
-    }
-  }
+            raw: any;
+          };
+        };
+      }[];
+    };
+  };
 }
 
 const Index = ({
@@ -66,7 +81,7 @@ const Index = ({
     BlogPost: { nodes: blogPost },
   },
 }: IIndexProps) => {
-  if (!data) return null
+  if (!data) return null;
   return (
     <Layout>
       <SEO />
@@ -77,10 +92,14 @@ const Index = ({
         heroImg={data.heroImage}
       />
       {/* Projects Listing */}
-      <FullWidthContainer variant="max" pt={space.paddingSmall} textAlign="center">
-        <TopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
+      <FullWidthContainer
+        variant="max"
+        pt={space.paddingSmall}
+        textAlign="center"
+      >
+        <ProjectsTopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
         <Wrapper>
-          {projects.map((pro) => (
+          {projects.map(pro => (
             <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
                 <CardImage image={pro.data.projectImage} />
@@ -121,7 +140,12 @@ const Index = ({
         bgGradient="linear(to-tl, primary.900, primary.800)"
         marginTop={[`9rem`, null, null, `14rem`]}
       >
-        <Stack direction={[`column`, null, null, `row`]} spacing={[12, null, 16]} py={24} align="flex-start">
+        <Stack
+          direction={[`column`, null, null, `row`]}
+          spacing={[12, null, 16]}
+          py={24}
+          align="flex-start"
+        >
           <Box
             w={[`78%`, null, null, `calc(99.9% * 1 / 2.5)`]}
             boxShadow="dark-lg"
@@ -167,14 +191,14 @@ const Index = ({
             >
               {data.techDesc}
             </Text>
-            {data.categories.map((listItem) => (
+            {data.categories.map(listItem => (
               <div key={listItem.listTitle}>
                 <Heading variant="h4" color="white" pt="8" pb="4">
                   {listItem.listTitle}
                 </Heading>
                 <HStack wrap="wrap">
                   {/* // split string between commas */}
-                  {listItem.techListOp.split(/[,]+/).map((listBtn) => (
+                  {listItem.techListOp.split(/[,]+/).map(listBtn => (
                     // delete spaces
                     <Button variant="tag" key={listBtn}>
                       {listBtn.replace(`/ /g`, ``)}
@@ -198,9 +222,14 @@ const Index = ({
             pb={[6, null, null, 8]}
             pt={[6, null, null, 8]}
           >
-            The best way to know how I do code, check out the source of my portfolio at GitHub!
+            The best way to know how I do code, check out the source of my
+            portfolio at GitHub!
           </Text>
-          <a href="https://github.com/luiskunz/portfolio" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/luiskunz/portfolio"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Button
               variant="xl"
               bgGradient="linear(to-tr, secondary.700, secondary.800)"
@@ -221,9 +250,12 @@ const Index = ({
       </FullWidthContainer>
       {/* Blogpost listing */}
       <FullWidthContainer variant="max" pt={space.section}>
-        <TopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
-        <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]} gap={8}>
-          {blogPost.map((post) => (
+        <ProjectsTopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
+        <Grid
+          templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]}
+          gap={8}
+        >
+          {blogPost.map(post => (
             <PostCard
               key={post.id}
               title={post.data.title}
@@ -237,10 +269,10 @@ const Index = ({
         </Grid>
       </FullWidthContainer>
     </Layout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 
 export const query = graphql`
   query Homepage {
@@ -250,9 +282,9 @@ export const query = graphql`
         heroImage: hero_image {
           alt
           gatsbyImageData(
-            height: 750
+            height: 900
             placeholder: BLURRED
-            imgixParams: {q: 90}
+            imgixParams: { q: 100 }
           )
         }
         heroBtn: hero_btn
@@ -266,7 +298,7 @@ export const query = graphql`
           gatsbyImageData(
             height: 684
             placeholder: BLURRED
-            imgixParams: {q: 90}
+            imgixParams: { q: 90 }
           )
         }
         categories {
@@ -286,7 +318,7 @@ export const query = graphql`
             gatsbyImageData(
               width: 600
               placeholder: BLURRED
-              imgixParams: {q: 90}
+              imgixParams: { q: 90 }
             )
           }
         }
@@ -307,7 +339,7 @@ export const query = graphql`
               layout: FIXED
               width: 384
               placeholder: BLURRED
-              imgixParams: {q: 70}
+              imgixParams: { q: 70 }
             )
           }
           imageCaption: image_caption {
@@ -317,4 +349,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

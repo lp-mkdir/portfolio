@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Container } from "@chakra-ui/react"
-import { Layout } from "../components/Layout"
+import { Layout } from "~/components/Layout"
 
 const PrivacyPolicy = () => (
   <Layout navBlack>

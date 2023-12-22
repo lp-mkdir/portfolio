@@ -1,10 +1,10 @@
-import * as React from "react"
+import React from "react"
 import { Flex, Text, VStack, HStack, Icon, Heading, Button } from "@chakra-ui/react"
 import { FaLinkedin, FaGithub, FaPaperPlane } from "react-icons/fa"
-import { Wave } from "../elements/Wave"
-import { Link } from "./link"
-import { FullWidthContainer } from "./blocks/full-width-container"
-import { space } from "../constants/space"
+import { Wave } from "~/elements/Wave"
+import Link from "~/components/Link"
+import { FullWidthContainer } from "~/components/blocks/full-width-container"
+import { space } from "~/constants/space"
 
 const Footer = () => (
   <FullWidthContainer variant="footer" pos="relative">
@@ -63,4 +63,4 @@ const Footer = () => (
   </FullWidthContainer>
 )
 
-export { Footer }
+export default Footer;

@@ -1,10 +1,10 @@
-import * as React from "react"
+import React from "react"
 import { graphql } from "gatsby"
-import { Container, Heading } from "@chakra-ui/react"
-import { Layout } from "../components/Layout"
-import { SliceZone } from "../slices/slice-zone"
-import SEO from "../components/seo"
 import { RichTextBlock } from "prismic-reactjs"
+import { Container, Heading } from "@chakra-ui/react"
+import { Layout } from "~/components/Layout"
+import { SliceZone } from "~/slices/slice-zone"
+import SEO from "~/components/seo"
 
 interface IAboutProps {
   data: {

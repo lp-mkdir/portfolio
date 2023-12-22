@@ -35,7 +35,7 @@ const Button = {
       },
       _active: { bg: `brand.primaryHover` },
     }),
-    primary: (props) => ({
+    primary: props => ({
       bg: `brand.primary`,
       color: `white`,
       _hover: {
@@ -57,7 +57,7 @@ const Button = {
       },
       _active: { bg: `brand.primaryHover` },
     }),
-    outline: (props) => ({
+    outline: props => ({
       color: props.text,
       bg: `transparent`,
       borderStyle: `solid`,
@@ -71,8 +71,8 @@ const Button = {
     hero: () => ({
       bg: `white`,
       color: `primary.500`,
-      fontSize: [`2lx`, null, null, `lg`],
-      padding: `1.5rem 2.5rem`,
+      fontSize: [`md`, null, null, `lg`],
+      padding: [`1.5rem 1.5rem`, null, null, '1.5rem 2.5rem'],
       textTransform: `uppercase`,
       boxShadow: `lg`,
       _hover: {
@@ -90,8 +90,8 @@ const Button = {
       borderStyle: `solid`,
       borderColor: `brand.primaryAlpha`,
       borderWidth: `1px`,
-      fontSize: [`2lx`, null, null, `lg`],
-      padding: `1.5rem 2.5rem`,
+      fontSize: [`md`, null, null, `lg`],
+      padding: [`1.5rem 1.5rem`, null, null, '1.5rem 2.5rem'],
       textTransform: `uppercase`,
       boxShadow: `lg`,
       _hover: {
@@ -103,7 +103,7 @@ const Button = {
       },
       _active: { bg: `brand.primaryHover` },
     }),
-    xl: (props) => ({
+    xl: props => ({
       padding: [`1.5rem 2.5rem`, `2rem 3rem`],
       fontSize: [`lg`, null, null, `xl`],
       fontWeight: `bold`,
@@ -121,6 +121,6 @@ const Button = {
       _active: { bg: props.theme.colors.brand.primaryHover },
     }),
   },
-}
+};
 
-export default Button
+export default Button;

@@ -1,23 +1,21 @@
-import React from 'react'
-import {Link} from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import linkResolver, { ILinkResolver } from '~/utils/linkResolver'
+import linkResolver, { ILinkResolver } from '~/utils/linkResolver';
 
 const GatsbyLink = (
   _type: string,
-  element: {
-    data: ILinkResolver 
-  },
+  { data }: { data: ILinkResolver },
   content: string,
-  ) => {
-  if (element.data.link_type === `Document`) {
+) => {
+  if (data.link_type === `Document`) {
     return (
-      <Link to={linkResolver(element.data)} key={element.data.id}>
+      <Link to={linkResolver(data)} key={data.id}>
         {content}
       </Link>
-    )
+    );
   }
-  return null
-}
+  return null;
+};
 
-export default GatsbyLink
+export default GatsbyLink;

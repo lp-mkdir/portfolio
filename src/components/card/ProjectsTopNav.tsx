@@ -1,14 +1,14 @@
-import * as React from "react"
+import React, { FC } from "react"
 import { Flex, Badge, Button } from "@chakra-ui/react"
-import { Link } from "../link"
+import Link from "~/components/Link"
 
-interface ITopNav {
+interface IProjectsTopNav {
   badge: string
   button: string
   to: string
 }
 
-const TopNav: React.FC<ITopNav> = ({ badge, button, to }) => (
+const ProjectsTopNav: FC<IProjectsTopNav> = ({ badge, button, to }) => (
   <Flex alignItems="center" justifyContent="space-between" mb="4">
     <Badge fontFamily="heading">{badge}</Badge>
     <Link to={to}>
@@ -19,4 +19,4 @@ const TopNav: React.FC<ITopNav> = ({ badge, button, to }) => (
   </Flex>
 )
 
-export { TopNav }
+export default ProjectsTopNav;
