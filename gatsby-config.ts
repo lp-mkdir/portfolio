@@ -1,7 +1,6 @@
 import { GatsbyConfig } from 'gatsby';
 
-import websiteConfig from 'config/websiteConfig';
-
+import websiteConfig from './config/websiteConfig';
 import linkResolver from './src/utils/linkResolver';
 import htmlSerializer = require('./src/utils/htmlSerializer');
 import homepage = require('./config/custom_types/homepage.json');
