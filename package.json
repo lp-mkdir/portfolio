@@ -8,7 +8,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "dev": "gatsby develop -o",
+    "dev": "gatsby clean && gatsby develop -o",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "prepare": "husky install",
