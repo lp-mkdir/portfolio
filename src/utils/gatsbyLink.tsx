@@ -1,20 +1,15 @@
-import * as React from 'react'
+import React from 'react'
 import {Link} from 'gatsby'
 
-import linkResolver from './linkResolver'
+import linkResolver, { ILinkResolver } from '~/utils/linkResolver'
 
-interface IGatsbyLink {
-  type: string
-  element?: {
-    data: {
-      // eslint-disable-next-line camelcase
-      link_type: string
-      id: string
-    }
-  }
-}
-
-const GatsbyLink = (type, element, content): IGatsbyLink => {
+const GatsbyLink = (
+  _type: string,
+  element: {
+    data: ILinkResolver 
+  },
+  content: string,
+  ) => {
   if (element.data.link_type === `Document`) {
     return (
       <Link to={linkResolver(element.data)} key={element.data.id}>
@@ -25,4 +20,4 @@ const GatsbyLink = (type, element, content): IGatsbyLink => {
   return null
 }
 
-export {GatsbyLink}
+export default GatsbyLink

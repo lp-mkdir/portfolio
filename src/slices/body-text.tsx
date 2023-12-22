@@ -1,10 +1,16 @@
-import * as React from "react"
-import { RichText } from "prismic-reactjs"
+import React from "react"
+import { RichText, RichTextBlock } from "prismic-reactjs"
 import { Container } from "@chakra-ui/react"
-import { GatsbyLink } from "../utils/gatsbyLink"
+import GatsbyLink from "~/utils/gatsbyLink"
 
 interface IBodyTextProps {
-  slice: any
+  slice: {
+    primary: {
+      text: {
+        raw: RichTextBlock[];
+      }
+    }
+  }
 }
 
 const BodyText = ({ slice }: IBodyTextProps) => (
@@ -18,4 +24,4 @@ const BodyText = ({ slice }: IBodyTextProps) => (
   </Container>
 )
 
-export { BodyText }
+export default BodyText;
