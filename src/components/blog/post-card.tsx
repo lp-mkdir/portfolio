@@ -32,7 +32,7 @@ const PostCard = ({ title, desc, date, tags, image, location }: IPostCardProps) 
           </Box>
         ))}
         <GatsbyImage
-          image={image.localFile.childImageSharp.gatsbyImageData}
+          image={image.localFile?.childImageSharp.gatsbyImageData}
           alt={image.alt}
           style={{
             height: `100%`,

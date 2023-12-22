@@ -1,20 +1,16 @@
 import * as React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 interface ICardImageProps {
   image: {
-    alt: string
-    localFile: {
-      childImageSharp: {
-        gatsbyImageData: any
-      }
-    }
+    alt: string;
+    gatsbyImageData: IGatsbyImageData;
   }
 }
 
 const CardImage: React.FunctionComponent<ICardImageProps> = ({ image }) => (
   <GatsbyImage
-    image={image.localFile.childImageSharp.gatsbyImageData}
+    image={image.gatsbyImageData}
     alt={image.alt}
     style={{
       position: `absolute`,

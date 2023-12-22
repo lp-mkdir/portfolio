@@ -39,7 +39,7 @@ const Projects = ({ data: { Project: project } }: ProjectsProps) => {
           <Flex flexDirection={[`column`, null, `row`]} alignItems="flex-start" justifyContent="space-between">
             <VStack w={[`100%`, null, `calc(99.9% * 3 / 12 - 2rem)`]} position="relative" textAlign="center">
               <GatsbyImage
-                image={project.data.logo.localFile.childImageSharp.gatsbyImageData}
+                image={project.data.logo.localFile?.childImageSharp?.gatsbyImageData}
                 alt={project.data.logo.alt || `Customer logo`}
                 style={{ height: `6rem`, width: `6rem`, marginBottom: `1rem` }}
               />
