@@ -1,4 +1,11 @@
-function linkResolver({type, uid}) {
+export interface ILinkResolver {
+  type: string
+  uid: string
+  id?: string
+  link_type?: string
+}
+
+export default function linkResolver({type, uid}: ILinkResolver) {
   if (type === `project`) {
     return `/project/${uid}`
   }
@@ -10,5 +17,3 @@ function linkResolver({type, uid}) {
   }
   return `/`
 }
-
-module.exports = linkResolver

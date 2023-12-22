@@ -4,6 +4,7 @@ import { Container, Heading } from "@chakra-ui/react"
 import { Layout } from "../components/Layout"
 import { SliceZone } from "../slices/slice-zone"
 import SEO from "../components/seo"
+import { RichTextBlock } from "prismic-reactjs"
 
 interface IAboutProps {
   data: {
@@ -15,7 +16,7 @@ interface IAboutProps {
           sliceType: string
           primary: {
             text: {
-              raw: any
+              raw: RichTextBlock[]
             }
           }
         }
@@ -67,11 +68,10 @@ export const query = graphql`
             items {
               image {
                 alt
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(quality: 80, placeholder: BLURRED)
-                  }
-                }
+                gatsbyImageData(
+                  imgixParams: {q: 80}
+                  placeholder: BLURRED
+                )
               }
             }
           }

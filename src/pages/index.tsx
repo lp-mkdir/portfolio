@@ -9,15 +9,8 @@ import { space } from "../constants/space"
 import { Wrapper, TopNav, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
 import { PostCard } from "../components/blog/post-card"
 import SEO from "../components/seo"
+import { IGatsbyImage } from "~/types/gatsbyImage"
 
-interface IGatsbyImage {
-  alt: string
-  localFile: {
-    childImageSharp: {
-      gatsbyImageData: any
-    }
-  }
-}
 interface IIndexProps {
   data: {
     Homepage: {
@@ -137,7 +130,7 @@ const Index = ({
             mx="auto"
           >
             <GatsbyImage
-              image={data.techImage.localFile.childImageSharp.gatsbyImageData}
+              image={data.techImage.gatsbyImageData}
               alt="Luis Kunz"
               imgStyle={{
                 borderRadius: `1rem`,
@@ -256,11 +249,11 @@ export const query = graphql`
         headline
         heroImage: hero_image {
           alt
-          localFile {
-            childImageSharp {
-              gatsbyImageData(quality: 90, height: 750, placeholder: BLURRED)
-            }
-          }
+          gatsbyImageData(
+            height: 750
+            placeholder: BLURRED
+            imgixParams: {q: 90}
+          )
         }
         heroBtn: hero_btn
         heroBtn2: hero_btn_2
@@ -270,11 +263,11 @@ export const query = graphql`
         techDesc: tech_desc
         techImage: tech_image {
           alt
-          localFile {
-            childImageSharp {
-              gatsbyImageData(quality: 90, height: 684, placeholder: BLURRED)
-            }
-          }
+          gatsbyImageData(
+            height: 684
+            placeholder: BLURRED
+            imgixParams: {q: 90}
+          )
         }
         categories {
           listTitle: list_title
@@ -290,11 +283,11 @@ export const query = graphql`
           projectName: project_name
           projectImage: project_image {
             alt
-            localFile {
-              childImageSharp {
-                gatsbyImageData(quality: 90, width: 600, placeholder: BLURRED)
-              }
-            }
+            gatsbyImageData(
+              width: 600
+              placeholder: BLURRED
+              imgixParams: {q: 90}
+            )
           }
         }
       }
@@ -310,11 +303,12 @@ export const query = graphql`
           description
           blogImage: blog_image {
             alt
-            localFile {
-              childImageSharp {
-                gatsbyImageData(layout: FIXED, width: 384, quality: 70, placeholder: BLURRED)
-              }
-            }
+            gatsbyImageData(
+              layout: FIXED
+              width: 384
+              placeholder: BLURRED
+              imgixParams: {q: 70}
+            )
           }
           imageCaption: image_caption {
             raw

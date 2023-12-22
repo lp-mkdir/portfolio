@@ -1,8 +1,8 @@
 import * as React from "react"
-import { BodyText } from "./body-text"
-import { BodyImage } from "./body-image"
-import { BodyCodeBlock } from "./body-code-block"
-import { BodyQuote } from "./body-quote"
+import BodyText from "~/slices/body-text"
+import { BodyImage } from "~/slices/body-image"
+import { BodyCodeBlock } from "~/slices/body-code-block"
+import { BodyQuote } from "~/slices/body-quote"
 
 interface ISliceZoneProps {
   slices: any

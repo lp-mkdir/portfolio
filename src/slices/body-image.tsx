@@ -1,19 +1,13 @@
 import * as React from "react"
 import { Box, Text } from "@chakra-ui/react"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { IGatsbyImage } from "~/types/gatsbyImage"
 
 interface IBodyImageProps {
   slice: {
     items: {
       imgDescription?: string
-      image: {
-        alt: string
-        localFile: {
-          childImageSharp: {
-            gatsbyImageData: any
-          }
-        }
-      }
+      image: IGatsbyImage
     }[]
   }
 }
@@ -35,7 +29,7 @@ const BodyImage = ({ slice }: IBodyImageProps) => (
           <GatsbyImage
             // Hey Luis, find out other way to have a Key prop
             key={item.image.alt}
-            image={item.image.localFile.childImageSharp.gatsbyImageData}
+            image={item.image.gatsbyImageData}
             alt={item.image.alt}
             style={{ height: `100%`, width: `auto` }}
           />

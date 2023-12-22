@@ -21,7 +21,7 @@ export const MainHero = ({ headline, primaryBtn, secondaryBtn, heroImg }: IMainH
     pb={[`10rem`, null, null, `6rem`]}
   >
     <Box maxWidth="1440px" m="0 auto" p="0 1rem">
-      <Flex direction={[`column-reverse`, null, null, `row`]} spacing="2rem" pt="calc(72px)" alignItems="center">
+      <Flex direction={[`column-reverse`, null, null, `row`]} pt="calc(72px)" alignItems="center">
         <Box w={[`100%`, null, null, `calc(99.9% * 1 / 0.8)`]} position="relative">
           {/* 1 column */}
           <Flex alignItems="flex-start" alignContent="baseline">
@@ -50,7 +50,7 @@ export const MainHero = ({ headline, primaryBtn, secondaryBtn, heroImg }: IMainH
         {/* Hero Image */}
         <Box w="calc(99.9% * 1 / 1)" height={[`auto`, null, null, `45rem`]}>
           <Box w={[`100%`, null, null, `45rem`]} m="0 auto" pos={[`static`, null, null, `absolute`]}>
-            <GatsbyImage image={heroImg.localFile.childImageSharp.gatsbyImageData} alt={heroImg.alt} />
+            <GatsbyImage image={heroImg.gatsbyImageData} alt={heroImg.alt} />
           </Box>
         </Box>
       </Flex>

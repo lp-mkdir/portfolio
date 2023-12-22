@@ -6,8 +6,7 @@ import config = require('./config/website')
 //   path: `.env.${process.env.NODE_ENV}`,
 // })
 
-import linkResolver = require('./src/utils/linkResolver')
-
+import linkResolver from './src/utils/linkResolver'
 import htmlSerializer = require('./src/utils/htmlSerializer')
 import homepage = require('./config/custom_types/homepage.json')
 import about = require('./config/custom_types/about.json')

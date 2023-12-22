@@ -1,4 +1,5 @@
 import { GatsbyNode } from "gatsby"
+import path from "path"
 
 type CreatePagesResult = {
   projects: {
@@ -13,8 +14,8 @@ type CreatePagesResult = {
   }
 }
 
-const projectTemplate = require.resolve(`./src/templates/project.tsx`)
-const blogPostTemplate = require.resolve(`./src/templates/blog-post.tsx`)
+const projectTemplate = path.resolve(`./src/templates/project.tsx`)
+const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -58,3 +59,14 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     })
   })
 }
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, 'src'),
+      },
+    },
+  });
+};
+

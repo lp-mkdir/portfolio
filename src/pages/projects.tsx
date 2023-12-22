@@ -6,9 +6,21 @@ import { Layout } from "../components/Layout"
 import { space } from "../constants/space"
 import { Wrapper, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
 import SEO from "../components/seo"
+import { IGatsbyImage } from "~/types/gatsbyImage"
 
 type ProjectsProps = {
-  data: any
+  data: {
+    Projects: {
+      nodes: {
+        id: string
+        url: string
+        data: {
+          name: string
+          projectImage: IGatsbyImage
+        }
+      }[]
+    }
+  }
 }
 
 const Projects = ({
@@ -61,11 +73,7 @@ export const query = graphql`
           name
           projectImage: project_image {
             alt
-            localFile {
-              childImageSharp {
-                gatsbyImageData(placeholder: BLURRED)
-              }
-            }
+            gatsbyImageData(placeholder: BLURRED)
           }
         }
       }
