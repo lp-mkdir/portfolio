@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Grid } from "@chakra-ui/react"
-import { FullWidthContainer } from "../components/blocks/full-width-container"
-import { Hero } from "../components/blocks/hero"
-import { Layout } from "../components/Layout"
-import { space } from "../constants/space"
-import { PostCard } from "../components/blog/post-card"
-import SEO from "../components/seo"
+import { FullWidthContainer } from "~/components/blocks/full-width-container"
+import { Hero } from "~/components/blocks/hero"
+import { Layout } from "~/components/Layout"
+import { space } from "~/constants/space"
+import { PostCard } from "~/components/blog/post-card"
+import SEO from "~/components/seo"
 import { IGatsbyImage } from "~/types/gatsbyImage"
 
 interface IBlog {

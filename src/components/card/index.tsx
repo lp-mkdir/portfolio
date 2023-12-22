@@ -3,7 +3,7 @@ import CardContent from './content'
 import {CardImage} from './image'
 import {CardOverlay, CardTextOverlay, CardPrimaryOverlay} from './overlay'
 import {CardTitle} from './title'
-import {TopNav} from './top-nav'
+import ProjectsTopNav from '~/components/card/ProjectsTopNav'
 
 export {
   Card,
@@ -14,5 +14,5 @@ export {
   CardTextOverlay,
   CardPrimaryOverlay,
   CardTitle,
-  TopNav,
+  ProjectsTopNav
 }

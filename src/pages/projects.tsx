@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { FullWidthContainer } from "../components/blocks/full-width-container"
-import { Hero } from "../components/blocks/hero"
-import { Layout } from "../components/Layout"
-import { space } from "../constants/space"
-import { Wrapper, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
-import SEO from "../components/seo"
+import { FullWidthContainer } from "~/components/blocks/full-width-container"
+import { Hero } from "~/components/blocks/hero"
+import { Layout } from "~/components/Layout"
+import { space } from "~/constants/space"
+import { Wrapper, Card, CardTitle, CardImage, CardTextOverlay } from "~/components/card/index"
+import SEO from "~/components/seo"
 import { IGatsbyImage } from "~/types/gatsbyImage"
 
 type ProjectsProps = {

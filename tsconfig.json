@@ -15,8 +15,9 @@
     "target": "es2019",
     "typeRoots": ["./src/@types", "./node_modules/@types"],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "config/*": ["./config/*"]
     }
   },
-  "include": ["./src/**/*", "./*.ts"]
+  "include": ["./src/**/*", "./*.ts", "./config/**/*"],
 }

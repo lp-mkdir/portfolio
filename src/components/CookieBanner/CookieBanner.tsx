@@ -1,31 +1,33 @@
-import React, { useState, useEffect } from "react"
+import React, { FC, useEffect, useState } from "react"
 import Cookies from "js-cookie"
+import websiteConfig from "config/websiteConfig"
+
 import { Button, Stack, Flex, Text, Center, useDisclosure, Progress, Box } from "@chakra-ui/react"
-import { ScrollProgress } from "../../utils/ScrollProgress"
 import OptModal from "./optModal"
-import config from "../../../config/website"
+import { ScrollProgress } from "../../utils/ScrollProgress"
 
 const cookieName = `gatsby-gdpr-google-analytics`
+
 interface ScrollProps {
   pos: number
   scrollPerc?: number
 }
 
-function CookieBannerApp() {
+const CookieBanner: FC = () => {
   const [isVisible, setVisible] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { pos, scrollPerc }: ScrollProps = ScrollProgress()
 
   function disableTrack() {
-    Cookies.set(cookieName, false)
-    window[`ga-disable-${config.googleAnalyticsID}}`] = true
+    Cookies.set(cookieName, '0')
+    window[`ga-disable-${websiteConfig.ga4ID}}`] = true
     onClose()
     setVisible(false)
   }
 
   function gaEnable() {
     setVisible(false)
-    Cookies.set(cookieName, true)
+    Cookies.set(cookieName, '1')
     onClose()
   }
 
@@ -42,7 +44,7 @@ function CookieBannerApp() {
       !Cookies.get(cookieName)
     ) {
       setVisible(false)
-      Cookies.set(cookieName, true)
+      Cookies.set(cookieName, '1')
     }
   }, [isVisible, pos, scrollPerc])
 
@@ -88,4 +90,4 @@ function CookieBannerApp() {
   )
 }
 
-export const CookieBanner = () => (!Cookies.get(cookieName) ? <CookieBannerApp /> : null)
+export default CookieBanner;

@@ -1,8 +1,10 @@
 import React from "react"
-import { Link as GatsbyLink } from "gatsby"
-import { chakra } from "@chakra-ui/react"
+import { GatsbyLinkProps, Link as GatsbyLink } from "gatsby"
+import { chakra, SystemProps } from "@chakra-ui/react"
 
-const ChakraLink = chakra(GatsbyLink, {
+type GatsbyChakraLinkProps = Omit<GatsbyLinkProps<Record<string, unknown>>, 'ref'> & SystemProps
+
+const ChakraLink = chakra<typeof GatsbyLink, GatsbyLinkProps<unknown>>(GatsbyLink, {
   baseStyle: {
     transition: `all .3s ease-in-out`,
     cursor: `pointer`,
@@ -20,4 +22,6 @@ const ChakraLink = chakra(GatsbyLink, {
 /**
  * ChakraLink with gatsby-link (no external links)
  */
-export const Link = (props) => <ChakraLink {...props} />
+const Link = (props: GatsbyChakraLinkProps) => <ChakraLink {...props} />
+
+export default Link

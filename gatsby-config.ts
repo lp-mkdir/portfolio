@@ -1,10 +1,6 @@
 import {GatsbyConfig} from 'gatsby'
 
-import config = require('./config/website')
-
-// require(`dotenv`).config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
+import websiteConfig from 'config/websiteConfig'
 
 import linkResolver from './src/utils/linkResolver'
 import htmlSerializer = require('./src/utils/htmlSerializer')
@@ -12,6 +8,8 @@ import homepage = require('./config/custom_types/homepage.json')
 import about = require('./config/custom_types/about.json')
 import project = require('./config/custom_types/project.json')
 import blogpost = require('./config/custom_types/blogpost.json')
+ 
+const { siteUrl, siteTitle, siteDescription, author, siteLogo, organization, ga4ID } = websiteConfig
 
 const gatsbyConfig: GatsbyConfig = {
   flags: {
@@ -23,17 +21,17 @@ const gatsbyConfig: GatsbyConfig = {
     DEV_SSR: false,
   },
   siteMetadata: {
-    siteUrl: config.siteUrl,
-    title: config.title,
-    description: config.siteDescription,
+    siteUrl: siteUrl,
+    title: siteTitle,
+    description: siteDescription,
     keywords: [`Front End Developer`, `UX Designer`, `React Developer`],
-    author: config.author,
-    canonicalUrl: config.siteUrl,
-    image: config.siteLogo,
+    author: author,
+    canonicalUrl: siteUrl,
+    image: siteLogo,
     organization: {
-      name: config.organization,
-      url: config.siteUrl,
-      logo: config.siteLogo,
+      name: organization,
+      url: siteUrl,
+      logo: siteLogo,
     },
   },
   plugins: [
@@ -87,7 +85,7 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [config.ga4ID],
+        trackingIds: [ga4ID],
         pluginConfig: {
           head: true,
           exclude: [`/404/*`, `/preview/*`, `/en/imprint`, `/impressum`],
@@ -112,7 +110,7 @@ const gatsbyConfig: GatsbyConfig = {
           }
         }
       `,
-        resolveSiteUrl: () => config.siteUrl,
+        resolveSiteUrl: () => siteUrl,
         resolvePages: ({allSitePage: {nodes}}) =>
           nodes.map(page => ({...page})),
         serialize: ({path}) => {
@@ -142,7 +140,7 @@ const gatsbyConfig: GatsbyConfig = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: config.googleAnalyticsID, // leave empty if you want to disable the tracker
+          trackingId: websiteConfig.ga4ID, // leave empty if you want to disable the tracker
           cookieName: `gatsby-gdpr-google-analytics`, // default
           anonymize: true, // default
           allowAdFeatures: false, // default

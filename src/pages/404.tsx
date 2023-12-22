@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Container, Text } from "@chakra-ui/react"
-import { Layout } from "../components/Layout"
+import { Layout } from "~/components/Layout"
 
 const NotFound = () => (
   <Layout navBlack>

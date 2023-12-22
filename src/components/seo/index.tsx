@@ -1,8 +1,9 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import SchemaOrg from "./schema-org"
-import config from "../../../config/website"
+import websiteConfig from "config/websiteConfig"
+
+import SchemaOrg from "~/components/seo/SchemaOrg"
 import defaultMetaImage from "../../../static/images/metaImage.jpg"
 
 function SEO({
@@ -10,7 +11,7 @@ function SEO({
   metaImage,
   isBlogPost,
   seoData = { data: {} },
-  title = seoData.data.seoTitle || config.siteTitle,
+  title = seoData.data.seoTitle || websiteConfig.siteTitle,
   description = seoData.seoDescription || seo.description,
   image = seoData.data.seoImage || `${seo.canonicalUrl}${metaImage || defaultMetaImage}`,
   url = seoData.url ? `${seo.canonicalUrl}${seoData.url}` : seo.canonicalUrl,

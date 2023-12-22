@@ -2,13 +2,13 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Grid, Box, Heading, Stack, HStack, Text, Button } from "@chakra-ui/react"
-import { FullWidthContainer } from "../components/blocks/full-width-container"
-import { MainHero } from "../components/blocks/main-hero"
-import { Layout } from "../components/Layout"
-import { space } from "../constants/space"
-import { Wrapper, TopNav, Card, CardTitle, CardImage, CardTextOverlay } from "../components/card/index"
-import { PostCard } from "../components/blog/post-card"
-import SEO from "../components/seo"
+import { FullWidthContainer } from "~/components/blocks/full-width-container"
+import { MainHero } from "~/components/blocks/main-hero"
+import { Layout } from "~/components/Layout"
+import { space } from "~/constants/space"
+import { Wrapper, ProjectsTopNav, Card, CardTitle, CardImage, CardTextOverlay } from "~/components/card/index"
+import { PostCard } from "~/components/blog/post-card"
+import SEO from "~/components/seo"
 import { IGatsbyImage } from "~/types/gatsbyImage"
 
 interface IIndexProps {
@@ -78,7 +78,7 @@ const Index = ({
       />
       {/* Projects Listing */}
       <FullWidthContainer variant="max" pt={space.paddingSmall} textAlign="center">
-        <TopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
+        <ProjectsTopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
         <Wrapper>
           {projects.map((pro) => (
             <Link to={pro.url} key={pro.id}>
@@ -221,7 +221,7 @@ const Index = ({
       </FullWidthContainer>
       {/* Blogpost listing */}
       <FullWidthContainer variant="max" pt={space.section}>
-        <TopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
+        <ProjectsTopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
         <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]} gap={8}>
           {blogPost.map((post) => (
             <PostCard

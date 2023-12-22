@@ -1,4 +1,4 @@
-module.exports = {
+const websiteConfig = {
   siteTitle: `Luis Kunz - Front-End Developer & UX Designer`, // Navigation and Site Title
   siteTitleAlt: `The personal website of Luis Kunz`, // Alternative Site title for SEO
   siteTitleShort: `luiskunz`, // short_name for manifest
@@ -24,3 +24,5 @@ module.exports = {
   // Google Analytics
   ga4ID: `G-ZGGBNLYQ2Q`,
 }
+
+export default websiteConfig;

@@ -1,9 +1,9 @@
-import * as React from "react"
+import React from "react"
 import { Flex } from "@chakra-ui/react"
 import Headroom from "react-headroom"
-import { Link } from "../link"
-import { Navigation } from "./navigation"
-import { FullWidthContainer } from "./full-width-container"
+import Link from "~/components/Link"
+import { Navigation } from "~/components/blocks/navigation"
+import { FullWidthContainer } from "~/components/blocks/full-width-container"
 
 const Logo = () => (
   <Link
@@ -12,9 +12,9 @@ const Logo = () => (
     fontSize={[`lg`, `xl`]}
     transform="scale(1)"
     _hover={{ transform: `scale(1.1)` }}
-    aria-label="luiskunz.com, Back to homepage"
+    aria-label="lpmkdir.com, Back to homepage"
   >
-    LK
+    LP
   </Link>
 )
 

@@ -65,8 +65,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       alias: {
         '~': path.resolve(__dirname, 'src'),
+        config: path.resolve(__dirname, 'config'),
       },
     },
   });
 };
-

@@ -13,6 +13,7 @@
     "node": true
   },
   "rules": {
+    "jsx-a11y/control-has-associated-label": "off",
     "react/prop-types": "off",
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
