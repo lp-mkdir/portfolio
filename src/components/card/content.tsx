@@ -1,7 +1,7 @@
-import * as React from "react"
-import { VStack, Text } from "@chakra-ui/react"
+import React, {FC, PropsWithChildren} from 'react'
+import {VStack, Text} from '@chakra-ui/react'
 
-const CardContent: React.FunctionComponent = ({ children }) => (
+const CardContent: FC<PropsWithChildren> = ({children}) => (
   <VStack
     justifyContent="flex-end"
     transition="0.4s ease-out"
@@ -15,10 +15,16 @@ const CardContent: React.FunctionComponent = ({ children }) => (
       },
     }}
   >
-    <Text textAlign="center" zIndex="1" display="none" variant="prominent" textShadow="textShadows.big">
+    <Text
+      textAlign="center"
+      zIndex="1"
+      display="none"
+      variant="prominent"
+      textShadow="textShadows.big"
+    >
       {children}
     </Text>
   </VStack>
 )
 
-export { CardContent }
+export default CardContent
