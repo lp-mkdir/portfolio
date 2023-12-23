@@ -1,30 +1,14 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import {
-  Grid,
-  Box,
-  Heading,
-  Stack,
-  HStack,
-  Text,
-  Button,
-} from '@chakra-ui/react';
+import { Box, Heading, Stack, HStack, Text, Button } from '@chakra-ui/react';
 import { FullWidthContainer } from '~/components/blocks/full-width-container';
 import MainHero from '~/components/blocks/main-hero';
 import { Layout } from '~/components/Layout';
-import { space } from '~/constants/space';
-import {
-  Wrapper,
-  ProjectsTopNav,
-  Card,
-  CardTitle,
-  CardImage,
-  CardTextOverlay,
-} from '~/components/card/index';
-import { PostCard } from '~/components/blog/post-card';
 import SEO from '~/components/seo';
 import { IGatsbyImage } from '~/types/gatsbyImage';
+import ProjectsSection from '~/components/homepage/ProjectsSection';
+import RecentPostsSection from '~/components/homepage/RecentPostsSection';
 
 interface IIndexProps {
   data: {
@@ -48,40 +32,12 @@ interface IIndexProps {
         techTitle: string;
       };
     };
-    Projects: {
-      nodes: {
-        data: {
-          projectName: string;
-          projectImage: IGatsbyImage;
-        };
-        id: string;
-        url: string;
-      }[];
-    };
-    BlogPost: {
-      nodes: {
-        data: {
-          title: string;
-          postDate: string;
-          description: string;
-          blogImage: IGatsbyImage;
-          imageCaption: {
-            raw: any;
-          };
-        };
-        id: string;
-        url: string;
-        tags: string[];
-      }[];
-    };
   };
 }
 
 const Index = ({
   data: {
     Homepage: { data },
-    Projects: { nodes: projects },
-    BlogPost: { nodes: blogPost },
   },
 }: IIndexProps) => {
   if (!data) return null;
@@ -90,49 +46,8 @@ const Index = ({
       <SEO />
       <MainHero />
       {/* Projects Listing */}
-      <FullWidthContainer
-        variant="max"
-        pt={space.paddingSmall}
-        textAlign="center"
-      >
-        <ProjectsTopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
-        <Wrapper>
-          {projects.map(pro => (
-            <Link to={pro.url} key={pro.id}>
-              <Card h={[`10rem`, null, `15rem`, `20rem`]}>
-                <CardImage image={pro.data.projectImage} />
-                <CardTitle>{pro.data.projectName}</CardTitle>
-                <CardTextOverlay />
-              </Card>
-            </Link>
-          ))}
-        </Wrapper>
-        <Text
-          fontFamily="heading"
-          fontWeight="bold"
-          fontSize={[`xl`, `3xl`]}
-          lineHeight="125%"
-          textAlign="center"
-          textShadow="textShadows.big"
-          pb={[6, null, null, 8]}
-          pt={[6, null, null, 8]}
-        >
-          {data.projectsDesc}
-        </Text>
-        <Link to="/projects">
-          <Button
-            variant="xl"
-            boxShadow="rgba(37, 99, 235, 0.1) 0px 0px 0px 1px, rgba(37, 99, 235, 0.2) 0px 5px 10px, rgba(37, 99, 235, 0.4) 0px 15px 40px"
-            _hover={{
-              boxShadow: `rgba(37, 99, 235, 0.1) 0px 0px 0px 1px, rgba(37, 99, 235, 0.2) 0px 5px 10px, rgba(37, 99, 235, 0.4) 0px 20px 35px`,
-              transform: `translateY(-8px)`,
-            }}
-          >
-            {data.projectsBtn}
-          </Button>
-        </Link>
-      </FullWidthContainer>
-      {/* Tech */}
+      <ProjectsSection />
+      {/* Tech Section */}
       <FullWidthContainer
         variant="max"
         bgGradient="linear(to-tl, primary.900, primary.800)"
@@ -247,25 +162,7 @@ const Index = ({
         </Box>
       </FullWidthContainer>
       {/* Blogpost listing */}
-      <FullWidthContainer variant="max" pt={space.section}>
-        <ProjectsTopNav badge="RECENT POSTS" button="ALL POSTS" to="/blog" />
-        <Grid
-          templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]}
-          gap={8}
-        >
-          {blogPost.map(post => (
-            <PostCard
-              key={post.id}
-              title={post.data.title}
-              tags={post.tags}
-              image={post.data.blogImage}
-              date={post.data.postDate}
-              desc={post.data.description}
-              location={post.url}
-            />
-          ))}
-        </Grid>
-      </FullWidthContainer>
+      <RecentPostsSection />
     </Layout>
   );
 };
@@ -276,8 +173,6 @@ export const query = graphql`
   query Homepage {
     Homepage: prismicHomepage {
       data {
-        projectsDesc: projects_desc
-        projectsBtn: projects_btn
         techTitle: tech_title
         techDesc: tech_desc
         techImage: tech_image {
@@ -291,42 +186,6 @@ export const query = graphql`
         categories {
           listTitle: list_title
           techListOp: tech_list_op
-        }
-      }
-    }
-    Projects: allPrismicProject(limit: 2) {
-      nodes {
-        id
-        url
-        data {
-          projectName: project_name
-          projectImage: project_image {
-            alt
-            gatsbyImageData(
-              width: 600
-              placeholder: BLURRED
-              imgixParams: { q: 90 }
-            )
-          }
-        }
-      }
-    }
-    BlogPost: allPrismicBlogPost(limit: 3) {
-      nodes {
-        id
-        url
-        tags
-        data {
-          title
-          postDate: post_date(formatString: "MMM DD, YYYY")
-          description
-          blogImage: blog_image {
-            alt
-            gatsbyImageData(placeholder: BLURRED, imgixParams: { q: 70 })
-          }
-          imageCaption: image_caption {
-            raw
-          }
         }
       }
     }
