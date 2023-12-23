@@ -1,5 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { RichTextBlock } from 'prismic-reactjs';
+
 import { Grid } from '@chakra-ui/react';
 import { FullWidthContainer } from '~/components/blocks/full-width-container';
 import { Hero } from '~/components/blocks/hero';
@@ -22,7 +24,7 @@ interface IBlog {
           description: string;
           blogImage: IGatsbyImage;
           image_caption: {
-            raw: any;
+            raw: RichTextBlock[];
           };
           seoTitle: string;
           seoDescription: string;
