@@ -19,6 +19,13 @@
         "label": "Secondary Button"
       }
     },
+    "cv_link": {
+      "type": "Link",
+      "config": {
+        "select": "media",
+        "label": "CV Link"
+      }
+    },
     "hero_image": {
       "type": "Image",
       "config": {
