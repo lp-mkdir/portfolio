@@ -137,11 +137,11 @@ pre[class*="language-"] {
   color: #979db4;
 }
 
-.luiskunz-highlight {
+.lpmkdir-highlight {
   position: relative;
   overflow: auto;
 }
-.luiskunz-highlight[data-language]::before {
+.lpmkdir-highlight[data-language]::before {
   position: absolute;
   top: 0;
   right: 1rem;
@@ -155,13 +155,13 @@ pre[class*="language-"] {
   background: #f9fafb;
 }
 
-.luiskunz-highlight[data-language="jsx"]::before {
+.lpmkdir-highlight[data-language="jsx"]::before {
   content: 'jsx';
   background: #FFEA00;
   color: #0A1A42;
 }
 
-.luiskunz-highlight[data-language="tsx"]::before {
+.lpmkdir-highlight[data-language="tsx"]::before {
   content: 'tsx';
   background: #FFEA00;
   color: #0A1A42;

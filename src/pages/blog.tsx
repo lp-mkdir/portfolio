@@ -1,36 +1,36 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { Grid } from "@chakra-ui/react"
-import { FullWidthContainer } from "~/components/blocks/full-width-container"
-import { Hero } from "~/components/blocks/hero"
-import { Layout } from "~/components/Layout"
-import { space } from "~/constants/space"
-import { PostCard } from "~/components/blog/post-card"
-import SEO from "~/components/seo"
-import { IGatsbyImage } from "~/types/gatsbyImage"
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Grid } from '@chakra-ui/react';
+import { FullWidthContainer } from '~/components/blocks/full-width-container';
+import { Hero } from '~/components/blocks/hero';
+import { Layout } from '~/components/Layout';
+import { space } from '~/constants/space';
+import { PostCard } from '~/components/blog/post-card';
+import SEO from '~/components/seo';
+import { IGatsbyImage } from '~/types/gatsbyImage';
 
 interface IBlog {
   data: {
     BlogPost: {
       nodes: {
-        id: string
-        url: string
-        tags: string[]
-        lastUpdated: string
+        id: string;
+        url: string;
+        tags: string[];
+        lastUpdated: string;
         data: {
-          title: string
-          description: string
-          blogImage: IGatsbyImage
+          title: string;
+          description: string;
+          blogImage: IGatsbyImage;
           image_caption: {
-            raw: any
-          }
-          seoTitle: string
-          seoDescription: string
-          postDate: string
-        }
-      }[]
-    }
-  }
+            raw: any;
+          };
+          seoTitle: string;
+          seoDescription: string;
+          postDate: string;
+        };
+      }[];
+    };
+  };
 }
 
 const Blog = ({
@@ -42,16 +42,19 @@ const Blog = ({
     <SEO
       seoData={{
         data: {
-          seoTitle: `Blog | Luis Kunz`,
+          seoTitle: `Blog | Luis Pacheco`,
           seoDescription: `Introducing tutorials, real-problems solutions & drama.`,
         },
         url: `/blog`,
       }}
     />
-    <Hero headline="Blog" subheading="Introducing tutorials, real-problems solutions & drama" />
+    <Hero
+      headline="Blog"
+      subheading="Introducing tutorials, real-problems solutions & drama"
+    />
     <FullWidthContainer variant="max" pt={space.section}>
       <Grid templateColumns={[`100%`, `repeat(3, minmax(250px, 1fr))`]} gap={8}>
-        {blogPost.map((post) => (
+        {blogPost.map(post => (
           <PostCard
             key={post.id}
             tags={post.tags}
@@ -65,9 +68,9 @@ const Blog = ({
       </Grid>
     </FullWidthContainer>
   </Layout>
-)
+);
 
-export default Blog
+export default Blog;
 
 export const query = graphql`
   query BlogQuery {
@@ -87,7 +90,7 @@ export const query = graphql`
               layout: FIXED
               width: 384
               placeholder: BLURRED
-              imgixParams: {q: 70}
+              imgixParams: { q: 70 }
             )
           }
           image_caption {
@@ -100,4 +103,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
