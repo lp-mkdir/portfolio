@@ -11,7 +11,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { FullWidthContainer } from '~/components/blocks/full-width-container';
-import { MainHero } from '~/components/blocks/main-hero';
+import MainHero from '~/components/blocks/main-hero';
 import { Layout } from '~/components/Layout';
 import { space } from '~/constants/space';
 import {
@@ -30,36 +30,36 @@ interface IIndexProps {
   data: {
     Homepage: {
       data: {
-        headline: string;
-        heroBtn: string;
-        heroBtn2: string;
-        heroImage: IGatsbyImage;
-        projectsDesc: string;
-        projectsBtn: string;
-        techTitle: string;
-        techDesc: string;
-        techImage: IGatsbyImage;
         categories: {
           listTitle: string;
           techListOp: string;
         }[];
+        cvLink: {
+          url: string;
+        };
+        headline: string;
+        heroBtn2: string;
+        heroBtn: string;
+        heroImage: IGatsbyImage;
+        projectsBtn: string;
+        projectsDesc: string;
+        techDesc: string;
+        techImage: IGatsbyImage;
+        techTitle: string;
       };
     };
     Projects: {
       nodes: {
-        id: string;
-        url: string;
         data: {
           projectName: string;
           projectImage: IGatsbyImage;
         };
+        id: string;
+        url: string;
       }[];
     };
     BlogPost: {
       nodes: {
-        id: string;
-        url: string;
-        tags: string[];
         data: {
           title: string;
           postDate: string;
@@ -69,6 +69,9 @@ interface IIndexProps {
             raw: any;
           };
         };
+        id: string;
+        url: string;
+        tags: string[];
       }[];
     };
   };
@@ -85,12 +88,7 @@ const Index = ({
   return (
     <Layout>
       <SEO />
-      <MainHero
-        headline={data.headline}
-        primaryBtn={data.heroBtn}
-        secondaryBtn={data.heroBtn2}
-        heroImg={data.heroImage}
-      />
+      <MainHero />
       {/* Projects Listing */}
       <FullWidthContainer
         variant="max"
@@ -278,17 +276,6 @@ export const query = graphql`
   query Homepage {
     Homepage: prismicHomepage {
       data {
-        headline
-        heroImage: hero_image {
-          alt
-          gatsbyImageData(
-            height: 900
-            placeholder: BLURRED
-            imgixParams: { q: 100 }
-          )
-        }
-        heroBtn: hero_btn
-        heroBtn2: hero_btn_2
         projectsDesc: projects_desc
         projectsBtn: projects_btn
         techTitle: tech_title
