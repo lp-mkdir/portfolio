@@ -5,7 +5,7 @@ import { RichTextBlock } from 'prismic-reactjs';
 import { Grid } from '@chakra-ui/react';
 import { FullWidthContainer } from '~/components/blocks/full-width-container';
 import CardTopNav from '~/components/card/CardTopNav';
-import { PostCard } from '~/components/blog/post-card';
+import PostCard from '~/components/blog/PostCard';
 import { space } from '~/constants/space';
 import { IGatsbyImage } from '~/types/gatsbyImage';
 
