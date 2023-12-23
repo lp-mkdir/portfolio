@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import { Box, Flex, Text, Button } from '@chakra-ui/react';
-import { Card, CardTitle } from '../card/index';
+import { CardTitle } from '../card/index';
 import { MotionBox } from '../blocks/motion-box';
+import { IGatsbyImage } from '~/types/gatsbyImage';
 
 interface IPostCardProps {
   title: string;
@@ -11,10 +12,7 @@ interface IPostCardProps {
   desc: string;
   tags: string[];
   location: string;
-  image: {
-    alt: string;
-    gatsbyImageData: IGatsbyImageData;
-  };
+  image: IGatsbyImage;
 }
 
 const PostCard = ({
