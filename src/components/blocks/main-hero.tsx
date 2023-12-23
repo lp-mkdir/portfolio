@@ -26,7 +26,7 @@ export const MainHero = ({
   heroImg,
 }: IMainHero) => (
   <Flex
-    height={['100%', null, null, '90vh']}
+    height={['100%', null, null, '80vh']}
     w="100%"
     bgGradient="linear(to-tl, primary.900, primary.800)"
     pos="relative"
@@ -34,16 +34,13 @@ export const MainHero = ({
     pb={[`10rem`, null, null, `6rem`]}
     alignItems="center"
   >
-    <Box maxWidth="1440px" m="0 auto" p="0 0.25rem">
+    <Box maxWidth="1440px" m="0 auto" p="0 0.25rem" pos="relative">
       <Flex
         direction={[`column`, null, null, `row`]}
         pt="calc(72px)"
         alignItems="center"
       >
-        <Box
-          w={[`100%`, null, null, `calc(99.9% * 1 / 0.8)`]}
-          position="relative"
-        >
+        <Box w="100%" position="relative">
           <Flex alignItems="flex-start" alignContent="baseline">
             <Icon
               as={GoChevronRight}
@@ -74,14 +71,19 @@ export const MainHero = ({
                     {primaryBtn}
                   </Button>
                 </Link>
-                <Link to="/about" style={{ margin: 0 }}>
+                <a
+                  href="lp-cv-2024.pdf"
+                  style={{ margin: 0 }}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Button
                     variant="heroOutline"
                     ml={[`0 !important`, `1rem !important`]}
                   >
                     {secondaryBtn}
                   </Button>
-                </Link>
+                </a>
               </ButtonGroup>
             </Flex>
           </Flex>

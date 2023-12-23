@@ -1,40 +1,46 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import { FullWidthContainer } from "~/components/blocks/full-width-container"
-import { Hero } from "~/components/blocks/hero"
-import { Layout } from "~/components/Layout"
-import { space } from "~/constants/space"
-import { Wrapper, Card, CardTitle, CardImage, CardTextOverlay } from "~/components/card/index"
-import SEO from "~/components/seo"
-import { IGatsbyImage } from "~/types/gatsbyImage"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import { FullWidthContainer } from '~/components/blocks/full-width-container';
+import { Hero } from '~/components/blocks/hero';
+import { Layout } from '~/components/Layout';
+import { space } from '~/constants/space';
+import {
+  Wrapper,
+  Card,
+  CardTitle,
+  CardImage,
+  CardTextOverlay,
+} from '~/components/card/index';
+import SEO from '~/components/seo';
+import { IGatsbyImage } from '~/types/gatsbyImage';
 
 type ProjectsProps = {
   data: {
     Projects: {
       nodes: {
-        id: string
-        url: string
+        id: string;
+        url: string;
         data: {
-          name: string
-          projectImage: IGatsbyImage
-        }
-      }[]
-    }
-  }
-}
+          name: string;
+          projectImage: IGatsbyImage;
+        };
+      }[];
+    };
+  };
+};
 
 const Projects = ({
   data: {
     Projects: { nodes: projects },
   },
 }: ProjectsProps) => {
-  if (!projects) return null
+  if (!projects) return null;
   return (
     <Layout>
       <SEO
         seoData={{
           data: {
-            seoTitle: `Projects | Luis Kunz`,
+            seoTitle: `Projects | Luis Pacheco`,
             seoDescription: `Gain an insight into the portfolios of previous people I worked for on this page. No idea remains unrealized, and thus no wish remains unfulfilled.`,
           },
           url: `/projects`,
@@ -46,7 +52,7 @@ const Projects = ({
       />
       <FullWidthContainer variant="max" pt={space.paddingSmall}>
         <Wrapper>
-          {projects.map((pro) => (
+          {projects.map(pro => (
             <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
                 <CardImage image={pro.data.projectImage} />
@@ -58,10 +64,10 @@ const Projects = ({
         </Wrapper>
       </FullWidthContainer>
     </Layout>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
 
 export const query = graphql`
   query Projects {
@@ -79,4 +85,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

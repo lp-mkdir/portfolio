@@ -50,8 +50,8 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Luis Kunz`,
-        short_name: `Luis Kunz`,
+        name: `Luis Pacheco`,
+        short_name: `Luis Pacheco`,
         lang: `en-gb`,
         start_url: `/`,
         background_color: `#fff`,

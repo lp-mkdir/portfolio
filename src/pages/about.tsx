@@ -1,28 +1,28 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { RichTextBlock } from "prismic-reactjs"
-import { Container, Heading } from "@chakra-ui/react"
-import { Layout } from "~/components/Layout"
-import { SliceZone } from "~/slices/slice-zone"
-import SEO from "~/components/seo"
+import React from 'react';
+import { graphql } from 'gatsby';
+import { RichTextBlock } from 'prismic-reactjs';
+import { Container, Heading } from '@chakra-ui/react';
+import { Layout } from '~/components/Layout';
+import { SliceZone } from '~/slices/slice-zone';
+import SEO from '~/components/seo';
 
 interface IAboutProps {
   data: {
     prismicAbout: {
       data: {
-        title: string
+        title: string;
         body: {
-          id: string
-          sliceType: string
+          id: string;
+          sliceType: string;
           primary: {
             text: {
-              raw: RichTextBlock[]
-            }
-          }
-        }
-      }
-    }
-  }
+              raw: RichTextBlock[];
+            };
+          };
+        };
+      };
+    };
+  };
 }
 
 const About = ({ data: { prismicAbout } }: IAboutProps) => (
@@ -30,8 +30,8 @@ const About = ({ data: { prismicAbout } }: IAboutProps) => (
     <SEO
       seoData={{
         data: {
-          seoTitle: `About Luis Kunz`,
-          seoDescription: `All about Luis Kunz`,
+          seoTitle: `About Luis Pacheco`,
+          seoDescription: `All about Luis Pacheco`,
         },
         url: `/about`,
       }}
@@ -43,7 +43,7 @@ const About = ({ data: { prismicAbout } }: IAboutProps) => (
       <SliceZone slices={prismicAbout.data.body} />
     </Container>
   </Layout>
-)
+);
 
 export const query = graphql`
   query AboutQuery {
@@ -68,10 +68,7 @@ export const query = graphql`
             items {
               image {
                 alt
-                gatsbyImageData(
-                  imgixParams: {q: 80}
-                  placeholder: BLURRED
-                )
+                gatsbyImageData(imgixParams: { q: 80 }, placeholder: BLURRED)
               }
             }
           }
@@ -79,6 +76,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default About
+export default About;

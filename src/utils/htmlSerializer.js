@@ -1,21 +1,21 @@
-const Prism = require(`prismjs`)
-const {RichText} = require(`prismic-dom`)
+const Prism = require(`prismjs`);
+const { RichText } = require(`prismic-dom`);
 // We don't want to import every PrismJS component - so that's why they're required individually
-require(`prismjs/components/prism-javascript`)
-require(`prismjs/components/prism-css`)
-require(`prismjs/components/prism-scss`)
-require(`prismjs/components/prism-jsx`)
-require(`prismjs/components/prism-tsx`)
-require(`prismjs/components/prism-bash`)
-require(`prismjs/components/prism-json`)
-require(`prismjs/components/prism-diff`)
-require(`prismjs/components/prism-markdown`)
-require(`prismjs/components/prism-graphql`)
+require(`prismjs/components/prism-javascript`);
+require(`prismjs/components/prism-css`);
+require(`prismjs/components/prism-scss`);
+require(`prismjs/components/prism-jsx`);
+require(`prismjs/components/prism-tsx`);
+require(`prismjs/components/prism-bash`);
+require(`prismjs/components/prism-json`);
+require(`prismjs/components/prism-diff`);
+require(`prismjs/components/prism-markdown`);
+require(`prismjs/components/prism-graphql`);
 
-const {Elements} = RichText
+const { Elements } = RichText;
 
 // Labels with this name will be inline code
-const codeInline = [`text`]
+const codeInline = [`text`];
 // Labels with these names will become code blocks
 const codeBlock = [
   `javascript`,
@@ -28,7 +28,7 @@ const codeBlock = [
   `markdown`,
   `graphql`,
   `tsx`,
-]
+];
 
 const htmlSerializer = (type, element, content) => {
   switch (type) {
@@ -36,11 +36,11 @@ const htmlSerializer = (type, element, content) => {
     case Elements.label: {
       // Use the inline code for labels that are in the array of "codeInline"
       if (codeInline.includes(element.data.label)) {
-        return `<code class="language-${element.data.label}">${content}</code>`
+        return `<code class="language-${element.data.label}">${content}</code>`;
       }
       // Use the blockquote for labels with the name "quote"
       if (element.data.label === `quote`) {
-        return `<blockquote><p>${content}</p></blockquote>`
+        return `<blockquote><p>${content}</p></blockquote>`;
       }
       // Use the code block for labels that are in the array of "codeBlock"
       // Choose the right PrismJS highlighting with the label name
@@ -50,31 +50,31 @@ const htmlSerializer = (type, element, content) => {
         }"><code class="language-${element.data.label}">${Prism.highlight(
           content,
           Prism.languages[element.label],
-        )}</code></pre>`
+        )}</code></pre>`;
       }
-      return null
+      return null;
     }
     case Elements.preformatted: {
       if (codeBlock.includes(element.label)) {
-        return `<div class="luiskunz-highlight" data-language="${
+        return `<div class="lpmkdir-highlight" data-language="${
           element.label
         }"><pre class="language-${element.label}"><code class="language-${
           element.label
         }">${Prism.highlight(
           element.text,
           Prism.languages[element.label],
-        )}</code></pre></div>`
+        )}</code></pre></div>`;
       }
 
-      return `<div class="luiskunz-highlight" data-language="markup"><pre class="language-markup"><code class="language-markup">${Prism.highlight(
+      return `<div class="lpmkdir-highlight" data-language="markup"><pre class="language-markup"><code class="language-markup">${Prism.highlight(
         element.text,
         Prism.languages.markup,
-      )}</code></pre></div>`
+      )}</code></pre></div>`;
     }
     default: {
-      return null
+      return null;
     }
   }
-}
+};
 
-module.exports = htmlSerializer
+module.exports = htmlSerializer;

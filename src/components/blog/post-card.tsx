@@ -37,6 +37,9 @@ const PostCard = ({
           <GatsbyImage
             image={image.gatsbyImageData}
             alt={image.alt}
+            imgStyle={{
+              borderRadius: '1rem 1rem 0 0',
+            }}
             style={{
               height: `100%`,
               width: `100%`,

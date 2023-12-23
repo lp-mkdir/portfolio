@@ -4,7 +4,7 @@
   "description": "Gatsby Starter: Chakra UI with all essentials tools for a new customer",
   "version": "0.0.1",
   "license": "MIT",
-  "author": "Luis Kunz <kunz.luiseduardo@gmail.com>",
+  "author": "Luis Pacheco <contact@lpmkdir.com>",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -88,7 +88,7 @@
   },
   "keywords": [
     "gatsby",
-    "luis kunz",
+    "luis pacheco",
     "chakra",
     "ui",
     "chakra ui"
