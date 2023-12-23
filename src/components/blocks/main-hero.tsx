@@ -71,14 +71,19 @@ export const MainHero = ({
                     {primaryBtn}
                   </Button>
                 </Link>
-                <Link to="/about" style={{ margin: 0 }}>
+                <a
+                  href="lp-cv-2024.pdf"
+                  style={{ margin: 0 }}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Button
                     variant="heroOutline"
                     ml={[`0 !important`, `1rem !important`]}
                   >
                     {secondaryBtn}
                   </Button>
-                </Link>
+                </a>
               </ButtonGroup>
             </Flex>
           </Flex>
