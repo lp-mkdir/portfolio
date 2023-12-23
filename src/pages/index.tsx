@@ -56,27 +56,9 @@ const Index = ({
         <Stack
           direction={[`column`, null, null, `row`]}
           spacing={[12, null, 16]}
-          py={24}
+          py={[12, null, null, 16]}
           align="flex-start"
         >
-          <Box
-            w={[`78%`, null, null, `calc(99.9% * 1 / 2.5)`]}
-            boxShadow="dark-lg"
-            borderRadius="1rem"
-            mt={[`-9rem`, null, null, `-10rem`]}
-            mx="auto"
-          >
-            <GatsbyImage
-              image={data.techImage.gatsbyImageData}
-              alt="Luis Pacheco"
-              imgStyle={{
-                borderRadius: `1rem`,
-              }}
-              style={{
-                width: `100%`,
-              }}
-            />
-          </Box>
           <Box w={[`100%`, null, null, `calc(99.9% * 1 / 1.5)`]}>
             <Heading
               variant="h2"
@@ -106,7 +88,7 @@ const Index = ({
             </Text>
             {data.categories.map(listItem => (
               <div key={listItem.listTitle}>
-                <Heading variant="h4" color="white" pt="8" pb="4">
+                <Heading variant="h4" color="white" py="4">
                   {listItem.listTitle}
                 </Heading>
                 <HStack wrap="wrap">
@@ -120,6 +102,24 @@ const Index = ({
                 </HStack>
               </div>
             ))}
+          </Box>
+          <Box
+            w={[`78%`, null, null, `calc(99.9% * 1 / 2.5)`]}
+            boxShadow="dark-lg"
+            borderRadius="1rem"
+            mx="auto"
+            display={[`none`, null, null, `block`]}
+          >
+            <GatsbyImage
+              image={data.techImage.gatsbyImageData}
+              alt="Luis Pacheco"
+              imgStyle={{
+                borderRadius: `1rem`,
+              }}
+              style={{
+                width: `100%`,
+              }}
+            />
           </Box>
         </Stack>
       </FullWidthContainer>
