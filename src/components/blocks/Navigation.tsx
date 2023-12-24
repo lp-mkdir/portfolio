@@ -1,11 +1,10 @@
 import React from 'react';
-import { chakra, HStack, Link, Box } from '@chakra-ui/react';
-import { Link as GatsbyLink } from 'gatsby';
-
-const InternalLink = chakra(GatsbyLink);
+import { HStack, Link as ChakraLink, Box } from '@chakra-ui/react';
+import Link from '~/components/Link';
 
 export default function Navigation() {
   const primaryNavigation = [
+    { name: `Home`, link: `/`, externalLink: false },
     { name: `Projects`, link: `/projects`, externalLink: false },
     { name: `Blog`, link: `/blog`, externalLink: false },
     { name: `About`, link: `/about`, externalLink: false },
@@ -18,7 +17,7 @@ export default function Navigation() {
           {primaryNavigation.map(item => (
             <li key={item.link}>
               {!item.externalLink ? (
-                <InternalLink
+                <Link
                   to={item.link}
                   fontFamily="heading"
                   fontWeight="bold"
@@ -27,9 +26,9 @@ export default function Navigation() {
                   p="2"
                 >
                   {item.name}
-                </InternalLink>
+                </Link>
               ) : (
-                <Link
+                <ChakraLink
                   href={item.link}
                   fontWeight="bold"
                   fontFamily="heading"
@@ -37,7 +36,7 @@ export default function Navigation() {
                   fontSize={[`sm`, `lg`]}
                 >
                   {item.name}
-                </Link>
+                </ChakraLink>
               )}
             </li>
           ))}
