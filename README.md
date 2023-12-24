@@ -3,7 +3,7 @@
     <img alt="logo" src="https://images.prismic.io/luiskunz/f9d40760-c800-4a3d-a2cd-22743e605bd6_lp-logo.png?auto=compress,format" width="100" heigh="100" />
   </p>
 </a>
-<h1 align="center" style={{ borderBottom: 'none !important' }}>
+<h1 align="center">
   Lpmkdir Portfolio
 </h1>
 <br>
