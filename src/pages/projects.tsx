@@ -48,8 +48,8 @@ export default function Projects({
         }}
       />
       <Hero
-        headline="Projects"
-        subheading="Gain an insight into the portfolios of previous people I worked for on this page. No idea remains unrealized, and thus no wish remains unfulfilled."
+        headline="Creations & Contributions"
+        subheading="Explore my collaborative projects and corporate roles, highlighting a journey of transforming innovative ideas into tangible realities for clients and companies alike."
       />
       <FullWidthContainer variant="max" pt={space.paddingSmall}>
         <Grid

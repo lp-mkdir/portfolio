@@ -48,7 +48,11 @@ export default function ProjectsSection() {
       textAlign="center"
     >
       {/* Project Cards Section */}
-      <CardTopNav badge="PROJECTS" button="ALL PROJECTS" to="/projects" />
+      <CardTopNav
+        badge="Creations & Contributions"
+        button="ALL PROJECTS"
+        to="/projects"
+      />
       <Wrapper>
         {projects.map(project => (
           <Link to={project.url} key={project.id}>
