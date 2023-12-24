@@ -36,4 +36,5 @@ This portfolio site is a testament to my skills in web development and design. I
 **Direct Figma Link**: Experience the design interactively with a link to the Figma project.\
 
 This portfolio not only showcases my professional capabilities but also reflects my commitment to quality, user experience, and modern web practices.\
+
 [View the Design on Figma](https://www.figma.com/file/ITcJH5rPXVwsvn7c3OvScd/LP-Portfolio?type=design&node-id=1392%3A1516&mode=design&t=24wrTG2cgQz3ZlJx-1)
