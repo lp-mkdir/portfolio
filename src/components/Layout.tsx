@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '~/components/blocks/header';
+import Header from '~/components/blocks/header';
 import CookieBanner from '~/components/cookie-banner/CookieBanner';
 import Footer from '~/components/Footer';
 import '~/styles/prism.css';
