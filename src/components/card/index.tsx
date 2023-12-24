@@ -1,4 +1,4 @@
-import Card, { Wrapper } from '~/components/card/card';
+import Card, { Wrapper } from '~/components/card/Card';
 import CardContent from '~/components/card/CardContent';
 import CardImage from '~/components/card/CardImage';
 import CardOverlay, {
