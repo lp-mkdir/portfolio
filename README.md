@@ -8,7 +8,7 @@
 </h1>
 <br>
 
-# Overview
+## Overview
 This portfolio site is a testament to my skills in web development and design. It encompasses a range of advanced features and technologies, and the final design can be viewed in detail through provided Figma images. A direct link to the Figma project is also included for an in-depth exploration.
 
 ### Key Features
