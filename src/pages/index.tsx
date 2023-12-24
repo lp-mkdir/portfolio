@@ -1,128 +1,20 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { Box, Heading, Stack, HStack, Text, Button } from '@chakra-ui/react';
+import { Box, Text, Button } from '@chakra-ui/react';
 import { FullWidthContainer } from '~/components/blocks/full-width-container';
 import MainHero from '~/components/blocks/main-hero';
 import { Layout } from '~/components/Layout';
 import SEO from '~/components/seo';
-import { IGatsbyImage } from '~/types/gatsbyImage';
 import ProjectsSection from '~/components/homepage/ProjectsSection';
 import RecentPostsSection from '~/components/homepage/RecentPostsSection';
+import TechSection from '~/components/homepage/TechSection';
 
-interface IIndexProps {
-  data: {
-    Homepage: {
-      data: {
-        categories: {
-          listTitle: string;
-          techListOp: string;
-        }[];
-        cvLink: {
-          url: string;
-        };
-        headline: string;
-        heroBtn2: string;
-        heroBtn: string;
-        heroImage: IGatsbyImage;
-        projectsBtn: string;
-        projectsDesc: string;
-        techDesc: string;
-        techImage: IGatsbyImage;
-        techTitle: string;
-      };
-    };
-  };
-}
-
-const Index = ({
-  data: {
-    Homepage: { data },
-  },
-}: IIndexProps) => {
-  if (!data) return null;
+export default function Index() {
   return (
     <Layout>
       <SEO />
       <MainHero />
-      {/* Projects Listing */}
       <ProjectsSection />
-      {/* Tech Section */}
-      <FullWidthContainer
-        variant="max"
-        bgGradient="linear(to-tl, primary.900, primary.800)"
-        marginTop={[`9rem`, null, null, `14rem`]}
-      >
-        <Stack
-          direction={[`column`, null, null, `row`]}
-          spacing={[12, null, 16]}
-          py={[12, null, null, 16]}
-          align="flex-start"
-        >
-          <Box w={[`100%`, null, null, `calc(99.9% * 1 / 1.5)`]}>
-            <Heading
-              variant="h2"
-              color="white"
-              pos="relative"
-              _after={{
-                content: `""`,
-                width: `3.5rem`,
-                height: `1.5rem`,
-                position: `absolute`,
-                display: `inline-block`,
-                left: `0`,
-                bottom: [`-0.6rem`, null, null, `-1.25rem`],
-                borderBottomWidth: [`0.15rem`, null, null, `0.2rem`],
-                borderColor: `secondary.500`,
-              }}
-            >
-              {data.techTitle}
-            </Heading>
-            <Text
-              variant="prominent"
-              fontSize={[`lg`, null, null, `xl`]}
-              color="#d1dbfa"
-              pt={[`0.6rem`, null, null, `1.5rem`]}
-            >
-              {data.techDesc}
-            </Text>
-            {data.categories.map(listItem => (
-              <div key={listItem.listTitle}>
-                <Heading variant="h4" color="white" py="4">
-                  {listItem.listTitle}
-                </Heading>
-                <HStack wrap="wrap">
-                  {/* // split string between commas */}
-                  {listItem.techListOp.split(/[,]+/).map(listBtn => (
-                    // delete spaces
-                    <Button variant="tag" key={listBtn}>
-                      {listBtn.replace(`/ /g`, ``)}
-                    </Button>
-                  ))}
-                </HStack>
-              </div>
-            ))}
-          </Box>
-          <Box
-            w={[`78%`, null, null, `calc(99.9% * 1 / 2.5)`]}
-            boxShadow="dark-lg"
-            borderRadius="1rem"
-            mx="auto"
-            display={[`none`, null, null, `block`]}
-          >
-            <GatsbyImage
-              image={data.techImage.gatsbyImageData}
-              alt="Luis Pacheco"
-              imgStyle={{
-                borderRadius: `1rem`,
-              }}
-              style={{
-                width: `100%`,
-              }}
-            />
-          </Box>
-        </Stack>
-      </FullWidthContainer>
+      <TechSection />
       <FullWidthContainer variant="max">
         <Box textAlign="center" pt={8}>
           <Text
@@ -161,33 +53,7 @@ const Index = ({
           </a>
         </Box>
       </FullWidthContainer>
-      {/* Blogpost listing */}
       <RecentPostsSection />
     </Layout>
   );
-};
-
-export default Index;
-
-export const query = graphql`
-  query Homepage {
-    Homepage: prismicHomepage {
-      data {
-        techTitle: tech_title
-        techDesc: tech_desc
-        techImage: tech_image {
-          alt
-          gatsbyImageData(
-            height: 684
-            placeholder: BLURRED
-            imgixParams: { q: 90 }
-          )
-        }
-        categories {
-          listTitle: list_title
-          techListOp: tech_list_op
-        }
-      }
-    }
-  }
-`;
+}
