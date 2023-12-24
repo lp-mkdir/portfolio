@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Container } from '@chakra-ui/react';
-import { Hero } from '~/components/blocks/hero';
+import { Hero } from '~/components/blocks/Hero';
 import { Layout } from '~/components/Layout';
 import { space } from '~/constants/space';
 import { SliceZone } from '~/slices/slice-zone';
