@@ -12,7 +12,7 @@ import {
   Progress,
   Box,
 } from '@chakra-ui/react';
-import OptModal from '~/components/cookie-banner/optModal';
+import OptModal from '~/components/cookie-banner/OptModal';
 import { ScrollProgress } from '~/utils/ScrollProgress';
 
 const cookieName = `gatsby-gdpr-google-analytics`;
