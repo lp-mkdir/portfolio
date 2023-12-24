@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -8,9 +8,16 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react';
 
-export default function OptModal({ children, Title, isOpen, onClose, gaDisable, gaEnable }) {
+export default function OptModal({
+  children,
+  Title,
+  isOpen,
+  onClose,
+  gaDisable,
+  gaEnable,
+}) {
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -33,5 +40,5 @@ export default function OptModal({ children, Title, isOpen, onClose, gaDisable, 
         </ModalContent>
       </Modal>
     </>
-  )
+  );
 }
