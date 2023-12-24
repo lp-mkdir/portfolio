@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Luis Pacheco <contact@lpmkdir.com>",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "dev": "gatsby clean && gatsby develop -o",
     "serve": "gatsby serve",
