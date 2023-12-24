@@ -1,18 +1,19 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import { Grid } from '@chakra-ui/react';
+
 import FullWidthContainer from '~/components/blocks/FullWidthContainer';
 import { Hero } from '~/components/blocks/Hero';
 import { Layout } from '~/components/Layout';
 import { space } from '~/constants/space';
 import {
-  Wrapper,
   Card,
   CardTitle,
   CardImage,
   CardTextOverlay,
 } from '~/components/card/index';
 import SEO from '~/components/seo';
-import { IGatsbyImage } from '~/types/gatsbyImage';
+import { type IGatsbyImage } from '~/types/gatsbyImage';
 
 type ProjectsProps = {
   data: {
@@ -51,7 +52,15 @@ export default function Projects({
         subheading="Gain an insight into the portfolios of previous people I worked for on this page. No idea remains unrealized, and thus no wish remains unfulfilled."
       />
       <FullWidthContainer variant="max" pt={space.paddingSmall}>
-        <Wrapper>
+        <Grid
+          templateColumns={[
+            '100%',
+            null,
+            null,
+            'repeat(2, minmax(250px, 1fr))',
+          ]}
+          gap={8}
+        >
           {projects.map(pro => (
             <Link to={pro.url} key={pro.id}>
               <Card h={[`10rem`, null, `15rem`, `20rem`]}>
@@ -61,7 +70,7 @@ export default function Projects({
               </Card>
             </Link>
           ))}
-        </Wrapper>
+        </Grid>
       </FullWidthContainer>
     </Layout>
   );
