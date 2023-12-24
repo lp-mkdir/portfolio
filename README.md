@@ -12,6 +12,7 @@
 This portfolio site is a testament to my skills in web development and design. It encompasses a range of advanced features and technologies, and the final design can be viewed in detail through provided Figma images. A direct link to the Figma project is also included for an in-depth exploration.
 
 ### Key Features
+---
 **Cookie Management**: Implemented a lightweight js-cookie bundle for efficient cookie handling.\
 **Optimized Imaging**: Integrated gatsby-plugin-image for responsive and performance-focused image rendering.\
 **Custom Fonts**: Utilized typefaces for self-hosted font solutions.\
