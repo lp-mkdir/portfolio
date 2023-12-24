@@ -6,18 +6,16 @@ import { Layout } from '~/components/Layout';
 import { SliceZone } from '~/slices/slice-zone';
 import SEO from '~/components/seo';
 
-interface IAboutProps {
-  data: {
-    prismicAbout: {
-      data: {
-        title: string;
-        body: {
-          id: string;
-          sliceType: string;
-          primary: {
-            text: {
-              raw: RichTextBlock[];
-            };
+interface AboutPageData {
+  prismicAbout: {
+    data: {
+      title: string;
+      body: {
+        id: string;
+        sliceType: string;
+        primary: {
+          text: {
+            raw: RichTextBlock[];
           };
         };
       };
@@ -25,25 +23,31 @@ interface IAboutProps {
   };
 }
 
-const About = ({ data: { prismicAbout } }: IAboutProps) => (
-  <Layout navBlack>
-    <SEO
-      seoData={{
-        data: {
-          seoTitle: `About Luis Pacheco`,
-          seoDescription: `All about Luis Pacheco`,
-        },
-        url: `/about`,
-      }}
-    />
-    <Container variant="article" pt={[24, null, 40]}>
-      <Heading as="h1" variant="h1" pb={4}>
-        {prismicAbout.data.title}
-      </Heading>
-      <SliceZone slices={prismicAbout.data.body} />
-    </Container>
-  </Layout>
-);
+export default function About({ prismicAbout }: AboutPageData) {
+  if (!prismicAbout) return null;
+
+  const { title, body } = prismicAbout.data;
+
+  return (
+    <Layout navBlack>
+      <SEO
+        seoData={{
+          data: {
+            seoTitle: `About Luis Pacheco`,
+            seoDescription: `All about Luis Pacheco`,
+          },
+          url: `/about`,
+        }}
+      />
+      <Container variant="article" pt={[24, null, 40]}>
+        <Heading as="h1" variant="h1" pb={4}>
+          {title}
+        </Heading>
+        <SliceZone slices={body} />
+      </Container>
+    </Layout>
+  );
+}
 
 export const query = graphql`
   query AboutQuery {
@@ -77,5 +81,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default About;
