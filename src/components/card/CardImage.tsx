@@ -2,11 +2,7 @@ import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { IGatsbyImage } from '~/types/gatsbyImage';
 
-interface ICardImage {
-  image: IGatsbyImage;
-}
-
-export default function CardImage({ image }: ICardImage) {
+export default function CardImage({ image }: { image: IGatsbyImage }) {
   return (
     <GatsbyImage
       image={image.gatsbyImageData}
