@@ -13,7 +13,7 @@ import {
 import { Hero } from '~/components/blocks/Hero';
 import { Layout } from '~/components/Layout';
 import { space } from '~/constants/space';
-import { SliceZone } from '~/slices/slice-zone';
+import SliceZone from '~/slices/SliceZone';
 import SEO from '~/components/seo';
 import { IGatsbyImage } from '~/types/gatsbyImage';
 

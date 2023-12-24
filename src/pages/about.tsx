@@ -1,9 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { RichTextBlock } from 'prismic-reactjs';
 import { Container, Heading } from '@chakra-ui/react';
 import { Layout } from '~/components/Layout';
-import { SliceZone } from '~/slices/slice-zone';
+import SliceZone, { type PrismicSliceComponents } from '~/slices/SliceZone';
 import SEO from '~/components/seo';
 
 interface AboutPageData {
@@ -11,15 +10,7 @@ interface AboutPageData {
     prismicAbout: {
       data: {
         title: string;
-        body: {
-          id: string;
-          sliceType: string;
-          primary: {
-            text: {
-              raw: RichTextBlock[];
-            };
-          };
-        };
+        body: PrismicSliceComponents[];
       };
     };
   };

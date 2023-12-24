@@ -1,14 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { RichTextBlock } from 'prismic-reactjs';
+
 import { Container } from '@chakra-ui/react';
 import { Hero } from '~/components/blocks/Hero';
 import { Layout } from '~/components/Layout';
 import { space } from '~/constants/space';
-import { SliceZone } from '~/slices/slice-zone';
+import SliceZone, { type PrismicSliceComponents } from '~/slices/SliceZone';
 import SEO from '~/components/seo';
 import { IGatsbyImage } from '~/types/gatsbyImage';
 
-// TODO: Warning: Each child in a list should have a unique "key" prop.
 interface IPostProps {
   data: {
     BlogPost: {
@@ -22,48 +23,35 @@ interface IPostProps {
         description: string;
         blogImage: IGatsbyImage;
         image_caption: {
-          raw: any;
+          raw: RichTextBlock[];
         };
         seoTitle: string;
         seoDescription: string;
         postDate: string;
         yearDate: string;
         seoDate: string;
-        body: {
-          id: string;
-          sliceType: string;
-          primary: {
-            text: {
-              raw: any;
-            };
-            codeBlock: {
-              raw: any;
-              html: any;
-            };
-            quote_message: string;
-          };
-        };
+        body: PrismicSliceComponents[];
       };
     };
   };
 }
 
-const Post = ({ data: { BlogPost } }: IPostProps) => (
-  <Layout>
-    <SEO seoData={BlogPost} isBlogPost />
-    <Hero
-      headline={BlogPost.data.title}
-      subheading={`${BlogPost.data.postDate} | ${BlogPost.tags.map(
-        tag => tag,
-      )}`}
-    />
-    <Container variant="article" pt={space.paddingSmall}>
-      <SliceZone slices={BlogPost.data.body} />
-    </Container>
-  </Layout>
-);
-
-export default Post;
+export default function Post({ data: { BlogPost } }: IPostProps) {
+  return (
+    <Layout>
+      <SEO seoData={BlogPost} isBlogPost />
+      <Hero
+        headline={BlogPost.data.title}
+        subheading={`${BlogPost.data.postDate} | ${BlogPost.tags.map(
+          tag => tag,
+        )}`}
+      />
+      <Container variant="article" pt={space.paddingSmall}>
+        <SliceZone slices={BlogPost.data.body} />
+      </Container>
+    </Layout>
+  );
+}
 
 export const query = graphql`
   query BlogPostQuery($uid: String) {
@@ -124,7 +112,7 @@ export const query = graphql`
             id
             sliceType: slice_type
             primary {
-              quote_message
+              quoteMessage: quote_message
               author
             }
           }
