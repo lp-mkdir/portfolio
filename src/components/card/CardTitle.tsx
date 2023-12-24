@@ -1,8 +1,11 @@
 import React, { FC, PropsWithChildren } from 'react';
 
-import { Heading, HeadingProps } from "@chakra-ui/react"
+import { Heading, HeadingProps } from '@chakra-ui/react';
 
-const CardTitle: FC<PropsWithChildren<HeadingProps>> = ({ children, ...rest }) => (
+const CardTitle: FC<PropsWithChildren<HeadingProps>> = ({
+  children,
+  ...rest
+}) => (
   <Heading
     textAlign="left"
     lineHeight="md"
@@ -18,6 +21,6 @@ const CardTitle: FC<PropsWithChildren<HeadingProps>> = ({ children, ...rest }) =
   >
     {children}
   </Heading>
-)
+);
 
-export { CardTitle }
+export { CardTitle };

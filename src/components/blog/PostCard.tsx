@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Box, Flex, Text, Button } from '@chakra-ui/react';
 import { CardTitle } from '~/components/card/index';
-import { MotionBox } from '~/components/blocks/motion-box';
+import MotionBox from '~/components/blocks/MotionBox';
 import { IGatsbyImage } from '~/types/gatsbyImage';
 
 interface IPostCardProps {

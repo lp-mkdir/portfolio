@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text, Button } from '@chakra-ui/react';
-import { FullWidthContainer } from '~/components/blocks/full-width-container';
-import MainHero from '~/components/blocks/main-hero';
+import FullWidthContainer from '~/components/blocks/FullWidthContainer';
+import MainHero from '~/components/blocks/MainHero';
 import { Layout } from '~/components/Layout';
 import SEO from '~/components/seo';
 import ProjectsSection from '~/components/homepage/ProjectsSection';

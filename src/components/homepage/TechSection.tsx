@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { IGatsbyImage } from '~/types/gatsbyImage';
-import { FullWidthContainer } from '../blocks/full-width-container';
+import FullWidthContainer from '~/components/blocks/FullWidthContainer';
 
 interface TechSectionData {
   homepage: {

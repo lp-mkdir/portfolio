@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { Text, Button } from '@chakra-ui/react';
 
-import { FullWidthContainer } from '~/components/blocks/full-width-container';
+import FullWidthContainer from '~/components/blocks/FullWidthContainer';
 import { space } from '~/constants/space';
 import {
   Wrapper,

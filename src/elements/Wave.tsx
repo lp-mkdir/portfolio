@@ -1,7 +1,7 @@
-import React from 'react'
-import {keyframes, usePrefersReducedMotion, Box} from '@chakra-ui/react'
+import React from 'react';
+import { keyframes, usePrefersReducedMotion, Box } from '@chakra-ui/react';
 
-import WaveSvg from '../images/wave-chill.svg'
+import WaveSvg from '~/images/wave-chill.svg';
 
 const waveFlow = keyframes`
   0% {
@@ -10,13 +10,13 @@ const waveFlow = keyframes`
   100% {
     margin-left: -1600px;
   }
-`
+`;
 
-const Wave: React.FC<{flip?: boolean}> = ({flip}) => {
-  const prefersReducedMotion = usePrefersReducedMotion()
+const Wave: React.FC<{ flip?: boolean }> = ({ flip }) => {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const animation = prefersReducedMotion
     ? undefined
-    : `${waveFlow} 45s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite`
+    : `${waveFlow} 45s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite`;
   return (
     <Box
       w="100%"
@@ -40,7 +40,7 @@ const Wave: React.FC<{flip?: boolean}> = ({flip}) => {
         }
       />
     </Box>
-  )
-}
+  );
+};
 
-export {Wave}
+export { Wave };

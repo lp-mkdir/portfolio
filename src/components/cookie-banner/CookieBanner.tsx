@@ -12,8 +12,8 @@ import {
   Progress,
   Box,
 } from '@chakra-ui/react';
-import OptModal from './optModal';
-import { ScrollProgress } from '../../utils/ScrollProgress';
+import OptModal from '~/components/cookie-banner/optModal';
+import { ScrollProgress } from '~/utils/ScrollProgress';
 
 const cookieName = `gatsby-gdpr-google-analytics`;
 
@@ -117,7 +117,7 @@ const CookieBanner: FC = () => {
       </Box>
 
       <OptModal
-        Title="Cookies Settings"
+        title="Cookies Settings"
         isOpen={isOpen}
         onClose={onClose}
         gaEnable={() => gaEnable()}

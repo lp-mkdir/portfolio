@@ -1,7 +1,7 @@
-import React, {FC, PropsWithChildren} from 'react'
-import {VStack, Text} from '@chakra-ui/react'
+import React, { FC, PropsWithChildren } from 'react';
+import { VStack, Text } from '@chakra-ui/react';
 
-const CardContent: FC<PropsWithChildren> = ({children}) => (
+const CardContent: FC<PropsWithChildren> = ({ children }) => (
   <VStack
     justifyContent="flex-end"
     transition="0.4s ease-out"
@@ -25,6 +25,6 @@ const CardContent: FC<PropsWithChildren> = ({children}) => (
       {children}
     </Text>
   </VStack>
-)
+);
 
-export default CardContent
+export default CardContent;

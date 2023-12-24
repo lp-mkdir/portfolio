@@ -1,14 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import { chakra, HStack, Link, Box } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 
-/**
- * Navigation component containing the primary links
- */
-
 const InternalLink = chakra(GatsbyLink);
 
-export const Navigation = () => {
+export default function Navigation() {
   const primaryNavigation = [
     { name: `Projects`, link: `/projects`, externalLink: false },
     { name: `Blog`, link: `/blog`, externalLink: false },
@@ -49,4 +45,4 @@ export const Navigation = () => {
       </Box>
     </nav>
   );
-};
+}

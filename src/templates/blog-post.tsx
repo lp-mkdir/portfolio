@@ -1,51 +1,51 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { Container } from "@chakra-ui/react"
-import { Hero } from "../components/blocks/hero"
-import { Layout } from "../components/Layout"
-import { space } from "../constants/space"
-import { SliceZone } from "../slices/slice-zone"
-import SEO from "../components/seo"
-import { IGatsbyImage } from "~/types/gatsbyImage"
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Container } from '@chakra-ui/react';
+import { Hero } from '~/components/blocks/hero';
+import { Layout } from '~/components/Layout';
+import { space } from '~/constants/space';
+import { SliceZone } from '~/slices/slice-zone';
+import SEO from '~/components/seo';
+import { IGatsbyImage } from '~/types/gatsbyImage';
 
 // TODO: Warning: Each child in a list should have a unique "key" prop.
 interface IPostProps {
   data: {
     BlogPost: {
-      id: string
-      uid: string
-      url: string
-      tags: string[]
-      lastUpdated: string
+      id: string;
+      uid: string;
+      url: string;
+      tags: string[];
+      lastUpdated: string;
       data: {
-        title: string
-        description: string
-        blogImage: IGatsbyImage
+        title: string;
+        description: string;
+        blogImage: IGatsbyImage;
         image_caption: {
-          raw: any
-        }
-        seoTitle: string
-        seoDescription: string
-        postDate: string
-        yearDate: string
-        seoDate: string
+          raw: any;
+        };
+        seoTitle: string;
+        seoDescription: string;
+        postDate: string;
+        yearDate: string;
+        seoDate: string;
         body: {
-          id: string
-          sliceType: string
+          id: string;
+          sliceType: string;
           primary: {
             text: {
-              raw: any
-            }
+              raw: any;
+            };
             codeBlock: {
-              raw: any
-              html: any
-            }
-            quote_message: string
-          }
-        }
-      }
-    }
-  }
+              raw: any;
+              html: any;
+            };
+            quote_message: string;
+          };
+        };
+      };
+    };
+  };
 }
 
 const Post = ({ data: { BlogPost } }: IPostProps) => (
@@ -53,15 +53,17 @@ const Post = ({ data: { BlogPost } }: IPostProps) => (
     <SEO seoData={BlogPost} isBlogPost />
     <Hero
       headline={BlogPost.data.title}
-      subheading={`${BlogPost.data.postDate} | ${BlogPost.tags.map((tag) => tag)}`}
+      subheading={`${BlogPost.data.postDate} | ${BlogPost.tags.map(
+        tag => tag,
+      )}`}
     />
     <Container variant="article" pt={space.paddingSmall}>
       <SliceZone slices={BlogPost.data.body} />
     </Container>
   </Layout>
-)
+);
 
-export default Post
+export default Post;
 
 export const query = graphql`
   query BlogPostQuery($uid: String) {
@@ -78,7 +80,7 @@ export const query = graphql`
           url
           gatsbyImageData(
             layout: FULL_WIDTH
-            imgixParams: {q: 80}
+            imgixParams: { q: 80 }
             placeholder: BLURRED
           )
         }
@@ -104,10 +106,7 @@ export const query = graphql`
             items {
               image {
                 alt
-                gatsbyImageData(
-                  imgixParams: {q: 80}
-                  placeholder: BLURRED
-                )
+                gatsbyImageData(imgixParams: { q: 80 }, placeholder: BLURRED)
               }
             }
           }
@@ -133,4 +132,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

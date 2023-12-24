@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -10,35 +10,42 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-export default function OptModal({
+interface IOptModal {
+  title: string;
+  isOpen: boolean;
+  onClose: () => void;
+  gaDisable: () => void;
+  gaEnable: () => void;
+}
+
+const OptModal: FC<PropsWithChildren<IOptModal>> = ({
   children,
-  Title,
+  title,
   isOpen,
   onClose,
   gaDisable,
   gaEnable,
-}) {
-  return (
-    <>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader fontSize="md" fontWeight="bold">
-            {Title}
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>{children}</ModalBody>
+}) => (
+  <>
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader fontSize="md" fontWeight="bold">
+          {title}
+        </ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>{children}</ModalBody>
+        <ModalFooter>
+          <Button colorScheme="blue" mr={3} onClick={gaEnable}>
+            Accept & Close
+          </Button>
+          <Button colorScheme="red" variant="ghost" onClick={gaDisable}>
+            Delete cookies
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  </>
+);
 
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={gaEnable}>
-              Accept & Close
-            </Button>
-            <Button colorScheme="red" variant="ghost" onClick={gaDisable}>
-              Delete cookies
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
-  );
-}
+export default OptModal;

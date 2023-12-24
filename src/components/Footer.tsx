@@ -11,7 +11,7 @@ import {
 import { FaLinkedin, FaGithub, FaPaperPlane } from 'react-icons/fa';
 import { Wave } from '~/elements/Wave';
 import Link from '~/components/Link';
-import { FullWidthContainer } from '~/components/blocks/full-width-container';
+import FullWidthContainer from '~/components/blocks/FullWidthContainer';
 import { space } from '~/constants/space';
 
 const Footer = () => (

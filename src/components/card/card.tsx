@@ -1,20 +1,20 @@
-import * as React from "react"
-import { Grid } from "@chakra-ui/react"
-import { MotionBox } from "../blocks/motion-box"
+import React, { FC } from 'react';
+import { BoxProps, Grid } from '@chakra-ui/react';
 
-interface ICardProps {
-  h?: any
-  alignItems?: string | string[]
-  children: React.ReactNode
-}
+import MotionBox from '~/components/blocks/MotionBox';
 
-const Wrapper = ({ children, ...rest }) => (
-  <Grid gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap="20px" pb="12" {...rest}>
+export const Wrapper = ({ children, ...rest }) => (
+  <Grid
+    gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))"
+    gap="20px"
+    pb="12"
+    {...rest}
+  >
     {children}
   </Grid>
-)
+);
 
-const Card = ({ children, ...rest }: ICardProps) => (
+const Card: FC<React.PropsWithChildren<BoxProps>> = ({ children, ...rest }) => (
   <MotionBox
     pos="relative"
     flex="1 1 0"
@@ -32,5 +32,6 @@ const Card = ({ children, ...rest }: ICardProps) => (
   >
     {children}
   </MotionBox>
-)
-export { Wrapper, Card }
+);
+
+export default Card;
