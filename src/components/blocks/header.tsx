@@ -1,9 +1,9 @@
-import React from "react"
-import { Flex } from "@chakra-ui/react"
-import Headroom from "react-headroom"
-import Link from "~/components/Link"
-import { Navigation } from "~/components/blocks/navigation"
-import { FullWidthContainer } from "~/components/blocks/full-width-container"
+import React from 'react';
+import { Flex } from '@chakra-ui/react';
+import Headroom from 'react-headroom';
+import Link from '~/components/Link';
+import Navigation from '~/components/blocks/Navigation';
+import FullWidthContainer from '~/components/blocks/FullWidthContainer';
 
 const Logo = () => (
   <Link
@@ -16,15 +16,22 @@ const Logo = () => (
   >
     LP
   </Link>
-)
+);
 
-export const Header = ({ navBlack }: { navBlack: boolean }) => (
-  <FullWidthContainer variant="navigation" height="navigationHeight">
-    <Headroom className={navBlack ? `headroom--black` : `headroom`}>
-      <Flex as="header" alignItems="center" justifyContent="space-between" py="13px">
-        <Logo />
-        <Navigation />
-      </Flex>
-    </Headroom>
-  </FullWidthContainer>
-)
+export default function Header({ navBlack }: { navBlack: boolean }) {
+  return (
+    <FullWidthContainer variant="navigation" height="navigationHeight">
+      <Headroom className={navBlack ? `headroom--black` : `headroom`}>
+        <Flex
+          as="header"
+          alignItems="center"
+          justifyContent="space-between"
+          py={3}
+        >
+          <Logo />
+          <Navigation />
+        </Flex>
+      </Headroom>
+    </FullWidthContainer>
+  );
+}

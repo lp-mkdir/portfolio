@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { RichTextBlock } from 'prismic-reactjs';
 
 import { Grid } from '@chakra-ui/react';
-import { FullWidthContainer } from '~/components/blocks/full-width-container';
+import FullWidthContainer from '~/components/blocks/FullWidthContainer';
 import CardTopNav from '~/components/card/CardTopNav';
 import PostCard from '~/components/blog/PostCard';
 import { space } from '~/constants/space';

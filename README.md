@@ -1,6 +1,6 @@
 <a href="https://lpmkdir.com" target="_blank">
   <p align="center">
-    <img alt="logo" src="https://images.prismic.io/luiskunz/2d9f4f6f-5a33-424a-af74-8af8ce560bcd_lk-logo-300x300.png?auto=compress,format" width="100" heigh="100" />
+    <img alt="logo" src="https://images.prismic.io/luiskunz/f9d40760-c800-4a3d-a2cd-22743e605bd6_lp-logo.png?auto=compress,format" width="100" heigh="100" />
   </p>
 </a>
 <h1 align="center">
@@ -18,7 +18,10 @@
 
 ## Tech Stack
 
+- React
 - TypeScript
+- GraphQL
+- Prismic CMS
 - Chakra UI for styling
 - Static Analysis Testing:
   - ESLint & Prettier for linting
@@ -26,4 +29,3 @@
   - lint-staged
   - npm-run-all
 - Cypress.io for E2E-testing (TODO)
-- CircleCI (TODO) .

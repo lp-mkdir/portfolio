@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { FullWidthContainer } from '~/components/blocks/full-width-container';
+import FullWidthContainer from '~/components/blocks/FullWidthContainer';
 import { Hero } from '~/components/blocks/hero';
 import { Layout } from '~/components/Layout';
 import { space } from '~/constants/space';
@@ -29,11 +29,11 @@ type ProjectsProps = {
   };
 };
 
-const Projects = ({
+export default function Projects({
   data: {
     Projects: { nodes: projects },
   },
-}: ProjectsProps) => {
+}: ProjectsProps) {
   if (!projects) return null;
   return (
     <Layout>
@@ -65,9 +65,7 @@ const Projects = ({
       </FullWidthContainer>
     </Layout>
   );
-};
-
-export default Projects;
+}
 
 export const query = graphql`
   query Projects {

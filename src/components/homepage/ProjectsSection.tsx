@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { Text, Button } from '@chakra-ui/react';
 
-import { FullWidthContainer } from '~/components/blocks/full-width-container';
+import FullWidthContainer from '~/components/blocks/FullWidthContainer';
 import { space } from '~/constants/space';
 import {
   Wrapper,
@@ -14,7 +14,7 @@ import {
 import { IGatsbyImage } from '~/types/gatsbyImage';
 import CardTopNav from '~/components/card/CardTopNav';
 
-interface IProjectsSectionData {
+interface ProjectsSectionData {
   Homepage: {
     data: {
       projectsDesc: string;
@@ -34,7 +34,7 @@ interface IProjectsSectionData {
 }
 
 export default function ProjectsSection() {
-  const projectData = useStaticQuery<IProjectsSectionData>(query);
+  const projectData = useStaticQuery<ProjectsSectionData>(query);
 
   if (!projectData) return null;
 

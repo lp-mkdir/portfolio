@@ -1,8 +1,11 @@
-import { Card, Wrapper } from './card';
-import CardContent from './content';
-import { CardImage } from './image';
-import { CardOverlay, CardTextOverlay, CardPrimaryOverlay } from './overlay';
-import { CardTitle } from './title';
+import Card, { Wrapper } from '~/components/card/card';
+import CardContent from '~/components/card/CardContent';
+import CardImage from '~/components/card/CardImage';
+import CardOverlay, {
+  CardTextOverlay,
+  CardPrimaryOverlay,
+} from '~/components/card/CardOverlay';
+import { CardTitle } from '~/components/card/CardTitle';
 
 export {
   Card,
