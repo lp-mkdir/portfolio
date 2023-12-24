@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-chakra",
+  "name": "lpmkdir-portfolio",
   "private": true,
-  "description": "Gatsby Starter: Chakra UI with all essentials tools for a new customer",
-  "version": "0.0.1",
+  "description": "LP Portfolio",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Luis Pacheco <contact@lpmkdir.com>",
   "scripts": {
