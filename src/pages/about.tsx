@@ -7,15 +7,17 @@ import { SliceZone } from '~/slices/slice-zone';
 import SEO from '~/components/seo';
 
 interface AboutPageData {
-  prismicAbout: {
-    data: {
-      title: string;
-      body: {
-        id: string;
-        sliceType: string;
-        primary: {
-          text: {
-            raw: RichTextBlock[];
+  data: {
+    prismicAbout: {
+      data: {
+        title: string;
+        body: {
+          id: string;
+          sliceType: string;
+          primary: {
+            text: {
+              raw: RichTextBlock[];
+            };
           };
         };
       };
@@ -23,10 +25,14 @@ interface AboutPageData {
   };
 }
 
-export default function About({ prismicAbout }: AboutPageData) {
-  if (!prismicAbout) return null;
+export default function About({
+  data: {
+    prismicAbout: { data },
+  },
+}: AboutPageData) {
+  if (!data) return null;
 
-  const { title, body } = prismicAbout.data;
+  const { title, body } = data;
 
   return (
     <Layout navBlack>
