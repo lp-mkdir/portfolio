@@ -46,13 +46,15 @@ const PostCard = ({
               bottom: 0,
             }}
           />
-          {tags.map(tag => (
-            <Box p={4} key={tag} zIndex="1">
-              <Button size="xs" fontSize="xs" variant="tag">
-                {tag}
-              </Button>
-            </Box>
-          ))}
+          <Flex p={4}>
+            {tags.map(tag => (
+              <Box key={tag} zIndex="1">
+                <Button size="xs" fontSize="xs" variant="tag">
+                  {tag}
+                </Button>
+              </Box>
+            ))}
+          </Flex>
           <CardTitle>{title}</CardTitle>
         </Flex>
         <Flex flexDirection="column" py={4} px={6}>
