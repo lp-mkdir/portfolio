@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 8
+  version: 6
   cacheKey: 10c0
 
 "@aashutoshrathi/word-wrap@npm:^1.2.3":
@@ -8615,12 +8615,12 @@ __metadata:
   linkType: hard
 
 "follow-redirects@npm:^1.14.0":
-  version: 1.15.3
-  resolution: "follow-redirects@npm:1.15.3"
+  version: 1.15.6
+  resolution: "follow-redirects@npm:1.15.6"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: 915a2cf22e667bdf47b1a43cc6b7dce14d95039e9bbf9a24d0e739abfbdfa00077dd43c86d4a7a19efefcc7a99af144920a175eedc3888d268af5df67c272ee5
+  checksum: 8/a62c378dfc8c00f60b9c80cab158ba54e99ba0239a5dd7c81245e5a5b39d10f0c35e249c3379eae719ff0285fff88c365dd446fab19dee771f1d76252df1bbf5
   languageName: node
   linkType: hard
 
@@ -8852,9 +8852,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@npm%3A~2.3.2#optional!builtin<compat/fsevents>":
+"fsevents@patch:fsevents@npm%3A~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.3
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.3#~builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"
   dependencies:
     node-gyp: "npm:latest"
   conditions: os=darwin
@@ -11791,67 +11791,67 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lpmkdir-portfolio@workspace:."
   dependencies:
-    "@chakra-ui/gatsby-plugin": "npm:^2.0.0"
-    "@chakra-ui/react": "npm:^1.6.1"
-    "@chakra-ui/theme-tools": "npm:^1.1.7"
-    "@emotion/react": "npm:^11"
-    "@emotion/styled": "npm:^11"
-    "@fontsource/montserrat": "npm:^4.4.5"
-    "@types/js-cookie": "npm:3.0.6"
-    "@types/node": "npm:^15.6.1"
-    "@types/react": "npm:^18.0.9"
-    "@types/react-dom": "npm:^18.0.4"
-    "@types/react-helmet": "npm:6.1.11"
-    "@typescript-eslint/eslint-plugin": "npm:^4.25.0"
-    "@typescript-eslint/parser": "npm:^4.25.0"
-    babel-plugin-styled-components: "npm:^1.12.0"
-    dotenv: "npm:^8.2.0"
-    eslint: "npm:^7.27.0"
-    eslint-config-airbnb: "npm:^18.2.1"
-    eslint-config-prettier: "npm:^8.3.0"
-    eslint-plugin-import: "npm:^2.23.4"
-    eslint-plugin-jsx-a11y: "npm:^6.4.1"
-    eslint-plugin-prettier: "npm:^3.4.0"
-    eslint-plugin-react: "npm:^7.24.0"
-    eslint-plugin-react-hooks: "npm:^4.2.0"
-    framer-motion: "npm:^4"
-    gatsby: "npm:^5.13.1"
-    gatsby-image: "npm:^3.3.0"
-    gatsby-plugin-catch-links: "npm:^3.3.0"
-    gatsby-plugin-gdpr-cookies: "npm:^2.0.0"
-    gatsby-plugin-google-gtag: "npm:^3.3.0"
-    gatsby-plugin-image: "npm:3.13.0"
-    gatsby-plugin-lodash: "npm:^4.3.0"
-    gatsby-plugin-manifest: "npm:^3.3.0"
-    gatsby-plugin-offline: "npm:^4.3.0"
-    gatsby-plugin-react-helmet: "npm:^4.3.0"
-    gatsby-plugin-sharp: "npm:^4.25.1"
-    gatsby-plugin-sitemap: "npm:^4.3.1"
-    gatsby-plugin-webpack-bundle-analyser-v2: "npm:^1.1.22"
-    gatsby-source-filesystem: "npm:^3.3.0"
-    gatsby-source-prismic: "npm:6.0.1"
-    gatsby-transformer-sharp: "npm:^5.13.0"
-    husky: "npm:^7.0.0"
-    js-cookie: "npm:^2.2.1"
-    lint-staged: "npm:11.1.2"
-    lodash: "npm:^4.17.21"
-    npm-run-all: "npm:4.1.5"
-    prettier: "npm:^2.3.0"
-    prismic-dom: "npm:2.2.7"
-    prismic-reactjs: "npm:^1.3.4"
-    prismjs: "npm:^1.23.0"
-    prop-types: "npm:^15.7.2"
-    react: "npm:18.2.0"
-    react-dom: "npm:18.2.0"
-    react-headroom: "npm:^3.1.1"
-    react-helmet: "npm:^6.1.0"
-    react-icons: "npm:^4.2.0"
-    react-typography: "npm:^0.16.19"
-    ts-node: "npm:^10.0.0"
-    typeface-montserrat: "npm:^1.1.13"
-    typeface-nunito: "npm:^1.1.13"
-    typescript: "npm:^4.3.2"
-    typography: "npm:^0.16.19"
+    "@chakra-ui/gatsby-plugin": ^2.0.0
+    "@chakra-ui/react": ^1.6.1
+    "@chakra-ui/theme-tools": ^1.1.7
+    "@emotion/react": ^11
+    "@emotion/styled": ^11
+    "@fontsource/montserrat": ^4.4.5
+    "@types/js-cookie": 3.0.6
+    "@types/node": ^15.6.1
+    "@types/react": ^18.0.9
+    "@types/react-dom": ^18.0.4
+    "@types/react-helmet": 6.1.11
+    "@typescript-eslint/eslint-plugin": ^4.25.0
+    "@typescript-eslint/parser": ^4.25.0
+    babel-plugin-styled-components: ^1.12.0
+    dotenv: ^8.2.0
+    eslint: ^7.27.0
+    eslint-config-airbnb: ^18.2.1
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-import: ^2.23.4
+    eslint-plugin-jsx-a11y: ^6.4.1
+    eslint-plugin-prettier: ^3.4.0
+    eslint-plugin-react: ^7.24.0
+    eslint-plugin-react-hooks: ^4.2.0
+    framer-motion: ^4
+    gatsby: ^5.13.1
+    gatsby-image: ^3.3.0
+    gatsby-plugin-catch-links: ^3.3.0
+    gatsby-plugin-gdpr-cookies: ^2.0.0
+    gatsby-plugin-google-gtag: ^3.3.0
+    gatsby-plugin-image: 3.13.0
+    gatsby-plugin-lodash: ^4.3.0
+    gatsby-plugin-manifest: ^3.3.0
+    gatsby-plugin-offline: ^4.3.0
+    gatsby-plugin-react-helmet: ^4.3.0
+    gatsby-plugin-sharp: ^4.25.1
+    gatsby-plugin-sitemap: ^4.3.1
+    gatsby-plugin-webpack-bundle-analyser-v2: ^1.1.22
+    gatsby-source-filesystem: ^3.3.0
+    gatsby-source-prismic: 6.0.1
+    gatsby-transformer-sharp: ^5.13.0
+    husky: ^7.0.0
+    js-cookie: ^2.2.1
+    lint-staged: 11.1.2
+    lodash: ^4.17.21
+    npm-run-all: 4.1.5
+    prettier: ^2.3.0
+    prismic-dom: 2.2.7
+    prismic-reactjs: ^1.3.4
+    prismjs: ^1.23.0
+    prop-types: ^15.7.2
+    react: 18.2.0
+    react-dom: 18.2.0
+    react-headroom: ^3.1.1
+    react-helmet: ^6.1.0
+    react-icons: ^4.2.0
+    react-typography: ^0.16.19
+    ts-node: ^10.0.0
+    typeface-montserrat: ^1.1.13
+    typeface-nunito: ^1.1.13
+    typescript: ^4.3.2
+    typography: ^0.16.19
   languageName: unknown
   linkType: soft
 
@@ -14774,29 +14774,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#~builtin<compat/resolve>":
   version: 1.22.8
-  resolution: "resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.22.8#~builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
   dependencies:
     is-core-module: "npm:^2.13.0"
     path-parse: "npm:^1.0.7"
     supports-preserve-symlinks-flag: "npm:^1.0.0"
   bin:
     resolve: bin/resolve
-  checksum: 0446f024439cd2e50c6c8fa8ba77eaa8370b4180f401a96abf3d1ebc770ac51c1955e12764cde449fde3fff480a61f84388e3505ecdbab778f4bef5f8212c729
+  checksum: 8/5479b7d431cacd5185f8db64bfcb7286ae5e31eb299f4c4f404ad8aa6098b77599563ac4257cb2c37a42f59dfc06a1bec2bcf283bb448f319e37f0feb9a09847
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^2.0.0-next.4#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^2.0.0-next.4#~builtin<compat/resolve>":
   version: 2.0.0-next.5
-  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.5#optional!builtin<compat/resolve>::version=2.0.0-next.5&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.5#~builtin<compat/resolve>::version=2.0.0-next.5&hash=c3c19d"
   dependencies:
     is-core-module: "npm:^2.13.0"
     path-parse: "npm:^1.0.7"
     supports-preserve-symlinks-flag: "npm:^1.0.0"
   bin:
     resolve: bin/resolve
-  checksum: 78ad6edb8309a2bfb720c2c1898f7907a37f858866ce11a5974643af1203a6a6e05b2fa9c53d8064a673a447b83d42569260c306d43628bff5bb101969708355
+  checksum: 8/064d09c1808d0c51b3d90b5d27e198e6d0c5dad0eb57065fd40803d6a20553e5398b07f76739d69cbabc12547058bec6b32106ea66622375fb0d7e8fca6a846c
   languageName: node
   linkType: hard
 
@@ -16506,13 +16506,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^4.3.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@^4.3.2#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e3333f887c6829dfe0ab6c1dbe0dd1e3e2aeb56c66460cb85c5440c566f900c833d370ca34eb47558c0c69e78ced4bfe09b8f4f98b6de7afed9b84b8d1dd06a1
+  checksum: 8/1f8f3b6aaea19f0f67cba79057674ba580438a7db55057eb89cc06950483c5d632115c14077f6663ea76fd09fce3c190e6414bb98582ec80aa5a4eaf345d5b68
   languageName: node
   linkType: hard
 
